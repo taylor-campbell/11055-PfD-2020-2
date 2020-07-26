@@ -23,7 +23,8 @@ for(let i = 0; i < student_names.length; i++) {
 
 // add a student
 document.write("add a student");
-student_names.push("Student_3");
+// the prompt function allows you to ask the user to enter a name
+student_names.push(prompt("enter a name"));
 
 // write using the same for...
 document.write("the student names automatically");
