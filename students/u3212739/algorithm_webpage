@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<htmal>
+    <head> 
+
+    </head>
+    <body> 
+        <h1>This is a heading</h1>
+        <b>This text is bolded</b>
+        <p>This is just text in a paragraph</p>
+        <u>This is underlined text</u>
+        <h2>This is how you do other headings</h2>
+        <p>Below is how you add a file to a html doc</p>
+        <img src=""/>
+    </body>
+</html>
