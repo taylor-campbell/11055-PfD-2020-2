@@ -6,4 +6,3 @@
 # these files won't be ignored
 
 !.gitignore
-!students/s440002/test.txt
