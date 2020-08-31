@@ -1,0 +1,8 @@
+# these files will be ignored
+
+*
+
+# these files won't be ignored
+
+!.gitignore
+!students/u3201052/test.txt

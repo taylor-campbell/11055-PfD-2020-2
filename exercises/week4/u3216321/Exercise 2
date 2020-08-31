@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+        <h1>HEADING</h1>
+
+        <b>BOLD TEXT</b>
+        <b>BOLD TEXT WITH <u>UNDERLINE TEXT</u></b>
+
+        <h2>SECONDARY HEADING</h2>
+
+            <p>Paragraphed Text.</p>           
+    </body>
+</html>
