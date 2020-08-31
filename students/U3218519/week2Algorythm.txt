@@ -1,0 +1,17 @@
+# Algorithm Exercise:
+## Subject: Riding to Work.
+
+Start.
+Do: breathing
+Do: checking time
+P: At 8:00am if ready, being riding to work.
+D: while riding moving be alert of surroundings. If obstacle or potential obstacle adjust speed and course.
+D: Whilst riding and coming to a road, prepare to stop.
+D: if road has a crossing, stop and press crossing button.
+Repeat the above steps as needed whilst on route to work. 
+Once near work, locate bike rack.
+Stop near bike rack.
+Dismount bike.
+Chain bike to rack.
+Walk in to work.
+End.

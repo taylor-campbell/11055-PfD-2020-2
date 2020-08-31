@@ -1,0 +1,24 @@
+new_document
+
+prepare ingredients:
+egg
+milk
+vanilla
+flour
+sugar
+
+whisk egg milk and vanilla together
+sift flour in large bowl stir in sugar
+add milk mixture into flour and sugar combination
+whisk together
+
+loop
+heat: medium
+grease pan with butter
+if has butter
+else if with cooking oil:sprayed
+1/4 cup per pancake
+2 for 2 mins
+end loop
+
+cover with foil when done

@@ -1,0 +1,11 @@
+man I hope no one reads this
+
+if 12:00pm wake up (tuesday, thursday, friday, saturday, and sunday) {
+    devour lunch
+    if tutorial attend
+    else if work on assignment
+}
+else if monday or wednesday{
+    brush teeth
+    change clothes
+}
