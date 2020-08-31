@@ -1,0 +1,19 @@
+Algorithms for going to bed
+
+Check the time
+if time is 9:30 -> brush my teeth
+    else Watch tv unilt time is 9:30
+
+Say Good night to everyone
+
+Check if the main light is off
+    If light is off -> get into bed
+    If light is on -> turn off light
+
+Turn on Desk lamp
+when lamp is on 
+    Start to Read a book for about 30 minute
+
+When finish reading turn off lamp
+    then fall a sleep 
+

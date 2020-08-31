@@ -1,0 +1,58 @@
+START 
+LOOP 
+Wake up
+IF 
+	Wake up on own terms= "false" THEN
+		Go back to sleep 		
+ELSE 		
+END LOOP
+	Check phone - any messages to reply to?
+	IF 
+		Messages to reply to= "true" THEN
+			Reply to messages 
+	ELSE
+		Do I need to use bathroom?
+		IF 
+			Need to use bathroom= "true" THEN
+				Use bathroom THEN
+			Go to kitchen
+		ELSE	
+			Go to kitchen 
+Is there a banana for brekkie?
+IF
+	Is there a banana for brekkie= "true" THEN
+		Eat banana THEN
+			Head to bathroom to brush teeth
+ELSE
+	Go to fridge and find alternative 
+Is there bread? 	
+IF	
+	Is there bread "true" 
+		Is there butter, Vegemite or jam?
+		IF
+			Is there butter, Vegemite or jam= "true"
+				Toast bread and spread
+		ELSE 
+		Wait till brunch/when hungry to eat meal 
+	ELSE
+		Wait till brunch/when hungry to eat meal
+Head to bathroom to brush teeth
+Am I going anywhere today?
+IF
+	Am I going anywhere today= "false" THEN
+		Do I need to study?
+		IF 
+			Do I need to study?= "false" THEN
+				Watch Netflix  
+		ELSE
+			Complete today's study tasks THEN
+				Watch Netflix 
+ELSE
+	Do I have work? 
+		IF 
+			Do I have work?= "false" THEN
+				Dress in causal clothes
+		ELSE
+			Dress in work uniform
+	Get in car
+Continue day as planned
