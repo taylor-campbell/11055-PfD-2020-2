@@ -1,0 +1,40 @@
+// IF Time after 0900
+//  Check Sleep_Status
+// IF Sleep_Status "asleep"
+//  Turn on Alarm
+// LOOP while "asleep"
+// ELSE End
+
+var current_time = 1;
+
+var sleep_status = Math.floor(Math.random() * 10);
+
+var alarm = "beep beep beep";
+
+var awake = "Have a nice day";
+
+
+while (current_time > 0 && current_time < 24) {
+    
+    if (current_time < 7) {
+        if (sleep_status > 8) {
+            document.write("<b>" + awake + "<b/>");
+            break;
+        } else {
+           
+        } 
+    }
+    if (current_time >= 7) {
+        document.write("<b>" + alarm + "<b/>");
+        break;
+    } else {
+
+    } 
+    
+        
+    current_time++;
+    sleep_status++;
+    document.write("<b>" + sleep_status + "<b/>" + current_time + "<br/");
+}
+
+
