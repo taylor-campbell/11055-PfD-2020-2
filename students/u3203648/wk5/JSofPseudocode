@@ -1,4 +1,4 @@
-// IF Time after 0900
+// IF Time after 0700
 //  Check Sleep_Status
 // IF Sleep_Status "asleep"
 //  Turn on Alarm
@@ -6,16 +6,22 @@
 // ELSE End
 
 var current_time = 1;
-
-var sleep_status = Math.floor(Math.random() * 10);
+//starting at 1 am and working forward from there
+//would be replaced with the actual time
+var sleep_status = Math.floor(Math.random() * 10); 
+//starts at a random number and increases from there
+//would be replaced with some sort of sensor that would track movement/sound
+//in the case of this test, greater than 8 is awake
 
 var alarm = "beep beep beep";
+//it's an alarm, pretty self-explanatory
 
 var awake = "Have a nice day";
+//this would occur if you are already awake, before the alarm goes off
 
 
 while (current_time > 0 && current_time < 24) {
-    
+    //if current time is earlier than 7am, but "sleep level" is over 8 (meaning awake) then "have a nice day"
     if (current_time < 7) {
         if (sleep_status > 8) {
             document.write("<b>" + awake + "<b/>");
@@ -24,14 +30,15 @@ while (current_time > 0 && current_time < 24) {
            
         } 
     }
+    //however if the time is 7am or later and sleep status is "asleep" then the alarm plays
     if (current_time >= 7) {
         document.write("<b>" + alarm + "<b/>");
         break;
     } else {
 
     } 
-    
-        
+        //add to current time every hour
+        // for the purposes of this test sleep status increases as well
     current_time++;
     sleep_status++;
     document.write("<b>" + sleep_status + "<b/>" + current_time + "<br/");
