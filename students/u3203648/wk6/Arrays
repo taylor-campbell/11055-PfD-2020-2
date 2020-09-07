@@ -1,0 +1,7 @@
+//create an array using the names of family members
+var names = ["tina", "andrew", "jack", "elizabeth"];
+
+document.write("members of my family");
+for (let i=0; i < names.length; i++){
+    document.write(names[i]);
+}
