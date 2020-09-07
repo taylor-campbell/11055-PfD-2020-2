@@ -16,7 +16,7 @@ function product(number1, number2){
 }
 
 // you can use functions in functions, with the one inside being done before the one outside
-printme(product(3,4));
+
 
 
 
@@ -24,6 +24,11 @@ printme(product(3,4));
 
 /* create a function that will take an array and will print that array using the for loop we used before */
 
-
+function printarray(arrayname){
+    document.write(arrayname + ":<br/>");
+    for (i=0; i<arrayname.length; i++){
+        document.write(arrayname[i])
+    }
+}
 
 
