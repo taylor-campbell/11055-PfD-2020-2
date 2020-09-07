@@ -24,6 +24,15 @@ printme(product(3,4));
 
 /* create a function that will take an array and will print that array using the for loop we used before */
 
+var names = ["Apple", "Ball", "Cat", "Dog", "Elephant"];
 
+function displayNames (array){
+    document.write("<br/>"+"The words in this array are"+"<br/>");
+    for (let i=0; i< array.length; i++){
+        document.write(array[i] + "<br/>");
+    }
+}
+
+displayNames(names);
 
 

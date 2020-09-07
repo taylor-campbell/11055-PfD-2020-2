@@ -12,6 +12,16 @@ You should now have the tools to start creating your self portrait for project 1
 
 */
 
+function setup() {
+    createCanvas(400, 600);
+  }
+  
+  function draw() {
+    background("green");
+    fill("red");
+    ellipse(50,90,80,80);
+  }
+
 
 
 
