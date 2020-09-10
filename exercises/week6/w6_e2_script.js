@@ -29,7 +29,7 @@ printarray(family_names)
 // FUNCTIONS
 function printarray(arrayname){
     document.write(arrayname + ":<br/>");
-    for (i=0; i<arrayname.length; i++){
-        document.write(arrayname[i])
+    for (i=0; i < arrayname.length; i++) {
+        document.write(arrayname[i] + "<br/>")
     }
 }
