@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+        <h1><b>Week 3 Exercises</b></h1>
+
+        <h2>Flowchart</h2>
+
+            <img src="./FlowChart.jpg"/>
+
+        <h2>Psuedo-code</h2>
+
+        <div>
+            <p>
+            <b>CREATE</b> clean_uniform
+            <b>CREATE</b> showered
+            <b>CREATE</b> brushed_teeth
+            <b>CREATE</b> KeyItems
+            <b>CREATE</b> uniform
+            </p>
+
+            <p>
+            <b>DO</b>
+                <b>IF</b>
+                    clean_uniform="false" <b>THEN</b>
+                        Wash uniform
+                        <b>SET</b> clean_uniform="true"
+                <b>IF</b>
+                    showered="false" <b>THEN<b/>
+                    Shower
+                        <b>SET</b> showered="true"
+                <b>IF</b>
+                    clean_uniform="true" <b>THEN</b>
+                        Put on uniform, headphones, and put apron in bag
+                        <b>SET</b> uniform="true"
+                <b>IF</b>
+                    brushed_teeth="false" <b>THEN</b>
+                        Brush teeth
+                        <b>SET</b> brushed_teeth="true"
+                <b>IF</b> 
+                    KeyItems="false"
+                        Collect phone, wallet and KeyItems
+                        <b>SET</b> KeyItems="true"
+                <b>IF</b>
+                    uniform="false"
+                        <b>LOOP</b>
+                <b>ELSE</b>
+                    Put on work shoes
+                    Leave house to catch the bus
+                        <b>IF</b> "Hungry"
+                            Consider making a staff lunch order
+                            <b>END</b>
+                        <b>IF</b> "Not Hungry"
+                            <b>END</b>
+                        <b>IF</b> "Very Hungry"
+                            Buy food before entering work
+                            <b>END</b>
+            </p>
+        </div>   
+    
+    </body>
+</html>
