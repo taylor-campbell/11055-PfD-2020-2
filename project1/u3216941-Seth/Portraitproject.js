@@ -1,6 +1,7 @@
 function setup() {
-    createCanvas(1000, 1000);
-    background(50);
+    createCanvas(641, 904);
+    background("pink");
+    angleMode(DEGREES);
   }
   
   function draw() {
