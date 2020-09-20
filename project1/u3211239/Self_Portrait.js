@@ -38,7 +38,7 @@ else {
 
 function setup() {
     canvas = createCanvas(matrix * scale_factor, matrix * scale_factor);
-    canvas.position(150, 100, 'fixed');
+    canvas.position(150, 75, 'fixed');
     textSize(15);                   // Set the text size for the slider control labels.
     noStroke();                     // Turn off the stroke so that we don't see the circle outlines.
 
@@ -82,11 +82,11 @@ function draw() {
     the slider control labels.
 */
     fill(0, 0, 0);
-    text(' red', 0, 120);
-    text(' green', 0, 150);
-    text(' blue', 0, 180);
-    text(' circle diameter', 0, 210);
-    text(' frame rate', 0, 240);
+    text(' red', 0, 145);
+    text(' green', 0, 175);
+    text(' blue', 0, 205);
+    text(' circle diameter', 0, 235);
+    text(' frame rate', 0, 265);
 
 //  Revert the fill colour to the values specified by the slider controls.    
 
