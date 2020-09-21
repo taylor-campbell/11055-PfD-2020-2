@@ -14,11 +14,26 @@
     <head></head>
     <body>
 
-<!--Create the pleasant looking title banner for the web page.-->
-        <div class="w3-panel w3-light-gray w3-leftbar w3-border-indigo">
+<!--Create the pleasant looking title banner for the web page using the W3 toolkit.-->
+        <div class="w3-panel w3-light-gray">
             <h1>Programming for Design (11055)</h1>
             <h2>Project 1 - <i>Self Portrait</i></h2>
             <p>Keir Herbert (u3211239)</p>
+        </div>
+
+<!--Create the container for the controls, again using magic from the W3 toolkit.-->
+        <div class="w3-container-2 w3-padding-small w3-light-gray" style="width: 250px; height: 300px">
+            <div class="w3-container w3-dark-gray w3-center">
+                <b>Controls</b>
+            </div>
+            <div class="w3-container w3-padding-small w3-right">
+                <p>red</p>
+                <p>green</p>
+                <p>blue</p>
+                <p>shape size</p>
+                <p>frame rate</p>
+                <p style="position: relative; top: 20px">geometry</p>
+            </div>
         </div>
 
 <!--Point to the p5 creative coding JavaScript library.-->
@@ -26,9 +41,17 @@
 
 <!--The first of my JavaScript programs, this one dimensions a rather large array of pixel
     coordinates.-->
-        <script src = "./Coordinates.js"></script>
+        <script src = "./coordinates.js"></script>
 
-<!--This is the main JavaScript program which actually produces the artwork.-->
-        <script src = "./Self_Portrait.js"></script>
+<!--This is my equilateral triangle drawing function. It only requires point (x, y) and height
+    parameters in order to work. The standard p5 triangle drawing function requires three xy
+    coordinates.-->
+        <script src = "./createTriangle.js"></script>
+
+<!--This is my function for calculating the distance between two points. Enough said!-->
+        <script src = "./calculateDistance.js"></script>
+
+<!--This is my main JavaScript program which actually produces the artwork.-->
+        <script src = "./selfPortrait.js"></script>
     </body>
 </html>

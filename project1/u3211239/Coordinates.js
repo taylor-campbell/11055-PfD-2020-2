@@ -12,7 +12,6 @@
 
     There are more than 10,000 lines; happy scrolling!
 */
-
 var coordinates = [
     [103,0],
     [104,0],
