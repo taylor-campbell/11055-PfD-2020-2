@@ -11,6 +11,7 @@ drawNose();
 drawMouth();
 drawhair();
 drawBody();
+
 // Call drawHead()
 // Call drawEyes()
 // Call drawNose()
