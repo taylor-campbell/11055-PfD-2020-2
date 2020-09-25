@@ -5,12 +5,15 @@ function setup() {
   }
   
   function draw() {
+drawBody();
+drawbackhair();
 drawHead();
+drawfronthair();
 drawEyes();
 drawNose();
 drawMouth();
-drawhair();
-drawBody();
+
+
 
 // Call drawHead()
 // Call drawEyes()

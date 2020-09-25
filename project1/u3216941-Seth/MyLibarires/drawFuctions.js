@@ -13,6 +13,7 @@ function drawHead()
     drawEars();
     push();
         fill(226,200,187);
+        noStroke();
         translate(317.14,456.22 );
         rotate(4.4);
         ellipse(0, 0,397, 584);
@@ -124,15 +125,80 @@ function drawMouth()
 {
     line(273, 593, 395, 611);
  
+    
+  
+ 
 }
-function drawhair()
+function drawbackhair()
+//create function backhair
+//This fuction is for shape that can go behind the head layer
 {
+    fill("black");
+    ellipse(327,303,472,410);
+    ellipse(126,396,136,275);
+    ellipse(513,401,102,269);
 
+}
+function drawfronthair()
+//create fuction fronthair
+//this fuction is for the the shape/hair that needs to appear in front of the head layer.
+{
+    push();
+    translate(424,191);
+    rotate(22);
+    ellipse(0,0,237,94);
 
+    
+    pop();
+    push();
+    translate(218,192);
+    rotate(-40);
+    ellipse(0,0,242,97);
+    pop();
+    ellipse(129,322,37,210);
 }
 function drawBody()
 {
     
-    
+push();
+    noStroke();
+    fill(210,174,156);
+    rect(170,630,269,219);  
+      
+   push();
+   noStroke();
+   fill(210,174,156);
+   translate(116,785);
+   rotate(-17);
+   rect(0,0,93,92)
+  pop();
 
+   push();
+    noStroke();
+    translate(428,715);
+    rotate(30);
+    rect(0,0,100,126)
+   pop();
+
+pop();
+//Call shirt fuction, this is locate at the end of fuction so the shape 
+//in the shirt fuction will appear infornt of this fuction/layer
+shirt();
+}
+function shirt()
+{
+ push();
+    fill(144,126,142);
+    noStroke();
+    //remove lines around the shape to make more solid looking
+    rect(0,845,643,58);
+    rect(0,770,150,94);
+    rect(470,800,174,66);
+
+    push();
+        translate(487,740);
+        rotate(15);
+        rect(0,0,174,66);
+    pop();
+  pop();
 }
