@@ -36,7 +36,7 @@ function setup() {
     blueSlider = createSlider(0, 255, 181);
     blueSlider.style('width', '140px');
     blueSlider.position(8, 329);
-    heightSlider = createSlider(1, 48, 12);
+    heightSlider = createSlider(2, 48, 12);
     heightSlider.style('width', '140px');
     heightSlider.position(8, 366);
     diameterSlider = createSlider(2, 48, 8);
@@ -59,7 +59,10 @@ function setup() {
     event it redraws the canvas.
 */
 function windowResized() {
-    resizeCanvas(matrix * getScaleFactor(), matrix * getScaleFactor());
+
+//  Set the scaleFactor variable to reduce the number of function calls required.
+    scaleFactor = getScaleFactor();
+    resizeCanvas(matrix * scaleFactor, matrix * scaleFactor);
 }
 
 /*  This is the main draw function loop which runs until our Sun collapses into itself, or until you
@@ -76,14 +79,17 @@ function draw() {
 //  Set the fill colour to the values specified by the slider controls.    
     fill(redSlider.value(), greenSlider.value(), blueSlider.value());
 
-/*  This code reads the array that was dimensioned in "Coordinates.js".
+//  Set the scaleFactor variable to reduce the number of function calls required.
+    scaleFactor = getScaleFactor();
+
+    /*  This code reads the array that was dimensioned in "Coordinates.js".
     It goes row by row and retrieves the x and y values before applying the getScaleFactor() multiplier,
     in order to space them out proportionally. Finally, they're passed to the circle function to be
     drawn on the canvas.
 */
-    for (let row = 0; row < coordinates.length; row++) {
-        x = (coordinates[row] [0]) * getScaleFactor();
-        y = (coordinates[row] [1]) * getScaleFactor();
+     for (let row = 0; row < coordinates.length; row++) {
+        x = (coordinates[row] [0]) * scaleFactor;
+        y = (coordinates[row] [1]) * scaleFactor;
 
 //  Call my calculateDistance function to see if the mouse cursor is close to the drawing action.
         distance = calculateDistance(x, y, mouseX, mouseY);
