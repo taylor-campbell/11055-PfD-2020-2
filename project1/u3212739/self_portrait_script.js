@@ -14,7 +14,8 @@ c_tsnow     ='';
 currentSeason ='winter';
 
 //create x and y coordinate variables for the hiker
-
+x = 600;
+y = 655;
 
 selectSeason(currentSeason);
 
@@ -42,8 +43,7 @@ console.log("c_sky:" + c_sun);
 function setup() {
     createCanvas(1255,962);
     noStroke();
-    x = 600;
-    y = 655;
+    
 }
 
 function draw() {
@@ -142,7 +142,8 @@ function draw() {
         rect(0,0,2,85,);
     pop();
 
-
+    //x = mouseX;
+    //y = mouseY;
 
 
 }
@@ -153,7 +154,13 @@ function draw() {
             selectSeason('summer');
         }
     }
-   
+    function mouseClicked() {
+        if (currentSeason === 'winter') {
+            selectSeason('summer');
+        } else {
+            selectSeason('winter');
+        }
+    }
 
 
 
