@@ -1,10 +1,5 @@
-# these files will be ignored
+
 
 .DS_Store
 
-
-# these files won't be ignored
-
-!.gitignore
-!students/s440002/test.txt
-project1/u3211239/~project1 flowchart~0b2xwu.idlk
+.gitignore

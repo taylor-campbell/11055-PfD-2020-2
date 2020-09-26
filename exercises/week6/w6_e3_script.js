@@ -18,12 +18,25 @@ function product(number1, number2){
 // you can use functions in functions, with the one inside being done before the one outside
 printme(product(3,4));
 
+var student_names = ["Simon", "Billybob"];
+var student_names2 = ["Kate", "Keir", "Manish", "Moudar", "Seth", "Shane"];
 
-
-
+printerarray(student_names);
+printerarray(student_names2);
 
 /* create a function that will take an array and will print that array using the for loop we used before */
 
+function printerarray(arraytoprint) {
 
+    document.write("Names in the student array <br/>");
+
+    for(let i = 0; i < arraytoprint.length; i++) {
+        if(arraytoprint[i].toUpperCase().includes("O")) {
+            document.write(arraytoprint[i] + "<br/>");
+        }
+
+    }
+
+}
 
 
