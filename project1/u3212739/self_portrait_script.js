@@ -11,9 +11,12 @@ c_msnow     ='';
 c_tsnow     ='';
 
 //create variable that is the current 'season'
-
-
 currentSeason ='winter';
+
+//create x and y coordinate variables for the hiker
+x = 1000;
+y = 580;
+
 selectSeason(currentSeason);
 
 function selectSeason(season){
@@ -57,13 +60,13 @@ function draw() {
 
     // Create three triangles for the tree leaves (topx, topy, leftx, lefty, rightx, righty)
     fill('#09552B');
-    triangle(239,490,169,586,309,586);
-    triangle(239,530,149,646,329,646);
-    triangle(239,590,129,706,349,706);
+    triangle(239,540,169,636,309,636);
+    triangle(239,580,149,696,329,696);
+    triangle(239,640,129,756,349,756);
 
     // Create tree trunk
     fill('#623F21');
-    quad(231,706,247,706,247,782,231,782);
+    quad(231,756,247,756,247,832,231,832);
 
     // Create snow triangles for snow on the mountain
     fill(c_msnow);
@@ -72,28 +75,28 @@ function draw() {
 
     // Create a snow triangle for snow on the tree
     fill(c_tsnow);
-    triangle(239,490,184,567,294,567);
+    triangle(239,540,184,617,294,617);
 
     // Create two triangles for the foreground
     fill('#000000');
-    triangle(1255,337,448,962,1255,962);
-    triangle(1255,541,-568,962,1255,962);
+    triangle(1255,500,448,962,1255,962);
+    triangle(1255,620,-568,962,1255,962);
 
     // Create the hiker
     // Hiker head
-    circle(610,568,30);
+    circle(x+3,y-44,30);
     // Hiker body
-    ellipse(607,612,30,60);
+    ellipse(x,y,30,60);
     // Hiker arms
     push();
-        translate(625,593);
+        translate(x+18,y-19);
         rotate(radians(43));
         fill('#000000');
         noStroke();
         ellipse(10,10,52,8);
     pop();
     push();
-        translate(620,579);
+        translate(x+13,y-33);
         rotate(radians(10));
         fill('#000000');
         noStroke();
@@ -101,14 +104,14 @@ function draw() {
     pop();
     // Hiker legs
     push();
-        translate(608,650);
+        translate(x+1,y+38);
         rotate(radians(106));
         fill('#000000');
         noStroke();
         ellipse(10,10,100,10);
     pop();
     push();
-        translate(628,630);
+        translate(x+21,y+18);
         rotate(radians(64));
         fill('#000000');
         noStroke();
@@ -116,41 +119,54 @@ function draw() {
     pop();
     // Hiker pack
     push();
-        translate(573,573);
+        translate(x-34,y-39);
         rotate(radians(10));
         fill('#000000');
         noStroke();
         rect(0,0,30,60,10);
     pop();
+    // Hiker poles
+    push();
+        translate(x+40,y-18);
+        rotate(radians(15));
+        fill('#000000');
+        noStroke();
+        rect(0,0,2,85,);
+    pop();
+    push();
+        translate(x+30,y+10);
+        rotate(radians(20));
+        fill('#000000');
+        noStroke();
+        rect(0,0,2,85,);
+    pop();
+
 }
+    function mouseClicked() {
+        if (currentSeason === 'summer') {
+            selectSeason('winter');
+        } else {
+            selectSeason('summer');
+        }
+    }
 
 
 
-// SET stroke(nostroke)
-// SET fill(#000000)
-// SET strokeweight
-// 	CREATE circle
-// SET size = horizontal fortieth, vertical eighth
-// SET location = horizontal centre, vertical centrebottom
-// CREATE ellipse
-// SET size = horizontal fortieth, vertical eighth
-// SET location = horizontal centre, vertical centrebottom
-// 	CREATE ellipse
-// SET size = horizontal fortieth, vertical eighth
-// SET location = horizontal centre, vertical centrebottom
-// 	CREATE ellipse
-// SET size = horizontal fortieth, vertical eighth
-// SET location = horizontal centre, vertical centrebottom
-// 	CREATE ellipse
-// SET size = horizontal fortieth, vertical eighth
-// SET location = horizontal centre, vertical centrebottom
-// 	CREATE radius rectangle 
-// SET size = horizontal fortieth, vertical eighth
-// SET location = horizontal centre, vertical centrebottom
-// 	CREATE line
-// 		SET location = horizontal centre, vertical centrebottom
-// CREATE line
-// 		SET location = horizontal centre, vertical centrebottom
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
