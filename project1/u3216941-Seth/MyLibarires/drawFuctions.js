@@ -118,12 +118,9 @@ function drawNose()
         ellipse(0 ,0,17,7);
    pop();
 }
- drawMouth()
+function drawMouth()
 {
     line(273, 593, 395, 611);
- 
-    
-  
  
 }
 function drawbackhair()
