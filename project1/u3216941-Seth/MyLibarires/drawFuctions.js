@@ -4,28 +4,25 @@
  Note: Cordinating of the shapes help found using photoshop.
 * */
 
+     
 
-
-
-function drawHead()
-{
-    // fuction drawHead()
-    drawEars();
-    push();
-        fill(226,200,187);
-        noStroke();
-        translate(317.14,456.22 );
-        rotate(4.4);
-        ellipse(0, 0,397, 584);
-    pop();
- 
-   
-    // ellipse(posleft, postop, width, height)
-    // fill(colour)
-    // Call drawEars
-
-}
-function drawEars()
+    function drawHead()
+    {
+        // fuction drawHead()
+        drawEars();
+        push();
+            fill(226,200,187);
+            translate(317.14,456.22 );
+            rotate(4.4);
+            ellipse(0, 0,397, 584);
+        pop();
+     
+       
+        // ellipse(posleft, postop, width, height)
+        // fill(colour)
+        // Call drawEars
+    }    
+    function drawEars()
 {
     push(); //save current changes 
         fill(226,200,187);
@@ -54,7 +51,7 @@ function drawLefteye()
     //Second Save and load state for the bottom eye lid 
     push();
          fill("white");
-        translate(273, 367);
+         translate(273, 367);
         rotate(49);
         arc(0, 0, 90, 75, 0, 93, PI-0.5);               
     pop();
@@ -121,7 +118,7 @@ function drawNose()
         ellipse(0 ,0,17,7);
    pop();
 }
-function drawMouth()
+ drawMouth()
 {
     line(273, 593, 395, 611);
  
@@ -157,6 +154,7 @@ function drawfronthair()
     pop();
     ellipse(129,322,37,210);
 }
+
 function drawBody()
 {
     
@@ -185,6 +183,7 @@ pop();
 //in the shirt fuction will appear infornt of this fuction/layer
 shirt();
 }
+
 function shirt()
 {
  push();
@@ -193,6 +192,13 @@ function shirt()
     //remove lines around the shape to make more solid looking
     rect(0,845,643,58);
     rect(0,770,150,94);
+    
+    push();
+        translate(0,780);
+        rotate(-13);
+        rect(0,0,138,70);
+    pop();
+
     rect(470,800,174,66);
 
     push();

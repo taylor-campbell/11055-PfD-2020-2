@@ -1,3 +1,11 @@
+
+//onst for the sizes
+
+//const fro the drawwing width and heigh
+//variable for the eye level
+//variable for eye wwth
+//const colour
+
 function setup() {
     createCanvas(641, 904);
     background("pink");
@@ -12,6 +20,7 @@ drawfronthair();
 drawEyes();
 drawNose();
 drawMouth();
+}
 
 
 
@@ -21,4 +30,4 @@ drawMouth();
 // Call drawMouth()
 // Call drawhair()
 // Call drawBody()
-  }
+ 
