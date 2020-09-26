@@ -4,19 +4,17 @@
     September 2020
 */
 
-//  Declare the constants, variables, and set up important environmental factors.
+//  Declare constants, variables, and set up important environmental factors.
 
 //  This constant refers to the size of the original pixel matrix from which coordinates were sourced.
 const matrix = 200;
 
-//  This constant dictates how much clearance the mouse cursor should be afforded by the drawing.
-const mouseClearance = 25;
+//  Call the getScaleFactor function and set the scaleFactor variable to an initial value related to current screen size.
+var scaleFactor = getScaleFactor();
 
-/*  Consult with the getScaleFactor function and set up an appropriately sized canvas on which to plot
-    the image, then place it in position.
-*/
+//  Utilise the scaleFactor variable to set up an appropriately sized canvas on which to plot the image, then place it in position.
 function setup() {
-    canvas = createCanvas(matrix * getScaleFactor(), matrix * getScaleFactor());
+    canvas = createCanvas(matrix * scaleFactor, matrix * scaleFactor);
     canvas.position(150, 75, 'fixed');
 
 // Turn off the stroke so that we don't see the circle outlines.
@@ -55,18 +53,20 @@ function setup() {
     shapeSelector.selected('0');
 }
 
-/*  This function is called if the browser window is resized (or moved to another monitor), in which
-    event it redraws the canvas.
+/*  This function is called if the browser window is resized or moved to another monitor (which is the scenario I
+    want to catch), in which event it redraws the canvas in keeping with the screen resolution.
 */
 function windowResized() {
 
-//  Set the scaleFactor variable to reduce the number of function calls required.
+//  Re-evaluate the scaleFactor variable in case the web page has been moved to a screen with different resolution.
     scaleFactor = getScaleFactor();
+
+//  Resize the canvas accordingly.
     resizeCanvas(matrix * scaleFactor, matrix * scaleFactor);
 }
 
-/*  This is the main draw function loop which runs until our Sun collapses into itself, or until you
-    close the web page ... whichever comes first.
+/*  This is the main draw function loop which runs until our Sun collapses into itself, or until you close the
+    web page ... whichever comes first.
 */
 function draw() {
 
@@ -79,10 +79,7 @@ function draw() {
 //  Set the fill colour to the values specified by the slider controls.    
     fill(redSlider.value(), greenSlider.value(), blueSlider.value());
 
-//  Set the scaleFactor variable to reduce the number of function calls required.
-    scaleFactor = getScaleFactor();
-
-    /*  This code reads the array that was dimensioned in "Coordinates.js".
+/*  This loop reads the array that was dimensioned in "coordinates.js".
     It goes row by row and retrieves the x and y values before applying the getScaleFactor() multiplier,
     in order to space them out proportionally. Finally, they're passed to the circle function to be
     drawn on the canvas.
@@ -90,15 +87,10 @@ function draw() {
      for (let row = 0; row < coordinates.length; row++) {
         x = (coordinates[row] [0]) * scaleFactor;
         y = (coordinates[row] [1]) * scaleFactor;
-
-//  Call my calculateDistance function to see if the mouse cursor is close to the drawing action.
-        distance = calculateDistance(x, y, mouseX, mouseY);
-
-        if (distance > mouseClearance) {
-            switch(shapeSelector.value()) {
-                case '0':
-                    diameterSlider.hide();
-                    heightSlider.show()
+        switch(shapeSelector.value()) {
+            case '0':
+                diameterSlider.hide();
+                heightSlider.show()
 
 /*  The height of the triangles and the diameter of the circles are both random-ish.
     Values from the respective slider controls are obtained and then fed into a random process as
@@ -107,20 +99,15 @@ function draw() {
     The resulting variation in triangle height or circle diameter creates the interesting motion
     effect.
 */
-                    height = Math.floor(Math.random() * heightSlider.value()) + 2;
-                    createTriangle(x, y, height);
-                    break;
-                case '1':
-                    heightSlider.hide();
-                    diameterSlider.show();
-                    diameter = Math.floor(Math.random() * diameterSlider.value()) + 2;
-                    circle(x, y, diameter);
-                    break;
-            }
-        }
-        else {
-//            createTriangle(x, y, height);
-//            circle(x, y, diameter);
+                height = Math.floor(Math.random() * heightSlider.value()) + 2;
+                createTriangle(x, y, height);
+                break;
+            case '1':
+                heightSlider.hide();
+                diameterSlider.show();
+                diameter = Math.floor(Math.random() * diameterSlider.value()) + 2;
+                circle(x, y, diameter);
+                break;
         }
     }
 }
