@@ -1,0 +1,125 @@
+Pseudo Code for Project 1: Self Portrait
+Creator: Claire McAuliffe
+Created: 11/09/2020
+
+
+CREATE background
+CREATE ‘summer’
+c_sky: colour(#62B7D6)
+c_sun: colour(#FFE23C)
+c_mountain: colour(#A3CF67)
+c_tree: colour(#09552B)
+c_msnow: colour(#A3CF67)
+c_tsnow: colour(#09552B)
+
+CREATE ‘winter’
+c_sky: colour(#90C3D9)
+c_sun: colour(#FFD98E)
+c_mountain: colour(#9A7B63)
+c_tree: colour(#FFFFFF)
+c_msnow: colour(#FFFFFF)
+c_tsnow: colour(#FFFFFF)
+
+SET Background = ‘summer’
+
+CREATE Canvas
+SET stroke(nostroke)
+SET fill(c_sky)
+CREATE square 
+SET size = horizontal one, vertical one
+	SET location = horizontal centre, vertical centre
+
+SET stroke(nostroke)
+SET fill(c_sun)
+CREATE circle 
+SET size = horizontal seventh, vertical fifth
+SET location = vertical top, horizontal right 
+
+SET stroke(nostroke)
+SET fill(c_mountain)
+CREATE isosceles triangle
+SET size = horizontal seventh, vertical fifth
+SET location = horizontal left, vertical centre
+CREATE isosceles triangle
+SET size = horizontal seventh, vertical fifth
+SET location = horizontal centre, vertical centre
+
+SET stroke(nostroke)
+SET fill(c_tree)
+CREATE isosceles triangle
+SET size = horizontal eighth, vertical seventh
+SET location = horizontal left, vertical centrebottom
+CREATE isosceles triangle
+SET size = horizontal seventh, vertical sixth
+SET location = horizontal left, vertical centrebottom
+CREATE isosceles triangle
+SET size = horizontal sixth, vertical fifth
+SET location = horizontal left, vertical centrebottom
+
+SET stroke(nostroke)
+SET fill(c_msnow)
+CREATE isosceles triangle
+SET size = horizontal eighth, vertical sixth
+SET location = horizontal left, vertical centre
+CREATE isosceles triangle
+SET size = horizontal seventh, vertical fifth
+SET location = horizontal centre, vertical centre
+
+SET stroke(nostroke)
+SET fill(c_tsnow)
+CREATE triangle
+SET size = horizontal eighth, vertical seventh
+SET location = horizontal left, vertical centre
+
+SET stroke(nostroke)
+SET fill(#623F21)
+CREATE quadrilateral
+SET size = horizontal fortieth, vertical eighth
+SET location = horizontal left, vertical bottom
+
+SET stroke(nostroke)
+SET fill(#000000)
+CREATE right angle triangle
+SET size = horizontal two/thirds, vertical third
+SET location = horizontal middleleft, vertical bottom
+CREATE right angle triangle
+SET size = horizontal two/thirds, vertical two/thirds
+SET location = horizontal right, vertical bottom
+
+SET stroke(nostroke)
+SET fill(#000000)
+SET strokeweight
+	CREATE circle
+SET size = horizontal fortieth, vertical eighth
+SET location = horizontal centre, vertical centrebottom
+CREATE ellipse
+SET size = horizontal fortieth, vertical eighth
+SET location = horizontal centre, vertical centrebottom
+	CREATE ellipse
+SET size = horizontal fortieth, vertical eighth
+SET location = horizontal centre, vertical centrebottom
+	CREATE ellipse
+SET size = horizontal fortieth, vertical eighth
+SET location = horizontal centre, vertical centrebottom
+	CREATE ellipse
+SET size = horizontal fortieth, vertical eighth
+SET location = horizontal centre, vertical centrebottom
+	CREATE radius rectangle 
+SET size = horizontal fortieth, vertical eighth
+SET location = horizontal centre, vertical centrebottom
+	CREATE line
+		SET location = horizontal centre, vertical centrebottom
+CREATE line
+		SET location = horizontal centre, vertical centrebottom
+
+
+
+FUNCTION mousePressed
+	IF background = summer
+		background = winter
+	ELSE background = summer
+
+FUNCTION
+
+
+
