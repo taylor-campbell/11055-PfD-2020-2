@@ -3,7 +3,7 @@ Creator: Claire McAuliffe
 Created: 11/09/2020
 
 
-CREATE background
+CREATE canvas
 CREATE ‘summer’
 c_sky: colour(#62B7D6)
 c_sun: colour(#FFE23C)
@@ -122,4 +122,78 @@ FUNCTION mousePressed
 FUNCTION
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Create the hiker
+    // Hiker head
+    circle(610,568,30);
+    // Hiker body
+    ellipse(607,612,30,60);
+    // Hiker arms
+    push();
+        translate(625,593);
+        rotate(radians(43));
+        fill('#000000');
+        noStroke();
+        ellipse(10,10,52,8);
+    pop();
+    push();
+        translate(620,579);
+        rotate(radians(10));
+        fill('#000000');
+        noStroke();
+        ellipse(10,10,52,8);
+    pop();
+    // Hiker legs
+    push();
+        translate(608,650);
+        rotate(radians(106));
+        fill('#000000');
+        noStroke();
+        ellipse(10,10,100,10);
+    pop();
+    push();
+        translate(628,630);
+        rotate(radians(64));
+        fill('#000000');
+        noStroke();
+        ellipse(10,10,100,10);
+    pop();
+    // Hiker pack
+    push();
+        translate(573,573);
+        rotate(radians(10));
+        fill('#000000');
+        noStroke();
+        rect(0,0,30,60,10);
+    pop();
 

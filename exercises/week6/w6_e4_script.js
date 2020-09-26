@@ -19,6 +19,7 @@ function setup() {
   }
   
 function draw() {
+    background(51)
     if (mouseIsPressed) {
         fill(0);
     } 
