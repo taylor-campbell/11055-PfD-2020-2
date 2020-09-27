@@ -1,5 +1,7 @@
 /* 
-    This document is the javascript that will sit inside the html file for Project 1.
+    This document contains the javascript that will sit inside the html file for Project 1.
+    Created by CLaire McAuliffe 
+    This document will use functions from the p5 library to 
 */
 
 //Create variables for each shapes colour
@@ -11,15 +13,18 @@ c_msnow     ='';
 c_tsnow     ='';
 
 //create variable that is the current 'season'
-currentSeason ='winter';
+currentSeason ='summer';
 
 //create x and y coordinate variables for the hiker
 x = 600;
 y = 655;
+n = '-';
+p = '+';
 
 selectSeason(currentSeason);
 
 function selectSeason(season){
+    currentSeason = season;
     if (season === 'summer'){
             c_sky       ='#62B7D6';
             c_sun       ='#FFE23C';
@@ -35,15 +40,10 @@ function selectSeason(season){
     }
 }
 
-console.log("c_sky:" + c_sun); 
-
-
-
 // CREATE Canvas
 function setup() {
     createCanvas(1255,962);
     noStroke();
-    
 }
 
 function draw() {
@@ -83,6 +83,8 @@ function draw() {
     triangle(1255,500,448,962,1255,962);
     triangle(1255,620,-568,962,1255,962);
 
+    rectMode(CENTER);
+    if (mouseX > x-1) {
     // Create the hiker
     // Hiker head
     circle(x+3,y-44,30);
@@ -90,37 +92,37 @@ function draw() {
     ellipse(x,y,30,60);
     // Hiker arms
     push();
-        translate(x+18,y-19);
+        translate(x+18,y-9);
         rotate(radians(43));
         fill('#000000');
         noStroke();
-        ellipse(10,10,52,8);
+        ellipse(0,0,52,8);
     pop();
     push();
-        translate(x+13,y-33);
+        translate(x+23,y-23);
         rotate(radians(10));
         fill('#000000');
         noStroke();
-        ellipse(10,10,52,8);
+        ellipse(0,0,52,8);
     pop();
     // Hiker legs
     push();
-        translate(x+1,y+38);
+        translate(x-9,y+48);
         rotate(radians(106));
         fill('#000000');
         noStroke();
-        ellipse(10,10,100,10);
+        ellipse(0,0,100,10);
     pop();
     push();
-        translate(x+21,y+18);
+        translate(x+11,y+28);
         rotate(radians(64));
         fill('#000000');
         noStroke();
-        ellipse(10,10,100,10);
+        ellipse(0,0,100,10);
     pop();
     // Hiker pack
     push();
-        translate(x-34,y-39);
+        translate(x-25,y-5);
         rotate(radians(10));
         fill('#000000');
         noStroke();
@@ -128,39 +130,109 @@ function draw() {
     pop();
     // Hiker poles
     push();
-        translate(x+40,y-18);
+        translate(x+30,y+20);
         rotate(radians(15));
         fill('#000000');
         noStroke();
         rect(0,0,2,85,);
     pop();
     push();
-        translate(x+30,y+10);
+        translate(x+20,y+47);
         rotate(radians(20));
         fill('#000000');
         noStroke();
         rect(0,0,2,85,);
     pop();
 
-    //x = mouseX;
-    //y = mouseY;
-
-
+    
+} else {
+    
+    // Create the hiker
+    // Hiker head
+    circle(x-3,y-44,30);
+    // Hiker body
+    ellipse(x,y,30,60);
+    // Hiker arms
+    push();
+        translate(x-18,y-9);
+        rotate(radians(-43));
+        fill('#000000');
+        noStroke();
+        ellipse(0,0,52,8);
+    pop();
+    push();
+        translate(x-23,y-23);
+        rotate(radians(-10));
+        fill('#000000');
+        noStroke();
+        ellipse(0,0,52,8);
+    pop();
+    // Hiker legs
+    push();
+        translate(x-9,y+48);
+        rotate(radians(106));
+        fill('#000000');
+        noStroke();
+        ellipse(0,0,100,10);
+    pop();
+    push();
+        translate(x+11,y+28);
+        rotate(radians(64));
+        fill('#000000');
+        noStroke();
+        ellipse(0,0,100,10);
+    pop();
+    // Hiker pack
+    push();
+        translate(x+25,y-5);
+        rotate(radians(-10));
+        fill('#000000');
+        noStroke();
+        rect(0,0,30,60,10);
+    pop();
+    // Hiker poles
+    push();
+        translate(x-30,y+20);
+        rotate(radians(-15));
+        fill('#000000');
+        noStroke();
+        rect(0,0,2,85,);
+    pop();
+    push();
+        translate(x-20,y+47);
+        rotate(radians(-20));
+        fill('#000000');
+        noStroke();
+        rect(0,0,2,85,);
+    pop();
 }
-    function mouseClicked() {
-        if (currentSeason === 'summer') {
-            selectSeason('winter');
-        } else {
-            selectSeason('summer');
-        }
+
+   
+
+
+    // Change the values of 'x' and 'y' so that they follow the mouse
+    // Make the hiker move towards the mouse
+    if (mouseX > x+1 && x < 1300){
+        x+=3;
+        
+    } else if (mouseX < x-1){
+        x-=3;
     }
-    function mouseClicked() {
-        if (currentSeason === 'winter') {
-            selectSeason('summer');
-        } else {
-            selectSeason('winter');
-        }
+    // Make the hiker stay on the same y position relative to 'x'
+    if (x < 960) {
+        y=(-0.18*x)+775;
+    } else {
+        y=(-0.60*x+1180);
     }
+} 
+//Create 
+function mouseClicked() {
+    if (currentSeason === 'summer') {
+        selectSeason('winter');
+    } else {
+        selectSeason('summer');
+    }
+}
 
 
 
@@ -179,12 +251,123 @@ function draw() {
 
 
 
+// // Create the hiker
+//     // Hiker head
+//     circle(x+3,y-44,30);
+//     // Hiker body
+//     ellipse(x,y,30,60);
+//     // Hiker arms
+//     push();
+//         translate(x+18,y-9);
+//         rotate(radians(43));
+//         fill('#000000');
+//         noStroke();
+//         ellipse(0,0,52,8);
+//     pop();
+//     push();
+//         translate(x+23,y-23);
+//         rotate(radians(10));
+//         fill('#000000');
+//         noStroke();
+//         ellipse(0,0,52,8);
+//     pop();
+//     // Hiker legs
+//     push();
+//         translate(x-9,y+48);
+//         rotate(radians(106));
+//         fill('#000000');
+//         noStroke();
+//         ellipse(0,0,100,10);
+//     pop();
+//     push();
+//         translate(x+11,y+28);
+//         rotate(radians(64));
+//         fill('#000000');
+//         noStroke();
+//         ellipse(0,0,100,10);
+//     pop();
+//     // Hiker pack
+//     push();
+//         translate(x-25,y-5);
+//         rotate(radians(10));
+//         fill('#000000');
+//         noStroke();
+//         rect(0,0,30,60,10);
+//     pop();
+//     // Hiker poles
+//     push();
+//         translate(x+30,y+20);
+//         rotate(radians(15));
+//         fill('#000000');
+//         noStroke();
+//         rect(0,0,2,85,);
+//     pop();
+//     push();
+//         translate(x+20,y+47);
+//         rotate(radians(20));
+//         fill('#000000');
+//         noStroke();
+//         rect(0,0,2,85,);
+//     pop();
 
-
-
-// FUNCTION mousePressed
-// 	IF background = summer
-// 		background = winter
-// 	ELSE background = summer
-
-// FUNCTION
+    
+// } else {
+    
+//     // Create the hiker
+//     // Hiker head
+//     circle(x-3,y-44,30);
+//     // Hiker body
+//     ellipse(x,y,30,60);
+//     // Hiker arms
+//     push();
+//         translate(x-18,y-9);
+//         rotate(radians(-43));
+//         fill('#000000');
+//         noStroke();
+//         ellipse(0,0,52,8);
+//     pop();
+//     push();
+//         translate(x-23,y-23);
+//         rotate(radians(-10));
+//         fill('#000000');
+//         noStroke();
+//         ellipse(0,0,52,8);
+//     pop();
+//     // Hiker legs
+//     push();
+//         translate(x-9,y+48);
+//         rotate(radians(106));
+//         fill('#000000');
+//         noStroke();
+//         ellipse(0,0,100,10);
+//     pop();
+//     push();
+//         translate(x+11,y+28);
+//         rotate(radians(64));
+//         fill('#000000');
+//         noStroke();
+//         ellipse(0,0,100,10);
+//     pop();
+//     // Hiker pack
+//     push();
+//         translate(x+25,y-5);
+//         rotate(radians(-10));
+//         fill('#000000');
+//         noStroke();
+//         rect(0,0,30,60,10);
+//     pop();
+//     // Hiker poles
+//     push();
+//         translate(x-30,y+20);
+//         rotate(radians(-15));
+//         fill('#000000');
+//         noStroke();
+//         rect(0,0,2,85,);
+//     pop();
+//     push();
+//         translate(x-20,y+47);
+//         rotate(radians(-20));
+//         fill('#000000');
+//         noStroke();
+//         rect(0,0,2,85,);
+//     pop();
