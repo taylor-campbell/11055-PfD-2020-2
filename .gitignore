@@ -1,9 +1,12 @@
-# these files will be ignored
+
 
 .DS_Store
-.students/u3212739/algorthum_flow_chart.jpeg
 
-# these files won't be ignored
+.gitignore
 
-!.gitignore
-!students/s440002/test.txt
+
+
+
+
+
+

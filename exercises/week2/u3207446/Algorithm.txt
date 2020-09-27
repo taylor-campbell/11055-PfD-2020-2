@@ -1,0 +1,10 @@
+Topic: Catch last minute flight
+
+
+
+Step1: (Start) Wake up and get ready
+Step2: Go to the airport
+Step3: (Flight available?) Search for ticket
+Step4: (YES) Take flight if got ticket // (NO) Return back home if no ticket available
+
+Repeat everyday Steps 1-4

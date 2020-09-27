@@ -1,0 +1,17 @@
+
+
+1. Explain about the Project 1
+
+2. rebasing of git and new branch
+
+3. js exercises
+
+4. flow charting/pseudocode
+
+5. pseudocode to comments
+
+6. pseudocode to js
+
+
+* to remove DS Store files from a directory tree (MacOS)
+find . -name '.DS_Store' -type f -delete

@@ -1,0 +1,13 @@
+CREATE WakeUpTime, PersonStatus
+
+SET WakeUpTime = 7
+SET FlightAvailability = BOOLEAN
+SET PersonStatus = "Neutral"
+
+DO WHILE
+IF FlightAvailability = true
+    PersonStatus = "Happy"
+ELSE
+    PersonStatus = "Sad"
+END
+
