@@ -4,7 +4,7 @@
 
     It will create a background that changes colour and a hiker which follows the mouse and
     changes which way it 'faces' depending on what direction they are moving.
-    
+
     Created by CLaire McAuliffe 
     Date Created: 31/08/20
 */
@@ -66,7 +66,15 @@ function selectSeason(season){
     }
 }
 
-
+// Use selectSeason and p5 library function 'mouseClicked' to change the 
+// 'season' to whatever is not the 'currentSeason' when the mouse is clicked
+function mouseClicked() {
+    if (currentSeason === 'winter') {      
+        selectSeason('summer');
+    } else {
+        selectSeason('winter');
+    }
+}
 
 function setup() {
     createCanvas(1255,962);     // Create the canvas
