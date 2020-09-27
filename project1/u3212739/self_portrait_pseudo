@@ -2,198 +2,180 @@ Pseudo Code for Project 1: Self Portrait
 Creator: Claire McAuliffe
 Created: 11/09/2020
 
+This code will create a background that changes colour and a hiker which follows the mouse and
+changes which way it 'faces' depending on what direction they are moving.
+
+
+
+
+Firstly, create all the variables and constants needed within the script
+
+CONSTANT    c_trunk             = Brown    
+CONSTANT    c_tree              = Green     
+CONSTANT    c_ground            = Black   
+CONSTANT    c_hiker             = Black     
+VARIABLE    c_sky               = undefined string         
+VARIABLE    c_sun               = undefined string    
+VARIABLE    c_mountain          = undefined string      
+VARIABLE    c_msnow             = undefined string
+VARIABLE    c_tsnow             = undefined string
+VARIABLE    currentSeason       = undefined string
+VARIABLE    hiker_x_coordinate  = undefined number
+VARIABLE    hiker_x_coordinate  = undefined number
+
+CREATE a funtion 'RotatedEllipse' 
+    START 'new style' 
+        translate (input_x,input_y)
+        rotate (input_degree)
+        colour (c_hiker)
+        drawEllipse(input_width,input_height)
+    END 'new style'
+
+CREATE a funtion 'RotatedRectangle' 
+    START 'new style' 
+        translate (input_x,input_y)
+        rotate (input_degree)
+        colour (c_hiker)
+        drawRectangle(input_width,input_height,input_corners)
+    END 'new style'
+
+
+CREATE a function 'selectSeason'
+    IF 
+        season = summer 
+    THEN 
+        c_sky       = (summer sky colour)
+        c_sun       = (summer sun colour)
+        c_mountain  = (summer mountain colour)
+        c_msnow     = (summer mountain snow colour)
+        c_tsnow     = (summer tree snow colour)
+    ELSE
+        c_sky       = (winter sky colour)
+        c_sun       = (winter sun colour)
+        c_mountain  = (winter mountain colour)
+        c_msnow     = (winter mountain snow colour)
+        c_tsnow     = (winter tree snow colour)
+
+
+
+WHEN mouseClicked
+    IF 
+        season = winter
+    THEN
+        use 'selectSeason' function tp change to summer
+    ELSE
+        use 'selectSeason' function tp change to winter
+
+
+
 
 CREATE canvas
-CREATE ‘summer’
-c_sky: colour(#62B7D6)
-c_sun: colour(#FFE23C)
-c_mountain: colour(#A3CF67)
-c_tree: colour(#09552B)
-c_msnow: colour(#A3CF67)
-c_tsnow: colour(#09552B)
-
-CREATE ‘winter’
-c_sky: colour(#90C3D9)
-c_sun: colour(#FFD98E)
-c_mountain: colour(#9A7B63)
-c_tree: colour(#FFFFFF)
-c_msnow: colour(#FFFFFF)
-c_tsnow: colour(#FFFFFF)
-
-SET Background = ‘summer’
-
-CREATE Canvas
-SET stroke(nostroke)
-SET fill(c_sky)
-CREATE square 
-SET size = horizontal one, vertical one
-	SET location = horizontal centre, vertical centre
-
-SET stroke(nostroke)
-SET fill(c_sun)
-CREATE circle 
-SET size = horizontal seventh, vertical fifth
-SET location = vertical top, horizontal right 
-
-SET stroke(nostroke)
-SET fill(c_mountain)
-CREATE isosceles triangle
-SET size = horizontal seventh, vertical fifth
-SET location = horizontal left, vertical centre
-CREATE isosceles triangle
-SET size = horizontal seventh, vertical fifth
-SET location = horizontal centre, vertical centre
-
-SET stroke(nostroke)
-SET fill(c_tree)
-CREATE isosceles triangle
-SET size = horizontal eighth, vertical seventh
-SET location = horizontal left, vertical centrebottom
-CREATE isosceles triangle
-SET size = horizontal seventh, vertical sixth
-SET location = horizontal left, vertical centrebottom
-CREATE isosceles triangle
-SET size = horizontal sixth, vertical fifth
-SET location = horizontal left, vertical centrebottom
-
-SET stroke(nostroke)
-SET fill(c_msnow)
-CREATE isosceles triangle
-SET size = horizontal eighth, vertical sixth
-SET location = horizontal left, vertical centre
-CREATE isosceles triangle
-SET size = horizontal seventh, vertical fifth
-SET location = horizontal centre, vertical centre
-
-SET stroke(nostroke)
-SET fill(c_tsnow)
-CREATE triangle
-SET size = horizontal eighth, vertical seventh
-SET location = horizontal left, vertical centre
-
-SET stroke(nostroke)
-SET fill(#623F21)
-CREATE quadrilateral
-SET size = horizontal fortieth, vertical eighth
-SET location = horizontal left, vertical bottom
-
-SET stroke(nostroke)
-SET fill(#000000)
-CREATE right angle triangle
-SET size = horizontal two/thirds, vertical third
-SET location = horizontal middleleft, vertical bottom
-CREATE right angle triangle
-SET size = horizontal two/thirds, vertical two/thirds
-SET location = horizontal right, vertical bottom
-
-SET stroke(nostroke)
-SET fill(#000000)
-SET strokeweight
-	CREATE circle
-SET size = horizontal fortieth, vertical eighth
-SET location = horizontal centre, vertical centrebottom
-CREATE ellipse
-SET size = horizontal fortieth, vertical eighth
-SET location = horizontal centre, vertical centrebottom
-	CREATE ellipse
-SET size = horizontal fortieth, vertical eighth
-SET location = horizontal centre, vertical centrebottom
-	CREATE ellipse
-SET size = horizontal fortieth, vertical eighth
-SET location = horizontal centre, vertical centrebottom
-	CREATE ellipse
-SET size = horizontal fortieth, vertical eighth
-SET location = horizontal centre, vertical centrebottom
-	CREATE radius rectangle 
-SET size = horizontal fortieth, vertical eighth
-SET location = horizontal centre, vertical centrebottom
-	CREATE line
-		SET location = horizontal centre, vertical centrebottom
-CREATE line
-		SET location = horizontal centre, vertical centrebottom
+    SET stroke = none
+    use 'selectSeason' function to change to summer
 
 
 
-FUNCTION mousePressed
-	IF background = summer
-		background = winter
-	ELSE background = summer
+SET Background colour = c_sky
 
-FUNCTION
+DRAW circle                         // Sun
+    colour = c_sun
+    location = top, right
+
+DRAW triangle                       // Mountain Left
+    colour = c_mountain
+    location = left, centre
+DRAW triangle                       // Mountain Right
+    colour = c_mountain
+    location = centre, middle
+
+DRAW triangle                       // Tree Top
+    colour = c_tree
+    location = left, middle
+DRAW triangle                       // Tree Middle
+    colour = c_tree
+    location = left, middle
+DRAW triangle                       // Tree Bottom
+    colour = c_tree
+    location = left, middle
+
+DRAW triangle                       // Mountain Left Snow
+    colour = c_msnow
+    location = left, top
+DRAW triangle                       // Mountain Right Snow
+    colour = c_msnow
+    location = centre, top
+
+DRAW triangle                       // Tree Snow
+    colour = c_tsnow
+    location = left, middle
+
+DRAW triangle                       // Tree Trunk
+    colour = c_trunk
+    location = left, middle
+
+DRAW triangle                       // Ground Left
+    colour = c_ground
+    location = left, bottom
+DRAW triangle                       // Ground Right
+    colour = c_ground
+    location = right, bottom
 
 
 
+Draw the shapes the compose the hiker relative to variables 'x' and 'y'   
+
+IF 
+    mouse_x_coordinate > hiker_x_coordinate
+THEN
+    DRAW RotatedEllipse(x+?,y+?,degree?,width?,height?)             
+        
+    DRAW circle(x+?,y+?,width?)                             // Head
+
+    DRAW ellipse(x,y,width?,height?)                        // Body
+
+    DRAW RotatedEllipse(x+?,y+?,degree?,width?,height?)     // Bottom Arm
+    DRAW RotatedEllipse(x+?,y+?,degree?,width?,height?)     // Top Arm
+
+    DRAW RotatedEllipse(x+?,y+?,degree?,width?,height?)     // Right Leg
+    DRAW RotatedEllipse(x+?,y+?,degree?,width?,height?)     // Left Leg
+
+    DRAW RotatedRectangle(x+?,y+?,degree?,width?,height?)   // Pack
+
+    DRAW RotatedRectangle(x+?,y+?,degree?,width?,height?)   // Top Arm Pole
+    DRAW RotatedRectangle(x+?,y+?,degree?,width?,height?)   // Bottom Arm Pole
+ELSE
+    DRAW RotatedEllipse(x-?,y-?,-degree?,width?,height?)             
+        
+    DRAW circle(x-?,y-?,width?)                             // Head
+
+    DRAW ellipse(x,y,width?,height?)                        // Body
+
+    DRAW RotatedEllipse(x-?,y-?,-degree?,width?,height?)     // Bottom Arm
+    DRAW RotatedEllipse(x-?,y-?,-degree?,width?,height?)     // Top Arm
+
+    DRAW RotatedEllipse(x-?,y-?,-degree?,width?,height?)     // Right Leg
+    DRAW RotatedEllipse(x-?,y-?,-degree?,width?,height?)     // Left Leg
+
+    DRAW RotatedRectangle(x-?,y-?,-degree?,width?,height?)   // Pack
+
+    DRAW RotatedRectangle(x-?,y-?,-degree?,width?,height?)   // Top Arm Pole
+    DRAW RotatedRectangle(x-?,y-?,-degree?,width?,height?)   // Bottom Arm Pole
+
+
+IF 
+    mouse_x_coordinate > (hiker_x_coordinate + 1) AND hiker_x_coordinate < 'edge of canvas'
+THEN
+    hiker_x_coordinate + 1
+ELSE IF 
+    mouse_x_coordinate < (hiker_x_coordinate - 1)
+THEN
+    hiker_x_coordinate - 1
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Create the hiker
-    // Hiker head
-    circle(610,568,30);
-    // Hiker body
-    ellipse(607,612,30,60);
-    // Hiker arms
-    push();
-        translate(625,593);
-        rotate(radians(43));
-        fill('#000000');
-        noStroke();
-        ellipse(10,10,52,8);
-    pop();
-    push();
-        translate(620,579);
-        rotate(radians(10));
-        fill('#000000');
-        noStroke();
-        ellipse(10,10,52,8);
-    pop();
-    // Hiker legs
-    push();
-        translate(608,650);
-        rotate(radians(106));
-        fill('#000000');
-        noStroke();
-        ellipse(10,10,100,10);
-    pop();
-    push();
-        translate(628,630);
-        rotate(radians(64));
-        fill('#000000');
-        noStroke();
-        ellipse(10,10,100,10);
-    pop();
-    // Hiker pack
-    push();
-        translate(573,573);
-        rotate(radians(10));
-        fill('#000000');
-        noStroke();
-        rect(0,0,30,60,10);
-    pop();
-
+IF
+    hiker_x_coordinate < (wherever the first forground triangle ends)
+THEN
+    hiker_y_coordinate = (equation of a straight line that represents the angle of th first foreground triangle, eg. y=mx+c)
+ELSE
+    hiker_y_coordinate = (equation of a straight line that represents the angle of th second foreground triangle, eg. y=mx+c)
