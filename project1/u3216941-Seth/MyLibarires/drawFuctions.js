@@ -39,18 +39,18 @@ function drawEyes()
     drawLefteye();
     drawRighteye(); 
 //------------------------------------
-    noStroke();
+  
     fill(56,16,28);
-    ellipse(273,395,29); //left   
-    ellipse(438 ,432 ,29);
+    ellipse(xLeft, lefty,29); //left   
+    ellipse(xRight, righty,29);
 
     // Pupils
     fill(0);
     ellipse(xLeft, lefty, 15);
     ellipse(xRight, righty, 15);
     
-    lefty = map(mouseY, 0, height, 390, 400, true);
-    righty = map(mouseY, 0, height, 428, 442, true);
+    lefty = map(mouseY, 0, height, 393, 397, true);
+    righty = map(mouseY, 0, height, 430, 435, true);
     xLeft = map(mouseX, 0, width, 268, 280, true);
     xRight = map(mouseX, 0, width, 435, 441, true);
     
@@ -104,6 +104,7 @@ function drawNose()
 {
     //Left section of nose
     push();  
+    
         translate(333, 517);
         noFill();
         scale(-1,1);
