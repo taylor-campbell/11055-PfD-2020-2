@@ -9,4 +9,26 @@ use an if statement in your for to only print out some peoples name (only people
 */
 
 
+//create
+var family_names = ["Leanne", "Tayler"];
 
+//Write to HTML
+document.write("The names of my family members <br/>");
+document.write(family_names[0]);
+document.write(family_names[1]);
+
+//write out using a for
+document.write("family member names automatically <br/>");
+for(let i = 0; i < family_names.length; i++) {
+    document.write(family_names[i]);
+}
+//add a family member
+document.write("add a family member");
+//the prompt function allows me to ask the user to enter a name
+family_names.push(prompt("enter a name"));
+
+//write using the same for...
+document.write("the family member names automatically <br/>");
+for(let i = 0; i < family_names.length; i++) {
+    document.write(student_names[i]);
+}
