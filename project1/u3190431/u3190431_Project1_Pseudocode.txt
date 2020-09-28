@@ -1,0 +1,85 @@
+START
+    Call DrawImage Function
+    
+    START DrawImage Function
+        Call DrawCanvas Function
+        Call DrawBackground Function
+        Call DrawFace Function
+        Call DrawHair Function
+        Call DrawEyes Function
+        Call DrawEyebrows Function
+        Call DrawNose Function
+        Call DrawMouth Function
+
+        START DrawCanvas(400, 400, #ffffff) Function
+            Variables: Height, Width, Colour
+            Call background Function to set background Colour
+        End
+        START DrawBackground(CanvasWidth / 2, CanvasHeight / 2, i, #71c404) Function
+            Variables: Variables: x-coordinate, y-coordinate, Radius, Colour
+            FOR i = 600
+                i = i - 40
+                Call lerpColor Function to set interpolating color for Colour
+                Call ellipse Function to draw ellipse
+            END FOR
+        End
+        START DrawFace(CanvasWidth / 2, CanvasHeight / 2, 220, 300, #ffcb9a) Function
+            Variables: x-coordinate, y-coordinate, Height, Width, Colour
+            Call fill Function to set Colour
+            Call ellipse Function to draw ellipse
+        End
+        START DrawHair(, Black) Function
+            Variables: Vertex x-coordinate, Vertex y-coordinate, Colour
+            Call fill Function to set Colour
+            Call curveVertex to draw curved shape
+        End
+        START DrawEyes Function
+            Call DrawEyeballs Function
+            Call DrawPupils Function
+
+            START DrawEyeballs(160, 180, 60, White) Function
+                Variables: x-coordinate, y-coordinate, Radius, Colour
+                Call fill Function to set Colour
+                Call ellipse Function to draw ellipse
+            End
+            START DrawEyeballs(240, 180, 60, White) Function
+                Variables: x-coordinate, y-coordinate, Radius, Colour
+                Call fill Function to set Colour
+                Call ellipse Function to draw ellipse
+            End
+
+            START DrawPupils(xLeftPupil, yPupil, 25, Black) Function
+                Variables: xLeftPupil, yPupil, Radius, Colour
+                Call fill Function to set Colour
+                Call ellipse Function to draw ellipse
+                Call map Function to get mouse coordinates
+            End
+            START DrawPupils(xRightPupil, yPupil, 25, Black) Function
+                Variables: xRightPupil, yPupil, Radius, Colour
+                Call fill Function to set Colour
+                Call ellipse Function to draw ellipse
+                Call map Function to get mouse coordinates
+            End
+        End 
+        START DrawEyebrows(130, 145, 130, 130, 190, 145, Black) Function
+            Variables: x-coordinate of the first point, y-coordinate of the first point, x-coordinate of the second point, y-coordinate of the second point, x-coordinate of the third point, y-coordinate of the third point
+            Call fill Function to set Colour
+            Call triangle Function to draw triangle
+        End
+        START DrawEyebrows(210, 145, 270, 130, 270, 145, Black) Function
+            Variables: x-coordinate of the first point, y-coordinate of the first point, x-coordinate of the second point, y-coordinate of the second point, x-coordinate of the third point, y-coordinate of the third point
+            Call fill Function to set Colour
+            Call triangle Function to draw triangle
+        End
+        START DrawNose(width/2, height/2 + 10, width/2, height/2 + 75, width/2 + 20, height/2 + 60, #fdbc85) Function
+            Variables: x-coordinate of the first point, y-coordinate of the first Vertex, x-coordinate of the second Vertex, y-coordinate of the second Vertex, x-coordinate of the third Vertex, y-coordinate of the third Vertex
+            Call fill Function to set Colour
+            Call Vertex Function to draw triangle
+        End
+        DrawMouth(width/2 - 10, height/2 + 75, 125, 50, 0.2, PI-.9, Black, 5)
+            Variables: x-coordinate of the arc's ellipse, y-coordinate of the arc's ellipse, width of the arc's ellipse by default, height of the arc's ellipse by default, angle to start the arc, specified in radians, angle to stop the arc, specified in radians
+            Call stroke Function to set Colour
+            Call arc Function to draw arc
+        End
+    End
+End

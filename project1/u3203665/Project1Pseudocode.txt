@@ -1,0 +1,185 @@
+Project 1 - Pseudocode
+
+START
+CREATEcanvas
+DO
+    CALL drawABackground
+    CALL drawAPortrait 
+LOOP
+END
+
+//A0
+Function CREATEcanvas
+START
+Accept variables: width, height 
+    CALL canvas (width, height)
+END
+
+//A1
+Function drawABackground
+START
+    Accept variables: colour
+    CALL background (colour) 
+END
+
+//A2
+Function drawAPortrait 
+START
+    CALL drawHair
+    CALL drawANeck
+    CALL drawAFace
+    CALL drawEyes
+    CALL drawEyebrows
+    CALL drawANose
+    CALL drawAMouth
+    CALL drawGlasses
+    CALL drawFreckles
+    CALL drawTurtleneck
+END
+
+//A3 
+Function drawHair
+START
+DO LOOP
+    IF
+Accept variables: leftpos, toppos, width, height, colour
+    CALL fill(colour)
+    CALL ellipse(leftpos, toppos, width, height)
+    IF 
+        ellipse < 9 THEN 
+        LOOP
+    CALL fill(colour)
+    CALL rect(leftpos, toppos, width, height)
+    ELSE 
+        EXIT LOOP
+        CALL fill (colour)
+        CALL ellipse(leftpos, toppos, width, height)
+        CALL rect(leftpos, toppos, width, height)
+WHILE 
+END
+
+//A4
+Function drawANeck
+START
+Accept variables: leftpos, toppos, width, height, colour
+    CALL fill(colour)
+    CALL rect(leftpos, toppos, width, height)
+END 
+
+//A5
+Function drawAFace
+START
+Accept variables: leftpos, toppos, width, height, colour
+    CALL fill(colour)
+    CALL ellipse(leftpos, toppos, width, height)
+END
+
+//A6
+Function drawEyes
+START
+DO LOOP
+Accept variables: leftpos, toppos, width, height, colour
+    CALL fill(colour)
+    CALL ellipse(leftpos, toppos, width, height)
+    IF 
+        ellipse < 6 THEN 
+        LOOP
+    ELSE 
+        EXIT LOOP
+WHILE 
+END
+
+//A7
+Function drawEyebrows
+START
+DO LOOP
+Accept variables: leftpos, toppos, width, height, colour
+    CALL fill(colour)
+    CALL ellipse(leftpos, toppos, width, height)
+    IF 
+        ellipse < 2 THEN 
+        LOOP
+    ELSE 
+        EXIT LOOP
+WHILE 
+END
+
+//A8
+Function drawANose
+START
+Accept variables: leftpos, toppos, width, height, start angle, mode, colour
+    CALL fill(colour)
+    CALL line(leftpos, toppos, width, height, start angle, mode)
+END
+
+//A9 
+Function drawAMouth
+START
+DO LOOP
+Accept variables: point1xcoord, point1ycoord, point2xcoord, point2ycoord, point3xcoord, point3ycoord, colour
+    CALL fill(colour)
+    CALL triangle(point1xcoord, point1ycoord, point2xcoord, point2ycoord, point3xcoord, point3ycoord)
+    IF 
+        triangle < 2 THEN
+        LOOP
+    ELSE
+        EXIT LOOP
+        CALL fill(colour)
+        CALL ellipse(leftpos, toppos, width, height)
+        CALL fill(colour)
+        CALL triangle(point1xcoord, point1ycoord, point2xcoord, point2ycoord, point3xcoord, point3ycoord)
+END
+
+//A10
+Function drawGlasses
+START
+DO LOOP
+Accept variables: leftpos, toppos, width, height, radius, colour
+    CALL fill(colour)
+    CALL rect(leftpos, toppos, width, height, radius)
+    IF 
+        rect < 5 THEN
+        LOOP
+    ELSE
+        EXIT LOOP
+    DO LOOP
+    CALL fill(colour)
+    CALL ellipse(keftpos, toppos, width, height) 
+        IF 
+            ellipse < 2 THEN 
+            LOOP
+        ELSE
+            EXIT LOOP
+        DO LOOP
+        CALL fill(colour)
+        CALL rect(leftpos, toppos, width, height)
+        IF
+            rect < 3 THEN
+            LOOP
+        ELSE
+            EXIT LOOP
+WHILE
+END
+
+//A11
+Function drawFreckles
+START
+DO LOOP
+Accept variables: leftpos, toppos, width, height, colour
+    CALL fill(colour)
+    CALL ellipse(leftpos, toppos, width, height)
+    IF 
+        ellipse < 30 THEN 
+        LOOP
+    ELSE 
+        EXIT LOOP
+WHILE 
+END
+
+//A12
+Function drawTurtleneck
+START
+Accept variables: leftpos, toppos, width, height, colour
+    CALL fill(colour)
+    CALL rect(leftpos, toppos, width, height)
+END
