@@ -1,17 +1,20 @@
 //the online version of this sketch
 // https://editor.p5js.org/NextQueenLiz/sketches/ELJPCjCfS
 
+//set colour variants 
 var Haircolour;
-var Skincolour;
-var Facecolour;
-var Shirtcolour;
 var Collarcolour;
+var Skincolour;
+var Shirtcolour;
+var Facecolour;
 var Eyecolour;
+var Eyecolour2;
 var Lipcolour;
 
+//canvas setup
 function setup() {
   createCanvas(1000, 1000);
-  //set colour variants here
+  //set colours for colour names
   Haircolour = '#3D270B'
   Skincolour = '#E8D6BF'
   Facecolour = '#F6E4CC'
@@ -22,32 +25,26 @@ function setup() {
   Lipcolour = '#FFB7B7'
 }
 
+//drawing
 function draw() {
   background('#0DB689');
 
+  //hair base
   noStroke()
   fill (Haircolour)
-  //hair
   beginShape();
-  //top vertex
   vertex(500,300);
-  //upper shape vertex left
   vertex(400,320);
-  //mid shape vertex left
   vertex(350,400);
-  //lower shape vertex left
   vertex(320,640);
-  //bottom corners
   vertex(360,700);
   vertex(640,700);
   vertex(680,640);
-  //mid shape vertex right
   vertex(650,400);
-  //upper shape vertex right
   vertex(600,320);
   endShape(CLOSE);
     
-  //shirt collar behind left
+  //shirt collar behind - left
   fill(Collarcolour)
   beginShape()
   curveVertex(435,760);
@@ -56,7 +53,7 @@ function draw() {
   curveVertex(450,710);
   endShape(CLOSE);
   
-  //shirt collar behind right
+  //shirt collar behind - right
   beginShape()
   curveVertex(565,760);
   curveVertex(570,780);
@@ -70,13 +67,11 @@ function draw() {
   quad(460,700,540,700,190,880,810,880);
   
   //body
-  fill(Skincolour)
   quad(150,950,850,950,760,780,240,780);
   
   //clothing
   fill(Shirtcolour)
   beginShape()
-  //left side
   vertex(490,950);
   vertex(400,770);
   vertex(240,780);
@@ -87,7 +82,6 @@ function draw() {
   endShape(CLOSE);
   
   beginShape()
-   //right side
   vertex(510,950);
   vertex(600,770);
   vertex(760,780);
@@ -97,7 +91,7 @@ function draw() {
   vertex(760,950);
   endShape(CLOSE);
   
-  //shirt collar base left
+  //shirt collar base - left
   fill(Collarcolour)
   beginShape()
   vertex(380,740);
@@ -105,15 +99,7 @@ function draw() {
   vertex(490,950);
   endShape(CLOSE);
   
-  //shirt collar base right
-  beginShape()
-  vertex(620,740);
-  vertex(580,760);
-  vertex(510,950);
-  endShape(CLOSE);
-  
-  //shirt collar point left
-  fill(Collarcolour);
+   //shirt collar point - left
   beginShape()
   vertex(435,820);
   vertex(380,740);
@@ -121,18 +107,21 @@ function draw() {
   vertex(390,780);
   endShape(CLOSE);
   
-  //shirt collar point right
+  //shirt collar base - right
+  beginShape()
+  vertex(620,740);
+  vertex(580,760);
+  vertex(510,950);
+  endShape(CLOSE);
+  
+  //shirt collar point - right
   beginShape()
   vertex(565,820);
   vertex(620,740);
   vertex(650,790);
   vertex(610,780);
   endShape(CLOSE);
-  
-   //ears
-  
-  //earrings
-  
+
   //face
   fill (Facecolour);
   ellipse(500,530, 250,370);
@@ -140,9 +129,7 @@ function draw() {
   //hair over face
   fill (Haircolour);
   beginShape();
-  //point
   vertex(500,400);
-  //shape
   vertex(410,350);
   vertex(360,635);
   vertex(470,740);
@@ -160,7 +147,6 @@ function draw() {
   endShape(CLOSE);
   
   //hair bun
-  fill(Haircolour);
   beginShape();
   vertex(450,285);
   vertex(455,260);
@@ -175,19 +161,19 @@ function draw() {
   //eye base
   fill(Eyecolour);
   beginShape();
-  vertex(535,525);
-  vertex(540,510);
-  vertex(580,505);
-  vertex(600,520);
-  vertex(570,529);
-  endShape(CLOSE);
-  
-  beginShape();
   vertex(465,525);
   vertex(460,510);
   vertex(420,505);
   vertex(400,520);
   vertex(430,529);
+  endShape(CLOSE);
+  
+  beginShape();
+  vertex(535,525);
+  vertex(540,510);
+  vertex(580,505);
+  vertex(600,520);
+  vertex(570,529);
   endShape(CLOSE);
   
   stroke(0)
@@ -196,25 +182,6 @@ function draw() {
   line(580,505,595,515);
   line(420,505,405,515);
   line(460,510,420,505);
-  
-  //left eyebrow
-  fill(Haircolour);
-  beginShape();
-  vertex(480,492);
-  vertex(475,480);
-  vertex(420,470);
-  vertex(395,490);
-  vertex(420,480);
-  endShape(CLOSE);
-  
-  //right eyebrow
-  beginShape();
-  vertex(520,492);
-  vertex(525,480);
-  vertex(580,470);
-  vertex(605,490);
-  vertex(580,480);
-  endShape(CLOSE);
   
   //eye detail
   strokeWeight(1)
@@ -241,6 +208,25 @@ function draw() {
   ellipse(559,513,12);
   ellipse(441,513,12);
   
+  //left eyebrow
+  fill(Haircolour);
+  beginShape();
+  vertex(480,492);
+  vertex(475,480);
+  vertex(420,470);
+  vertex(395,490);
+  vertex(420,480);
+  endShape(CLOSE);
+  
+  //right eyebrow
+  beginShape();
+  vertex(520,492);
+  vertex(525,480);
+  vertex(580,470);
+  vertex(605,490);
+  vertex(580,480);
+  endShape(CLOSE);
+  
   //nose
   stroke(140)
   strokeWeight(1)
@@ -251,7 +237,6 @@ function draw() {
   line(477,580,470,590);
   
   //glasses
-  
  let RGlasses = map(mouseX, 0, width, 0, 255)
  let GGlasses = map(mouseY, 0, height, 0, 255);
 
@@ -299,6 +284,4 @@ function draw() {
   noFill();
   stroke('#FF9898')
   curve(450,640,490,649,510,649,550,640);
-
-  
 }
