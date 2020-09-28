@@ -5,6 +5,9 @@
     It will create a background that changes colour and a hiker which follows the mouse and
     changes which way it 'faces' depending on what direction they are moving.
 
+    Functions created for this script are at the bottom.
+    Constants and Variables are at the top.
+
     Created by CLaire McAuliffe 
     Date Created: 31/08/20
 */
@@ -24,79 +27,16 @@ const   c_hiker         ='#000000';     // Hiker Colour
         currentSeason   ='summer';      // Current Season
         x               = 0;            // The current x-coordiante of the 'Hiker'
         y               = 0;            // The current y-coordiante of the 'Hiker'
-        autoTimer       = 4000;         // automatically change seasons - value in milliseconds
-
-// Create a function which simplifies drawing a rotated ellipse
-function drawRotatedEllipse(x_coord, y_coord,degrees,width,height){
-    push();
-            translate(x_coord,y_coord);
-            rotate(radians(degrees));
-            fill(c_hiker);
-            noStroke();
-            ellipse(0,0,width,height);
-    pop();
-}
-// Create a function which simplifies drawing a rotated rectangle
-function drawRotatedRect(x_coord, y_coord,degrees,width,height,corners){
-    push();
-            translate(x_coord,y_coord);
-            rotate(radians(degrees));
-            fill(c_hiker);
-            noStroke();
-            rect(0,0,width,height,corners);
-    pop();
-}
-
-//Create a function that changes the colour pallet based on the 'season'
-function selectSeason(season){
-    currentSeason = season;             // Changes the currentSeason variable to whatever the input season is
-
-    if (season === 'summer'){           // 'If, else' statment checks what 'season' it is currently and changes to the opposite season
-            c_sky       ='#62B7D6';     
-            c_sun       ='#FFE23C';
-            c_mountain  ='#A3CF67';
-            c_msnow     ='#A3CF67';
-            c_tsnow     ='#09552B';
-    } else {
-            c_sky       ='#90C3D9';
-            c_sun       ='#FFD98E';
-            c_mountain  ='#9A7B63';
-            c_msnow     ='#FFFFFF';
-            c_tsnow     ='#FFFFFF';
-    }
-}
-
-// Create a function to change the 'season' to whatever is not the 'currentSeason'
-function changeSeason() {
-    if (currentSeason === 'winter') {      
-        selectSeason('summer');
-    } else {
-        selectSeason('winter');
-    }
-}
-
-// Use selectSeason and p5 library function 'mouseClicked' to change the 'season'
-function mouseClicked() {
-    changeSeason();
-}
-
-function autoChangeSeason(){
-    changeSeason();
-    if(autoTimer != 0){
-        setTimeout(autoChangeSeason, autoTimer);
-    }
-}
 
 
 function setup() {
-    var cnv = createCanvas(1255, 962);
-    var x_cnv = (windowWidth - width) / 2;
-    cnv.position(x_cnv);
+    var cnv = createCanvas(1255, 962);      // Draw Canas
+    var x_cnv = (windowWidth - width) / 2;  
+    cnv.position(x_cnv);                    // Position Canvas in the center of the screen
 
-    noStroke();                 // Set the stroke as none
-    selectSeason('summer');     // Use selectSeason function to set the starting season as summer
-    rectMode(CENTER);           // Change the location the rectangles are draw from
-    autoChangeSeason();         // Automatically change the seasons
+    noStroke();                             // Set the stroke as none
+    selectSeason('summer');                 // Use selectSeason function to set the starting season as summer
+    rectMode(CENTER);                       // Change the location the rectangles are draw from
 }
 function draw() {
     
@@ -136,15 +76,15 @@ function draw() {
     triangle(1255,500,448,962,1255,962);            // Left
     triangle(1255,620,-568,962,1255,962);           // Right
 
-    // Create hiker using shapes that are located relative to the 'x' and 'y' variables
+    // Create hiker using 'dir', 'x' and 'y' variables, so they face the direction they are moving
     drawHiker(); 
    
-    // Change the values of 'x' and 'y' so the hiker interacts with the mouse
-    if (mouseX > x+1 && x < 1300){      // Check if the mouse is on the right of the hiker
-        x+=3;                           // If so move 3 pixels towards the right
+    // Change the values of 'x' and 'y' so the hiker follows the mouse
+    if (mouseX > x+1 && x < 1300){          // Check if the mouse is on the right of the hiker
+        x+=3;                               // If so move 3 pixels towards the right
         
-    } else if (mouseX < x-1){           // Check if the mouse is on the left of the hiker
-        x-=3;                           // If so move 3 pixels towards the left
+    } else if (mouseX < x-1 && x > -50) {   // Check if the mouse is on the left of the hiker
+        x-=3;                               // If so move 3 pixels towards the left
     }
 
     // Make the hiker stay on a specific y position relative to 'x'
@@ -153,11 +93,47 @@ function draw() {
     } else {
         y=(-0.60*x+1180);       // Moves at angle 'y = 0.60x' along the second triangle of ground
     }
+
+    
  } 
 
-// Create hiker using shapes that are located relative to the 'x' and 'y' variables
+// Use changeSeason and p5 library function 'mouseClicked' to change 
+// the 'season' when the mouse is clicked
+function mouseClicked() {
+    changeSeason();
+}
+
+
+                    /* CREATE FUNCTIONS */
+
+ // Create a function which simplifies drawing a rotated ellipse
+function drawRotatedEllipse(x_coord, y_coord,degrees,width,height){
+    push();
+            translate(x_coord,y_coord);
+            rotate(radians(degrees));
+            fill(c_hiker);
+            noStroke();
+            ellipse(0,0,width,height);
+    pop();
+}
+// Create a function which simplifies drawing a rotated rectangle
+function drawRotatedRect(x_coord, y_coord,degrees,width,height,corners){
+    push();
+            translate(x_coord,y_coord);
+            rotate(radians(degrees));
+            fill(c_hiker);
+            noStroke();
+            rect(0,0,width,height,corners);
+    pop();
+}
+
+// Create a function that draws the hiker using shapes that are located relative to the 'dir','x' and 'y' variables
 function drawHiker(){
-    dir = (mouseX > x-2 ? 1 : -1);                      // direction hiker is facing relative to mouse position
+    if (mouseX > x-2) {         // Direction hiker is facing relative to mouse position
+        dir = 1
+    } else {
+        dir = -1
+    }                    
 
     circle(x+(3*dir),y-44,30);                          // Head
 
@@ -166,8 +142,8 @@ function drawHiker(){
     drawRotatedEllipse(x+18*dir,y-9,43*dir,52,8);       // Bottom Arm
     drawRotatedEllipse(x+23*dir,y-23,10*dir,52,8);      // Top Arm
 
-    drawRotatedEllipse(x-9,y+48,106,100,10);            // Right Leg
-    drawRotatedEllipse(x+11,y+28,64,100,10);            // Left Leg
+    drawRotatedEllipse(x-9,y+49,106,100,10);            // Left Leg
+    drawRotatedEllipse(x+11,y+37,64,100,10);            // Right Leg
 
     drawRotatedRect(x-25*dir,y-5,10*dir,30,60,10);      // Pack
 
@@ -175,4 +151,35 @@ function drawHiker(){
     drawRotatedRect(x+20*dir,y+47,20*dir,2,85,0);       // Bottom Arm Pole
 
 }
+
+//Create a function that sets the colour pallet for each 'season'
+function selectSeason(season){
+    currentSeason = season;             // Changes the currentSeason variable to whatever the input season is
+
+    if (season === 'summer'){           // 'If, else' statment checks what 'season' it is currently and uses the opposite season colours
+            c_sky       ='#62B7D6';     
+            c_sun       ='#FFE23C';
+            c_mountain  ='#A3CF67';
+            c_msnow     ='#A3CF67';
+            c_tsnow     ='#09552B';
+    } else {
+            c_sky       ='#90C3D9';
+            c_sun       ='#FFD98E';
+            c_mountain  ='#9A7B63';
+            c_msnow     ='#FFFFFF';
+            c_tsnow     ='#FFFFFF';
+    }
+}
+
+// Create a function to change the 'season' to whatever is not the 'currentSeason'
+function changeSeason() {
+    if (currentSeason === 'summer') {      
+        selectSeason('winter');
+    } else {
+        selectSeason('summer');
+    }
+}
+
+
+
 

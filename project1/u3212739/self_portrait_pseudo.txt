@@ -14,14 +14,14 @@ CONSTANT    c_trunk             = Brown
 CONSTANT    c_tree              = Green     
 CONSTANT    c_ground            = Black   
 CONSTANT    c_hiker             = Black     
-VARIABLE    c_sky                = undefined string         
+VARIABLE    c_sky               = undefined string         
 VARIABLE    c_sun               = undefined string    
 VARIABLE    c_mountain          = undefined string      
 VARIABLE    c_msnow             = undefined string
 VARIABLE    c_tsnow             = undefined string
 VARIABLE    currentSeason       = undefined string
 VARIABLE    hiker_x_coordinate  = undefined number
-VARIABLE    hiker_y_coordinate  = undefined number
+VARIABLE    hiker_x_coordinate  = undefined number
 
 SETUP
     CREATE canvas
