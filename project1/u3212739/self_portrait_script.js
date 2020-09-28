@@ -24,7 +24,7 @@ const   c_hiker         ='#000000';     // Hiker Colour
         currentSeason   ='summer';      // Current Season
         x               = 0;            // The current x-coordiante of the 'Hiker'
         y               = 0;            // The current y-coordiante of the 'Hiker'
-
+        autoTimer       = 4000;         // automatically change seasons - value in milliseconds
 
 // Create a function which simplifies drawing a rotated ellipse
 function drawRotatedEllipse(x_coord, y_coord,degrees,width,height){
@@ -66,9 +66,8 @@ function selectSeason(season){
     }
 }
 
-// Use selectSeason and p5 library function 'mouseClicked' to change the 
-// 'season' to whatever is not the 'currentSeason' when the mouse is clicked
-function mouseClicked() {
+// Create a function to change the 'season' to whatever is not the 'currentSeason'
+function changeSeason() {
     if (currentSeason === 'winter') {      
         selectSeason('summer');
     } else {
@@ -76,13 +75,29 @@ function mouseClicked() {
     }
 }
 
-function setup() {
-    createCanvas(1255,962);     // Create the canvas
-    noStroke();                 // Set the stroke as none
-    selectSeason('summer');     // Use selectSeason function to set the starting season as summer
+// Use selectSeason and p5 library function 'mouseClicked' to change the 'season'
+function mouseClicked() {
+    changeSeason();
+}
+
+function autoChangeSeason(){
+    changeSeason();
+    if(autoTimer != 0){
+        setTimeout(autoChangeSeason, autoTimer);
+    }
 }
 
 
+function setup() {
+    var cnv = createCanvas(1255, 962);
+    var x_cnv = (windowWidth - width) / 2;
+    cnv.position(x_cnv);
+
+    noStroke();                 // Set the stroke as none
+    selectSeason('summer');     // Use selectSeason function to set the starting season as summer
+    rectMode(CENTER);           // Change the location the rectangles are draw from
+    autoChangeSeason();         // Automatically change the seasons
+}
 function draw() {
     
     // Set the background to whatever colour is currently defined in the variable c_sky (sky colour)
@@ -121,48 +136,8 @@ function draw() {
     triangle(1255,500,448,962,1255,962);            // Left
     triangle(1255,620,-568,962,1255,962);           // Right
 
-
-
-    // Change the location the rectangles are draw from relative to x and y so they can be more easilt flipped
-    rectMode(CENTER);
-
     // Create hiker using shapes that are located relative to the 'x' and 'y' variables
-    // This if then statment determines the direction the hiker is 'faceing' as the direction the mouse is relative to the hiker
-    if (mouseX > x-1) {             
-    
-        circle(x+3,y-44,30);                        // Head
-
-        ellipse(x,y,30,60);                         // Body
-
-        drawRotatedEllipse(x+18,y-9,43,52,8);       // Bottom Arm
-        drawRotatedEllipse(x+23,y-23,10,52,8);      // Top Arm
-
-        drawRotatedEllipse(x-9,y+48,106,100,10);    // Right Leg
-        drawRotatedEllipse(x+11,y+28,64,100,10);    // Left Leg
-
-        drawRotatedRect(x-25,y-5,10,30,60,10);      // Pack
-
-        drawRotatedRect(x+30,y+20,15,2,85,0);       // Top Arm Pole
-        drawRotatedRect(x+20,y+47,20,2,85,0);       // Bottom Arm Pole
-    
-    } else {
-    
-        circle(x-3,y-44,30);                        // Head
-
-        ellipse(x,y,30,60);                         // Body
-
-        drawRotatedEllipse(x-18,y-9,-43,52,8);      // Bottom Arm
-        drawRotatedEllipse(x-23,y-23,-10,52,8);     // Top Arm
-
-        drawRotatedEllipse(x-9,y+48,106,100,10);    // Right Leg
-        drawRotatedEllipse(x+11,y+28,64,100,10);    // Left Leg
-
-        drawRotatedRect(x+25,y-5,-10,30,60,10);     // Pack
-
-        drawRotatedRect(x-30,y+20,-15,2,85,0);      // Top Arm Pole
-        drawRotatedRect(x-20,y+47,-20,2,85,0);      // Bottom Arm Pole
-    }
-
+    drawHiker(); 
    
     // Change the values of 'x' and 'y' so the hiker interacts with the mouse
     if (mouseX > x+1 && x < 1300){      // Check if the mouse is on the right of the hiker
@@ -172,11 +147,32 @@ function draw() {
         x-=3;                           // If so move 3 pixels towards the left
     }
 
-
     // Make the hiker stay on a specific y position relative to 'x'
     if (x < 960) {
         y=(-0.18*x)+775;        // Moves at angle 'y = 0.18x' along the first triangle of ground
     } else {
         y=(-0.60*x+1180);       // Moves at angle 'y = 0.60x' along the second triangle of ground
     }
-} 
+ } 
+
+// Create hiker using shapes that are located relative to the 'x' and 'y' variables
+function drawHiker(){
+    dir = (mouseX > x-2 ? 1 : -1);                      // direction hiker is facing relative to mouse position
+
+    circle(x+(3*dir),y-44,30);                          // Head
+
+    ellipse(x,y,30,60);                                 // Body
+
+    drawRotatedEllipse(x+18*dir,y-9,43*dir,52,8);       // Bottom Arm
+    drawRotatedEllipse(x+23*dir,y-23,10*dir,52,8);      // Top Arm
+
+    drawRotatedEllipse(x-9,y+48,106,100,10);            // Right Leg
+    drawRotatedEllipse(x+11,y+28,64,100,10);            // Left Leg
+
+    drawRotatedRect(x-25*dir,y-5,10*dir,30,60,10);      // Pack
+
+    drawRotatedRect(x+30*dir,y+20,15*dir,2,85,0);       // Top Arm Pole
+    drawRotatedRect(x+20*dir,y+47,20*dir,2,85,0);       // Bottom Arm Pole
+
+}
+
