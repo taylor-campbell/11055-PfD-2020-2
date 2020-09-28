@@ -4,7 +4,10 @@
  Note: Cordinating of the shapes help found using photoshop.
 * */
 
-     
+let xLeft = 273;
+let xRight = 438;
+let lefty = 395;
+let righty = 432;
 
     function drawHead()
     {
@@ -35,6 +38,22 @@ function drawEyes()
 {   
     drawLefteye();
     drawRighteye(); 
+//------------------------------------
+    noStroke();
+    fill(56,16,28);
+    ellipse(273,395,29); //left   
+    ellipse(438 ,432 ,29);
+
+    // Pupils
+    fill(0);
+    ellipse(xLeft, lefty, 15);
+    ellipse(xRight, righty, 15);
+    
+    lefty = map(mouseY, 0, height, 390, 400, true);
+    righty = map(mouseY, 0, height, 428, 442, true);
+    xLeft = map(mouseX, 0, width, 268, 280, true);
+    xRight = map(mouseX, 0, width, 435, 441, true);
+    
 }
 
 //fuction to draw the left eye of the face 
@@ -55,8 +74,11 @@ function drawLefteye()
         rotate(49);
         arc(0, 0, 90, 75, 0, 93, PI-0.5);               
     pop();
-    fill(56,16,28);
-        ellipse(273,395,29,26);
+   
+   
+       
+
+      
 }
 
 function drawRighteye()
@@ -75,8 +97,7 @@ push();
     rotate(49);
     arc(0, 0, 90, 75, 0, 93, PI-0.5);               
 pop();
-fill(56,16,28);
-    ellipse(438.50 ,432.50 ,29,27);
+
 }
 
 function drawNose()
