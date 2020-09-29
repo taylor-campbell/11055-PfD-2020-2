@@ -1,13 +1,20 @@
-/**
+/*
  Seth Arnould 
  The Program on the document are the functions used to created the portrait. 
  Note: Cordinating of the shapes help found using photoshop.
-* */
+ -------------------------------------------------------------------------------- */
 
+
+//decaring the loction for the eye for both eye on each side of face
+//These values are important for the eye to move with the mouse
 let xLeft = 273;
 let xRight = 438;
 let lefty = 395;
 let righty = 432;
+//create new variable called up, 
+//variable used for eye brow moving up and down
+var direction = "Up";
+var checkBox = document.getElementById("browcheck");
 
     function drawHead()
     {
@@ -19,8 +26,6 @@ let righty = 432;
             rotate(4.4);
             ellipse(0, 0,397, 584);
         pop();
-     
-       
         // ellipse(posleft, postop, width, height)
         // fill(colour)
         // Call drawEars
@@ -38,21 +43,32 @@ function drawEyes()
 {   
     drawLefteye();
     drawRighteye(); 
+    draweyeBrow();
 //------------------------------------
+//This section of code is for the eye ball / pupils 
+//and the movement of eyes following the mouse
   
     fill(56,16,28);
-    ellipse(xLeft, lefty,29); //left   
+    //The left and right eyeball using the values define at the top
+    ellipse(xLeft, lefty,29);   
     ellipse(xRight, righty,29);
-
-    // Pupils
+    
     fill(0);
+    // The right and leftPupils
     ellipse(xLeft, lefty, 15);
     ellipse(xRight, righty, 15);
     
+    //Creating map of how far left, right, up and down the that the shape
+    //can go while following the map
+   
     lefty = map(mouseY, 0, height, 393, 397, true);
     righty = map(mouseY, 0, height, 430, 435, true);
+     //The first two our for where the eyes can go in the y direction (up and down) and
+     //how far up and down the ellipse can go 
     xLeft = map(mouseX, 0, width, 268, 280, true);
     xRight = map(mouseX, 0, width, 435, 441, true);
+    //The xleft and xright is for where the ellipse can go in the x axis (left to right),
+    //how far it can move from the original cordnainates 
     
 }
 
@@ -74,11 +90,6 @@ function drawLefteye()
         rotate(49);
         arc(0, 0, 90, 75, 0, 93, PI-0.5);               
     pop();
-   
-   
-       
-
-      
 }
 
 function drawRighteye()
@@ -97,6 +108,62 @@ push();
     rotate(49);
     arc(0, 0, 90, 75, 0, 93, PI-0.5);               
 pop();
+
+}
+function draweyeBrow()
+{
+    
+
+    //Left eye brow
+    push();
+    noStroke();
+  
+    translate(270,yLeftbrow);
+      scale(0.7);
+    rotate(21)
+    rect(0,0,85,17)
+    rotate(-25);
+    rect(-35,0,38,16);
+    pop();
+    
+    push();
+    noStroke();
+  
+    translate(410,yRightbrow);
+    rotate(7.6)
+    rect(0,0,70,14)
+    rotate(0);
+    rect(-10,3,14,10)
+   
+    pop();
+    //if the direction has string called Up, 
+    //the brow will move up
+    if(direction == "Up")
+    {
+    //the brow will move at speed .5 corndinate of millsecond 
+    yLeftbrow = yLeftbrow - 0.5;
+    yRightbrow = yRightbrow - 0.5
+    }
+    //When the direction string is Down,
+    //the brow will move down
+    if (direction == "Down")
+    {
+        yLeftbrow = yLeftbrow + 0.5;
+        yRightbrow = yRightbrow + 0.5;
+    }
+    //When the brow reach 320 and 365, the direction variable will change to down
+    //and the brow will be able to move down
+    if (yLeftbrow <= 320 && yRightbrow <= 365) 
+    {
+        direction = "Down";
+    }
+    //When the brow reach the original y cord, the direction string will change to up
+    //and the brow will be able to move upwards
+    if (yLeftbrow >= 336 && yRightbrow >= 381) 
+    {
+        direction = "Up";
+    }
+  
 
 }
 

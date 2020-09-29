@@ -1,19 +1,19 @@
 
-//onst for the sizes
-
-//const fro the drawwing width and heigh
-//variable for the eye level
-//variable for eye wwth
-//const colour
-
-
+//the setup for the main drawing, creating a canvas, 
+//background colour and what angle model to uses, which is set
 function setup() {
     createCanvas(641, 904);
-    background("pink");
     angleMode(DEGREES);
+
+  //Seting the variable of the cordinates of y so the shapes can move up and down,
+    //for both Left side and right side.
+   
+    yLeftbrow = 336;    
+    yRightbrow = 381;
   }
   
   function draw() {
+    background("pink");
 drawBody();
 drawbackhair();
 drawHead();
