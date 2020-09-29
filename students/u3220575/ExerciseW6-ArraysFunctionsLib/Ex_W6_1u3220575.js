@@ -18,6 +18,7 @@ document.write("family_names.length + <br/>");
 
 //using a for // this is a loop to add index // let = only exist until the block closes {}
 // i++ = iterate 
+// i should always be less than the max length (with .length)
 document.write("the family names automatically + <br/>")
 for(let i = 0; i < family_names.length; i++) {
         document.write(family_names[i] + "<br/>");
