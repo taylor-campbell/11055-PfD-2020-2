@@ -3,12 +3,23 @@
     <head>
         <script src = "https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/p5.js"></script>
         <script src="MyLibarires/drawFuctions.js"></script>
+        <style>
+            .right {
+              position: absolute;
+              right: 0px;
+              width: 300px;
+              border: 3px solid #73AD21;
+              padding: 10px;
+            }
+            </style>
     </head>
     <body>
        
         <script src ="Portraitproject.js"></script>
-        <button onclick="Nextstep()">Next Step</button>
-       Moving Eyebrow: <input type="checkbox" id="browcheck" onclick="draweyeBrow()">
-
+        <div class="right">
+        <h1>Changes</h1>
+        <label for="browcheck"> Eyebrow Stop or Play:</label> <input type="checkbox" id="browcheck" onclick="draweyeBrow()"><br/>
+        <label for="browcheck"> Glasses On or Off:</label> <input type="checkbox" id="glassescheck" onclick="drawGlasses()">   
+    </div>
     </body>
 </html>

@@ -7,7 +7,6 @@ function setup() {
 
   //Seting the variable of the cordinates of y so the shapes can move up and down,
     //for both Left side and right side.
-   
     yLeftbrow = 336;    
     yRightbrow = 381;
   }
@@ -18,9 +17,10 @@ drawBody();
 drawbackhair();
 drawHead();
 drawfronthair();
-drawEyes();
 drawNose();
+drawEyes();
 drawMouth();
+
 
 }
 // Call drawHead()

@@ -14,7 +14,6 @@ let righty = 432;
 //create new variable called up, 
 //variable used for eye brow moving up and down
 var direction = "Up";
-var checkBox = document.getElementById("browcheck");
 
     function drawHead()
     {
@@ -26,9 +25,11 @@ var checkBox = document.getElementById("browcheck");
             rotate(4.4);
             ellipse(0, 0,397, 584);
         pop();
+
         // ellipse(posleft, postop, width, height)
         // fill(colour)
         // Call drawEars
+
     }    
     function drawEars()
 {
@@ -41,10 +42,11 @@ var checkBox = document.getElementById("browcheck");
 }
 function drawEyes()
 {   
+    //Call drawLefteye, drawRighteye, drawBrow, and drawGlasses
     drawLefteye();
     drawRighteye(); 
     draweyeBrow();
-//------------------------------------
+    
 //This section of code is for the eye ball / pupils 
 //and the movement of eyes following the mouse
   
@@ -69,7 +71,9 @@ function drawEyes()
     xRight = map(mouseX, 0, width, 435, 441, true);
     //The xleft and xright is for where the ellipse can go in the x axis (left to right),
     //how far it can move from the original cordnainates 
-    
+   
+    //Call drawGlasses at botom so eye balls will be behied the glasses
+    drawGlasses();
 }
 
 //fuction to draw the left eye of the face 
@@ -110,6 +114,7 @@ push();
 pop();
 
 }
+
 function draweyeBrow()
 {
     
@@ -151,6 +156,7 @@ function draweyeBrow()
         yLeftbrow = yLeftbrow + 0.5;
         yRightbrow = yRightbrow + 0.5;
     }
+    
     //When the brow reach 320 and 365, the direction variable will change to down
     //and the brow will be able to move down
     if (yLeftbrow <= 320 && yRightbrow <= 365) 
@@ -163,10 +169,33 @@ function draweyeBrow()
     {
         direction = "Up";
     }
+   
+    
   
-
 }
-
+function drawGlasses()
+{
+    glassColour = color("white");
+    //set the opacity of the fill colour
+    //0 being fully transprate and 250 being solid colour
+    glassColour.setAlpha(150);
+    push();
+        translate(230,340);
+        //seting the glasses colour to what was set for glassescolour up above
+        fill(glassColour);
+        rotate(15);
+        strokeWeight(7);
+        rect(0,0,130,90,20);
+        rect(175,0,130,90,20);
+        fill(0);
+        noStroke();
+        rect(130,20,45,22,);
+        rect(-25,5,28,24);
+    
+        rotate(-3.5);
+        rect(-90,4,65,17);
+    pop();
+}
 function drawNose()
 {
     //Left section of nose
@@ -205,6 +234,11 @@ function drawNose()
         rotate(-21);
         fill("black")
         ellipse(0 ,0,17,7);
+   pop();
+   push();
+   noStroke();
+   fill(206,167,147);
+   ellipse(387,450,30,110);
    pop();
 }
 function drawMouth()
@@ -248,6 +282,7 @@ push();
     noStroke();
     fill(210,174,156);
     rect(170,630,269,219);  
+  
       
    push();
    noStroke();
@@ -263,7 +298,9 @@ push();
     rotate(30);
     rect(0,0,100,126)
    pop();
-
+   //shadow on the neck 
+   fill(195,152,130);
+   ellipse(300,750,170,219);  
 pop();
 //Call shirt fuction, this is locate at the end of fuction so the shape 
 //in the shirt fuction will appear infornt of this fuction/layer
