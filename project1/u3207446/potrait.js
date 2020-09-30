@@ -257,6 +257,24 @@ function drawNose() {
 // A10 - Function to draw mouth
 function drawMouth() {
 
+    strokeWeight(4);
+    beginShape();
+    curveVertex(345, 543);
+    curveVertex(345, 543);
+    curveVertex(369, 545);
+    curveVertex(390, 544);
+    curveVertex(406, 547);
+    curveVertex(431, 544);
+    curveVertex(455, 542);
+    curveVertex(468, 539);
+    curveVertex(468, 539);
+    endShape();
+
+    fill(229, 206, 183);
+    stroke(229, 206, 183);
+    strokeWeight(1);
+    arc(405, 555, 30, 30, 0, PI, OPEN);
+
 }
 
 
