@@ -180,32 +180,34 @@ function drawShirt(colour) {
     var collar1Leftpos = (cWidth/2) - 100;
     var collar2Leftpos = (cWidth/2);
     var collarToppos = cHeight - 100; // puts the collars near the bottom
-    var sleeveWidth = 200;
+    var sleeveWidth = 300;
     var sleeveHeight = 50;
     var leftSleeveLeftpos = collar1Leftpos - sleeveWidth; // to put the sleeves right at the end of the collar
     var rightSleeveLeftpos = collar2Leftpos + (sleeveWidth/2);
     var chestWidth = (collarWidth * 2) + 50;
     var chestHeight = 300;
-    var chestToppos = collarToppos + 30;
+    var chestToppos = collarToppos + 20;
     var chestLeftpos = (cWidth/2) - (chestWidth/2);
 
     angleMode(DEGREES); // changing the angle from radians to degrees
     translate(collar1Leftpos, collarToppos); // moves the point of origin from 0,0 of the canvas to x = collar1LeftPos, y = collarToppos
-    rotate(20); 
+    rotate(10); 
     drawRect(collarWidth, collarHeight, 0, 0, colour);  
 
-    translate(100, 0); // moves the point of origin from collar1LeftPos to collar1LeftPos + 100 and y remains the same
-    rotate(-40); 
+    translate(collarWidth, 0); // moves 
+    rotate(-20); 
     drawRect(collarWidth, collarHeight, 0, 0, colour);
-    rotate(40);
 
-    translate(100, 0);
-    // drawRect(chestWidth, chestHeight, chestLeftpos, chestToppos, colour);
-    // rotate(2); 
-    // drawRect(sleeveWidth, sleeveHeight, leftSleeveLeftpos, collarToppos, colour);
+    translate(collarWidth, 0)
+    rotate(20);
+    drawRect(sleeveWidth, sleeveHeight, 0, 0, colour);
 
-    // drawRect(sleeveWidth, sleeveHeight, rightSleeveLeftpos, collarToppos, colour);
-    // rotate(-10); 
+    rotate(-10);
+    drawRect(sleeveWidth, sleeveHeight, 0 - (collarWidth * 2) - sleeveWidth, 0, colour);
+
+    
+    translate(0 - (collarWidth * 2) - collar1Leftpos, 0 - collarToppos); // resetting the origin back to the original
+    drawRect(chestWidth, chestHeight, chestLeftpos, chestToppos, colour); 
 
     
 
@@ -226,8 +228,8 @@ function drawBackground() {
     
         var ellipseColour;
         var backColour;
-        var ellipseWidth = 30;
-        var ellipseHeight = 30;
+        var ellipseWidth = 100;
+        var ellipseHeight = 100;
         var ellipseLeftpos = 25;
         var ellipseToppos = 25;
     
@@ -236,7 +238,7 @@ function drawBackground() {
     // backColour = black
     
     if (mouseIsPressed) {
-        ellipseColour = 255;
+        ellipseColour = 230;
         backColour = 0;
       } else {
         ellipseColour = "#e3cb17";
@@ -247,8 +249,8 @@ function drawBackground() {
     // ellipseColour = yellow
     // backColour = blue
     
-    drawEllipse(ellipseWidth, ellipseHeight, ellipseLeftpos, ellipseToppos, ellipseColour);
     background(backColour);
+    drawEllipse(ellipseWidth, ellipseHeight, ellipseLeftpos, ellipseToppos, ellipseColour);
     
     // CALL drawEllipse(ellipseWidth, ellipseHeight, ellipseLeftpos, ellipseToppos, ellipseColour)
     
