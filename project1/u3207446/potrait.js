@@ -8,14 +8,14 @@ function setup() {
 }
 
 // Start drawing
-function draw() {    
+function draw() {
 
     // Draw background
-    drawBackground();   
+    drawBackground();
 
     //Draw portrait
     drawPortrait();
-    
+
 }
 
 
@@ -70,7 +70,7 @@ function drawBody() {
 function drawFace() {
 
     beginShape();
-    stroke(229,206,183);
+    stroke(229, 206, 183);
     strokeWeight(4);
     curveVertex(399, 0);
     curveVertex(220, 70);
@@ -219,18 +219,38 @@ function drawRightEye() {
 // A9 - Function to draw nose
 function drawNose() {
 
-    /* fill(255,239,224);
-    noStroke();
-    ellipse(410, 430, 15, 110);
-
-    fill(237,140,110,50);
-    ellipse(410, 470, 80, 25);
-
+    noFill();
     strokeWeight(2);
-    stroke(255,0,0);
-    eclipse(50,100,100,100); */
-   
+    beginShape();
+    curveVertex(388, 369);
+    curveVertex(388, 369);
+    curveVertex(379, 440);
+    curveVertex(365, 469);
+    curveVertex(375, 489);
+    curveVertex(382, 493);
+    curveVertex(382, 493);
+    endShape();
 
+
+    beginShape();
+    curveVertex(410, 367);
+    curveVertex(410, 367);
+    curveVertex(420, 441);
+    curveVertex(440, 464);
+    curveVertex(440, 479);
+    curveVertex(432, 491);
+    curveVertex(426, 496);
+    curveVertex(426, 496);
+    endShape();
+
+    beginShape();
+    curveVertex(373, 480);
+    curveVertex(386, 489);
+    curveVertex(397, 499);
+    curveVertex(412, 500);
+    curveVertex(425, 488);
+    curveVertex(434, 483);
+    endShape();
 
 }
 
