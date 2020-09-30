@@ -52,8 +52,8 @@ function drawPortrait() {
 // Function - A2.1 Draw Body
 function drawBody() {
 
-    beginShape();
     fill(255, 229, 204);
+    beginShape();    
     vertex(0, 770);
     vertex(260, 690);
     vertex(300, 660);
@@ -69,9 +69,9 @@ function drawBody() {
 // Function - A2.2 Draw Face
 function drawFace() {
 
-    beginShape();
     stroke(229, 206, 183);
     strokeWeight(4);
+    beginShape();
     curveVertex(399, 0);
     curveVertex(220, 70);
     curveVertex(160, 200);
@@ -90,7 +90,7 @@ function drawFace() {
 // Function - A2.3 Draw Tshirt
 function drawTshirt() {
 
-    // A2.3.1 Draw Tshirt Whitepart
+    // Draw Tshirt Whitepart
     fill(255, 255, 255);
     beginShape();
     vertex(130, 799);
@@ -100,11 +100,11 @@ function drawTshirt() {
     vertex(682, 799);
     endShape(CLOSE);
 
-    // A2.3.2 Draw Tshirt Border
+    // Draw Tshirt Border
     fill(220, 220, 220);
-    beginShape();
     strokeWeight(4);
     stroke(128, 128, 128);
+    beginShape();    
     vertex(230, 700);
     vertex(400, 780);
     vertex(560, 700);
@@ -117,11 +117,12 @@ function drawTshirt() {
 
 // Function - A2.4 Draw Jacket
 function drawJacket() {
-
-    // A2.4.1 Draw Jacket Left Shoulder
+    
     strokeWeight(2);
     stroke(47, 79, 79);
     fill(63, 130, 164);
+
+    // Draw Jacket Left Shoulder
     beginShape();
     vertex(0, 760);
     vertex(260, 680);
@@ -130,7 +131,7 @@ function drawJacket() {
     vertex(0, 799);
     endShape(CLOSE);
 
-    // A2.4.2 Draw Jacket Right Shoulder
+    // Draw Jacket Right Shoulder
     beginShape();
     vertex(799, 760);
     vertex(580, 680);
@@ -140,7 +141,7 @@ function drawJacket() {
     endShape(CLOSE);
 
 
-    // A2.4.3 Draw Jacket Left Collar
+    // Draw Jacket Left Collar
     beginShape();
     curveVertex(300, 600);
     vertex(140, 750);
@@ -150,7 +151,7 @@ function drawJacket() {
     vertex(300, 660);
     endShape(CLOSE);
 
-    // A2.4.4 Draw Jacket Right Collar
+    // Draw Jacket Right Collar
     beginShape();
     curveVertex(500, 600);
     vertex(670, 750);
@@ -186,26 +187,24 @@ function drawHair() {
     curveVertex(142, 284);
     endShape(CLOSE);
 
-
 }
 
 // Function - A2.6 Draw Eyes
 function drawEyes() {
 
-    // A2.6.1 Draw Eye Outline
+    // Draw Eye Outline
     fill(255,255,255);
     strokeWeight(2);
     ellipse(310, 300, 80, 50); // Left eye layout
     ellipse(500, 300, 80, 50); // Right eye layout
 
-    // A2.6.2 Draw Eye parts
+    // Draw Eye parts
     drawEye(312,300); // Left eye
     drawEye(500,300); // Right eye
 
-
 }
 
-// Function - A2.6.2 Draw Eye parts
+// Function - A2.6.1 Draw Eye parts
 function drawEye(x, y) {
     
     // A2.6.2.1 Draw Iris
@@ -226,6 +225,7 @@ function drawNose() {
     noFill();
     stroke(47, 79, 79);
     strokeWeight(2);
+
     beginShape();
     curveVertex(388, 369);
     curveVertex(388, 369);
@@ -262,6 +262,7 @@ function drawNose() {
 function drawMouth() {
 
     strokeWeight(4);
+    
     beginShape();
     curveVertex(345, 543);
     curveVertex(345, 543);
