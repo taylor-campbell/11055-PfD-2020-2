@@ -1,8 +1,6 @@
 var x = 800; // Width of Canvas
 var y = 800; // Height of Canvas
 
-var circleX = 0;
-
 
 // A0 - Creating a Canvas
 function setup() {
@@ -10,16 +8,15 @@ function setup() {
 }
 
 // Start drawing
-function draw() {
+function draw() {    
 
     // Draw background
-    drawBackground();
+    drawBackground();   
 
     //Draw portrait
     drawPortrait();
+    
 }
-
-
 
 
 
@@ -73,6 +70,8 @@ function drawBody() {
 function drawFace() {
 
     beginShape();
+    stroke(229,206,183);
+    strokeWeight(4);
     curveVertex(399, 0);
     curveVertex(220, 70);
     curveVertex(160, 200);
@@ -168,11 +167,11 @@ function drawJacket() {
 function drawHair() {
 
     beginShape();
-    curveVertex(210, 440);
+    curveVertex(205, 440);
     curveVertex(198, 260);
-    curveVertex(358, 102);
-    curveVertex(408, 114);
-    curveVertex(446, 100);
+    curveVertex(260, 130);
+    curveVertex(408, 200);  // Tip of front hair
+    curveVertex(550, 130);
     curveVertex(606, 254);
     curveVertex(598, 428);
     curveVertex(652, 274);
@@ -186,7 +185,6 @@ function drawHair() {
     curveVertex(200, 72);
     curveVertex(146, 162);
     curveVertex(142, 284);
-
     endShape(CLOSE);
 
 
@@ -195,16 +193,44 @@ function drawHair() {
 // A8 - Function to draw eyes
 function drawEyes() {
 
+    drawLeftEye();
+    drawRightEye();
+
     noFill();
     strokeWeight(5);
-    ellipse(310, 300, 100, 80);
-    ellipse(500, 300, 100, 80);
+    ellipse(310, 300, 100, 50);
+    ellipse(500, 300, 100, 50);
 
 
 }
 
+// A8.1 - Function to draw left eye
+function drawLeftEye() {
+
+}
+
+// A8.2 - Function to draw right eye
+function drawRightEye() {
+
+}
+
+
+
 // A9 - Function to draw nose
 function drawNose() {
+
+    /* fill(255,239,224);
+    noStroke();
+    ellipse(410, 430, 15, 110);
+
+    fill(237,140,110,50);
+    ellipse(410, 470, 80, 25);
+
+    strokeWeight(2);
+    stroke(255,0,0);
+    eclipse(50,100,100,100); */
+   
+
 
 }
 
