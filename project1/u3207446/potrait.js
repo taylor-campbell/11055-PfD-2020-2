@@ -1,10 +1,10 @@
-var x = 800; // Width of Canvas
-var y = 800; // Height of Canvas
+var canvasWidth = 800; // Width of Canvas
+var canvasHeight = 800; // Height of Canvas
 
 
 // A0 - Creating a Canvas
 function setup() {
-    createCanvas(x, y);
+    createCanvas(canvasWidth, canvasHeight);
 }
 
 // Start drawing
@@ -23,7 +23,8 @@ function draw() {
 // A1- Function to draw a background
 function drawBackground() {
 
-    background(25, 255, 250);
+    var rValue = map(mouseX, 0, canvasWidth, 0, 255);
+    background(rValue, 255, 255-rValue);
 
 };
 
@@ -196,8 +197,8 @@ function drawEyes() {
     // Eye outline
     fill(255,255,255);
     strokeWeight(2);
-    ellipse(310, 300, 100, 50); // Left eye layout
-    ellipse(500, 300, 100, 50); // Right eye layout
+    ellipse(310, 300, 80, 50); // Left eye layout
+    ellipse(500, 300, 80, 50); // Right eye layout
 
     // A8.1 - Function to draw eyes Iris and Pupil
     drawEye(312,300);
