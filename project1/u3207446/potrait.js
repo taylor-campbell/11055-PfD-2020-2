@@ -19,7 +19,6 @@ function draw() {
 }
 
 
-
 // A1- Function to draw a background
 function drawBackground() {
 
