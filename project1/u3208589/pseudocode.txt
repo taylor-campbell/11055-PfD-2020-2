@@ -1,0 +1,214 @@
+Creat x and y
+set x = 300 (x cooridnate)
+set y = 200 (y coordinate)
+Set diameter = 20 
+
+First - drawing face 
+create face
+IF x <width
+THEN x = 300
+ELSE x =""
+
+IF y < height
+THEN y = 200
+ELSE y =""
+
+Second - drawing hair - hairbang and backhair
+create xhairbang, yhairbang, xbackhair and ybackhair
+setxhairbang = x
+set yhairbang = y - 50 
+set xbackhair = x - 74.5
+set ybackhair = y - 80
+
+IF xhairbang < width 
+THEN xhairbang = x
+ELSE xhairbang = ""
+
+IF yhairbang < height 
+THEN yhairbang = y-50
+ELSE xhairbang = ""
+
+IF xbackhair < width 
+THEN xbackhair = x - 74.5
+ELSE xbackhair = ""
+
+IF ybackhair < height 
+THEN ybackhair = y-50
+ELSE xbackhair = ""
+
+
+Third - drawing ears
+Create xleftear, yleftear, diameter, xrightear, and yrightear
+Set xleftear = x - 47
+Set yleftear = y + 10
+
+Set xrightear = x + 47
+Set yrightear = yleftear
+
+IF xleftear < width 
+THEN xleftear = x - 47 
+ELSE xleftear = ""
+
+IF yleftear < height 
+THEN yleftear = y+10 
+ELSE xleftear = ""
+
+IF xrightear < width 
+THEN xrightear = x + 47
+ELSE xrightear = ""
+
+IF yrightear < height 
+THEN yrightear = yleftear
+ELSE xrightear = ""
+
+If diameter > 0 
+THEN diameter = 20
+ELSE diamter = ""
+
+Fourth - drawing eyes
+Create xlefteye, ylefteye, pupildiameter, xrighteye, and yrighteye
+Set xlefteye = x - 20
+Set ylefteye = y + 10
+Set xrighteye = x +20
+Set yrighteye = ylefteye
+
+IF xlefteye < width 
+THEN xlefteye = x - 20
+ELSE xleftear = ""
+
+IF ylefteye < height 
+THEN yleftear = y+10 
+ELSE xleftear = ""
+
+IF xrighteye < width 
+THEN xlefteye = x + 20
+ELSE xlefteye = ""
+
+IF yrighteye < height 
+THEN yrighteye = ylefteye 
+ELSE yrighteye = ""
+
+
+Set xleftppupil = xlefteye
+Set xrightpupil = xrighteye
+Set yleftpupil = y + 12.5
+Set yrightpupil = yleftpupil
+Set pupildiameter = diameter /2 
+
+IF xleftpupil < width 
+THEN xleftpupil = xlefteye
+ELSE xlefteye = ""
+
+IF yleftpupil < height 
+THEN yleftpupil = y + 12.5
+ELSE yrightpupil = ""
+
+IF xrightpupil < width 
+THEN xrightpupil = xrighteye
+ELSE xlefteye = ""
+
+IF yrightpupil < height 
+THEN yrightpupil = yleftpupil
+ELSE yrightpupil = ""
+
+IF pupildiameter > 0
+THEN pupildiameter = diameter /2
+ELSE pupildiameter = ""
+
+Fifth - drawing nose
+Create xnose, ynose, diameternose
+Set xnose = x 
+Set ynose = y + 30
+Set diameter nose = diameter + 5
+
+IF xnose< width
+THEN xnose = x
+ELSE xnose=""
+
+IF ynose< height
+THEN ynose = y + 30
+ELSE ynoes =""
+
+If diameternose > 0
+THEN diameternose = diamter + 5
+ELSE diameternose =""
+
+Sixth - drawing mouth
+Create xmouth, ymouth
+Set xnose = x 
+Set ynose = y + 40
+
+IF xmouth< width
+THEN xmouth = x
+ELSE xnose=""
+
+IF ymouth< height
+THEN ymouth = y + 40
+ELSE ymouth =""
+
+Seventh - drawing teeth
+Create xteeth, yteeth
+Set xteeth = x - 14.5
+Set yteeth = y + 40
+
+IF xteeth< width
+THEN xteeth = x - 14.5 
+ELSE xnose=""
+
+IF yteeth< height
+THEN yteeth = y + 40
+ELSE ymouth =""
+
+Eighth - drawing neck
+Create xneck, yneck
+Set xneck = x - 20
+Set yneck = y + 58
+
+IF xneck< width
+THEN xneck = x - 20
+ELSE xneck = ""
+
+IF yneck< height
+THEN yneck = y + 58
+ELSE yneck =""
+
+Ninth - drawing tshirt
+Create xtshirt, ytshirt
+Set xtshirt = x - 75
+Set ytshirt = y + 100
+
+IF xtshirt< width
+THEN xtshirt = x - 75
+ELSE xtshirt = ""
+
+IF ytshirt< height
+THEN ytshirt = y + 100
+ELSE ytshirt =""
+
+Tenth - drawing glasses
+Create xleftglass, yleftglass, xrightglass, yrightglass and diamterglasses
+Set xleftglass = x -23
+Set leftglass = y + 10
+Set xrightglass = x + 20
+Set yrightglass = yleftglass
+diameterglasses = diameter * 2
+
+IF xleftglass < width
+THEN xleftglass = x - 23
+ELSE xleftglass = ""
+
+IF yleftglass < height
+THEN yleftglass = y + 10
+ELSE yleftglass = ""
+
+IF xrightglass < width
+THEN xrightglass = x + 20
+ELSE xrightglass = ""
+
+IF yrightglass <height
+THEN yrightglass = yleftglass
+ELSE yrightglass = ""
+
+IF diameterglasses > 0
+THEN diameterglasses = diamter * 2
+ELSE diameterglasses = ""
