@@ -70,7 +70,7 @@ function drawBody() {
 function drawFace() {
 
     beginShape();
-    vertex(400, 0);
+    vertex(399, 0);
     vertex(220, 70);
     vertex(160, 200);
     vertex(230, 520);
@@ -84,6 +84,78 @@ function drawFace() {
     endShape(CLOSE);
 
 }
+
+// A5 - Function to draw tshirt
+function drawTshirt() {
+
+    // Tshirt white part
+    beginShape();
+    vertex(130, 799);
+    vertex(250, 700);
+    vertex(400, 760);
+    vertex(560, 700);
+    vertex(682, 799);
+    endShape(CLOSE);
+
+    // Tshirt border
+    fill(220, 220, 220);
+    beginShape();
+    vertex(230, 700);
+    vertex(400, 780);
+    vertex(560, 700);
+    vertex(560, 680);
+    vertex(400, 760);
+    vertex(230, 680);
+    endShape(CLOSE);
+
+}
+
+// A6 - Function to draw jacket
+function drawJacket() {
+
+    // Jacket left part
+    fill(63, 130, 164);
+    beginShape();
+    vertex(0, 760);
+    vertex(260, 680);
+    vertex(210, 730);
+    vertex(220, 799);
+    vertex(0, 799);
+    endShape(CLOSE);
+
+    // Jacket right part
+    beginShape();
+    vertex(799, 760);
+    vertex(580, 680);
+    vertex(600, 720);
+    vertex(600, 799);
+    vertex(799, 799);
+    endShape(CLOSE);
+
+
+    // Jacket left collar
+    beginShape();
+    vertex(300, 600);
+    vertex(140, 750);
+    vertex(180, 798);
+    vertex(250, 798);
+    vertex(240, 720);
+    vertex(300, 660);
+    endShape(CLOSE);
+
+    //Jacket right collar
+    beginShape();
+    vertex(500, 600);
+    vertex(670, 750);
+    vertex(620, 798);
+    vertex(550, 798);
+    vertex(570, 720);
+    vertex(500, 660);
+    endShape(CLOSE);
+
+
+}
+
 
 
 
