@@ -193,25 +193,30 @@ function drawHair() {
 // A8 - Function to draw eyes
 function drawEyes() {
 
-    drawLeftEye();
-    drawRightEye();
+    // Eye outline
+    fill(255,255,255);
+    strokeWeight(2);
+    ellipse(310, 300, 100, 50); // Left eye layout
+    ellipse(500, 300, 100, 50); // Right eye layout
 
-    noFill();
-    strokeWeight(5);
-    ellipse(310, 300, 100, 50);
-    ellipse(500, 300, 100, 50);
+    // A8.1 - Function to draw eyes Iris and Pupil
+    drawEye(312,300);
+    drawEye(500,300);
 
 
 }
 
 // A8.1 - Function to draw left eye
-function drawLeftEye() {
+function drawEye(x, y) {
+    
+    // Eye Iris
+    noStroke();
+    fill(87, 107, 168, 200);
+    circle(x, y, 48);
 
-}
-
-// A8.2 - Function to draw right eye
-function drawRightEye() {
-
+    // Eye Pupil
+    fill(0,100);
+    circle (x, y, 20);
 }
 
 
@@ -220,6 +225,7 @@ function drawRightEye() {
 function drawNose() {
 
     noFill();
+    stroke(47, 79, 79);
     strokeWeight(2);
     beginShape();
     curveVertex(388, 369);
