@@ -99,7 +99,10 @@ function drawTshirt() {
 
     // Tshirt border
     fill(220, 220, 220);
+    
     beginShape();
+    strokeWeight(4);
+    stroke(128,128,128);
     vertex(230, 700);
     vertex(400, 780);
     vertex(560, 700);
@@ -114,6 +117,8 @@ function drawTshirt() {
 function drawJacket() {
 
     // Jacket left part
+    strokeWeight(2);
+    stroke(47,79,79);
     fill(63, 130, 164);
     beginShape();
     vertex(0, 760);
@@ -152,7 +157,6 @@ function drawJacket() {
     vertex(570, 720);
     vertex(500, 660);
     endShape(CLOSE);
-
 
 }
 
