@@ -1,0 +1,10 @@
+Project 1 - Pseudocode
+
+draw background (whatever design and color)
+draw skin (somewhere light, somewhere dark)
+draw hair (stylish)
+draw eyes (all components of eyes)
+draw nose (simple nose)
+draw mouth (simple mouth)
+draw tshirt
+draw jacket

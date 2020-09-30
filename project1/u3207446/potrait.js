@@ -2,23 +2,29 @@ var x = 600; // Width of Canvas
 var y = 1000; // Height of Canvas
 
 
-// Createing a Canvas
+// A0 - Creating a Canvas
 function setup() {
     createCanvas(x, y);
 }
 
-// Drawing  elements of potrait
+// Start drawing
 function draw() {
-    background(34, 115, 20);
 
-    // Oval Face
-    face();
+    // Draw background
+    drawBackground();
+
+    // Draw self portrait
+    drawSelfPortrait();
 }
 
+// A1- Function to draw a background
+function drawBackground(){
 
-function face() {
-    fill(255,0,0);
-    circle(300, 300, 200);
+};
 
-}
+// A2 - Function to draw a self portrait
+function drawSelfPortrait(){
+
+};
+
 
