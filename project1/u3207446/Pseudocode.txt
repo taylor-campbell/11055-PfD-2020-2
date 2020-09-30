@@ -1,5 +1,36 @@
 Project 1 - Pseudocode
 
+
+A0 Create Canvas
+A1 Draw background
+A2 Draw Portrait
+
+    A2.1 Draw Body
+    A2.2 Draw Face
+    A2.3 Draw Tshirt
+        A2.3.1 Draw Tshirt Whitepart
+        A2.3.2 Draw Tshirt Border
+    A2.4 Draw Jacket
+        A2.4.1 Draw Jacket Left Shoulder
+        A2.4.2 Draw Jacket Right Shoulder
+        A2.4.3 Draw Jacket Left Collar
+        A2.4.4 Draw Jacket Right Collar
+    A2.5 Draw Hair
+    A2.6 Draw Eyes
+        A2.6.1 Draw Eye Outline
+        A2.6.2 Draw Eye parts
+            A2.6.2.1 Draw Iris
+            A2.6.2.1 Draw Pupil
+    A2.7 Draw Nose
+    A2.8 Draw Mouth
+
+
+
+
+
+
+
+
 draw background (whatever design and color)
 draw skin (somewhere light, somewhere dark)
 draw hair (stylish)
@@ -8,3 +39,6 @@ draw nose (simple nose)
 draw mouth (simple mouth)
 draw tshirt
 draw jacket
+
+
+

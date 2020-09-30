@@ -2,54 +2,54 @@ var canvasWidth = 800; // Width of Canvas
 var canvasHeight = 800; // Height of Canvas
 
 
-// A0 - Creating a Canvas
+// A0 Create Canvas
 function setup() {
     createCanvas(canvasWidth, canvasHeight);
 }
 
-// Start drawing
 function draw() {
 
-    // Draw background
+    // A1 Draw background
     drawBackground();
 
-    //Draw portrait
+    // A2 Draw Portrait
     drawPortrait();
 
 }
 
 
-// A1- Function to draw a background
+// Function - A1 Draw background
 function drawBackground() {
 
     var rValue = map(mouseX, 0, canvasWidth, 0, 255);
-    background(rValue, 255, 255-rValue);
+    var gValue = map(mouseY, 0, canvasHeight, 0, 255);
+    background(rValue, gValue, 255-rValue);
 
 };
 
-// A2 - Function to draw a portrait
+// Function - A2 Draw Portrait
 function drawPortrait() {
 
-    // A3 - Draw body
+    // A2.1 Draw Body
     drawBody();
-    // A4 - Draw face
+    // A2.2 Draw Face
     drawFace();
-    // A5 - Draw tshirt
+    // A2.3 Draw Tshirt
     drawTshirt();
-    // A6 - Draw jacket
+    // A2.4 Draw Jacket
     drawJacket();
-    // A7 - Draw hair
+    // A2.5 Draw Hair
     drawHair();
-    // A8 - Draw eyes
+    // A2.6 Draw Eyes
     drawEyes();
-    // A9 - Draw nose
+    // A2.7 Draw Nose
     drawNose();
-    // A10 - Draw mouth
+    // A2.8 Draw Mouth
     drawMouth();
 
 };
 
-// A3 - Function to draw body
+// Function - A2.1 Draw Body
 function drawBody() {
 
     beginShape();
@@ -66,7 +66,7 @@ function drawBody() {
 
 }
 
-// A4 - Function to draw face
+// Function - A2.2 Draw Face
 function drawFace() {
 
     beginShape();
@@ -87,12 +87,12 @@ function drawFace() {
 
 }
 
-// A5 - Function to draw tshirt
+// Function - A2.3 Draw Tshirt
 function drawTshirt() {
 
-    // Tshirt white part
-    beginShape();
+    // A2.3.1 Draw Tshirt Whitepart
     fill(255, 255, 255);
+    beginShape();
     vertex(130, 799);
     vertex(250, 700);
     vertex(400, 760);
@@ -100,9 +100,8 @@ function drawTshirt() {
     vertex(682, 799);
     endShape(CLOSE);
 
-    // Tshirt border
+    // A2.3.2 Draw Tshirt Border
     fill(220, 220, 220);
-
     beginShape();
     strokeWeight(4);
     stroke(128, 128, 128);
@@ -116,10 +115,10 @@ function drawTshirt() {
 
 }
 
-// A6 - Function to draw jacket
+// Function - A2.4 Draw Jacket
 function drawJacket() {
 
-    // Jacket left shoulder
+    // A2.4.1 Draw Jacket Left Shoulder
     strokeWeight(2);
     stroke(47, 79, 79);
     fill(63, 130, 164);
@@ -131,7 +130,7 @@ function drawJacket() {
     vertex(0, 799);
     endShape(CLOSE);
 
-    // Jacket right shoulder
+    // A2.4.2 Draw Jacket Right Shoulder
     beginShape();
     vertex(799, 760);
     vertex(580, 680);
@@ -141,7 +140,7 @@ function drawJacket() {
     endShape(CLOSE);
 
 
-    // Jacket left collar
+    // A2.4.3 Draw Jacket Left Collar
     beginShape();
     curveVertex(300, 600);
     vertex(140, 750);
@@ -151,7 +150,7 @@ function drawJacket() {
     vertex(300, 660);
     endShape(CLOSE);
 
-    //Jacket right collar
+    // A2.4.4 Draw Jacket Right Collar
     beginShape();
     curveVertex(500, 600);
     vertex(670, 750);
@@ -163,7 +162,7 @@ function drawJacket() {
 
 }
 
-// A7 - Function to draw hair
+// Function - A2.5 Draw Hair
 function drawHair() {
 
     beginShape();
@@ -190,38 +189,38 @@ function drawHair() {
 
 }
 
-// A8 - Function to draw eyes
+// Function - A2.6 Draw Eyes
 function drawEyes() {
 
-    // Eye outline
+    // A2.6.1 Draw Eye Outline
     fill(255,255,255);
     strokeWeight(2);
     ellipse(310, 300, 80, 50); // Left eye layout
     ellipse(500, 300, 80, 50); // Right eye layout
 
-    // A8.1 - Function to draw eyes Iris and Pupil
-    drawEye(312,300);
-    drawEye(500,300);
+    // A2.6.2 Draw Eye parts
+    drawEye(312,300); // Left eye
+    drawEye(500,300); // Right eye
 
 
 }
 
-// A8.1 - Function to draw left eye
+// Function - A2.6.2 Draw Eye parts
 function drawEye(x, y) {
     
-    // Eye Iris
+    // A2.6.2.1 Draw Iris
     noStroke();
     fill(87, 107, 168, 200);
     circle(x, y, 48);
 
-    // Eye Pupil
+    // A2.6.2.1 Draw Pupil
     fill(0,100);
     circle (x, y, 20);
 }
 
 
 
-// A9 - Function to draw nose
+// Function - A2.7 Draw Nose
 function drawNose() {
 
     noFill();
@@ -236,7 +235,6 @@ function drawNose() {
     curveVertex(382, 493);
     curveVertex(382, 493);
     endShape();
-
 
     beginShape();
     curveVertex(410, 367);
@@ -260,7 +258,7 @@ function drawNose() {
 
 }
 
-// A10 - Function to draw mouth
+// Function - A2.8 Draw Mouth
 function drawMouth() {
 
     strokeWeight(4);
