@@ -1,6 +1,8 @@
 var x = 800; // Width of Canvas
 var y = 800; // Height of Canvas
 
+var circleX = 0;
+
 
 // A0 - Creating a Canvas
 function setup() {
@@ -54,6 +56,7 @@ function drawPortrait() {
 function drawBody() {
 
     beginShape();
+    fill(255, 229, 204);
     vertex(0, 770);
     vertex(260, 690);
     vertex(300, 660);
@@ -70,17 +73,17 @@ function drawBody() {
 function drawFace() {
 
     beginShape();
-    vertex(399, 0);
-    vertex(220, 70);
-    vertex(160, 200);
-    vertex(230, 520);
-    vertex(300, 600);
-    vertex(370, 640);
-    vertex(420, 640);
-    vertex(500, 600);
-    vertex(570, 520);
-    vertex(640, 200);
-    vertex(556, 70);
+    curveVertex(399, 0);
+    curveVertex(220, 70);
+    curveVertex(160, 200);
+    curveVertex(230, 520);
+    curveVertex(300, 600);
+    curveVertex(370, 640);
+    curveVertex(420, 640);
+    curveVertex(500, 600);
+    curveVertex(570, 520);
+    curveVertex(640, 200);
+    curveVertex(556, 70);
     endShape(CLOSE);
 
 }
@@ -90,6 +93,7 @@ function drawTshirt() {
 
     // Tshirt white part
     beginShape();
+    fill(255, 255, 255);
     vertex(130, 799);
     vertex(250, 700);
     vertex(400, 760);
@@ -99,10 +103,10 @@ function drawTshirt() {
 
     // Tshirt border
     fill(220, 220, 220);
-    
+
     beginShape();
     strokeWeight(4);
-    stroke(128,128,128);
+    stroke(128, 128, 128);
     vertex(230, 700);
     vertex(400, 780);
     vertex(560, 700);
@@ -116,9 +120,9 @@ function drawTshirt() {
 // A6 - Function to draw jacket
 function drawJacket() {
 
-    // Jacket left part
+    // Jacket left shoulder
     strokeWeight(2);
-    stroke(47,79,79);
+    stroke(47, 79, 79);
     fill(63, 130, 164);
     beginShape();
     vertex(0, 760);
@@ -128,7 +132,7 @@ function drawJacket() {
     vertex(0, 799);
     endShape(CLOSE);
 
-    // Jacket right part
+    // Jacket right shoulder
     beginShape();
     vertex(799, 760);
     vertex(580, 680);
@@ -140,7 +144,7 @@ function drawJacket() {
 
     // Jacket left collar
     beginShape();
-    vertex(300, 600);
+    curveVertex(300, 600);
     vertex(140, 750);
     vertex(180, 798);
     vertex(250, 798);
@@ -150,7 +154,7 @@ function drawJacket() {
 
     //Jacket right collar
     beginShape();
-    vertex(500, 600);
+    curveVertex(500, 600);
     vertex(670, 750);
     vertex(620, 798);
     vertex(550, 798);
@@ -160,6 +164,54 @@ function drawJacket() {
 
 }
 
+// A7 - Function to draw hair
+function drawHair() {
+
+    beginShape();
+    curveVertex(210, 440);
+    curveVertex(198, 260);
+    curveVertex(358, 102);
+    curveVertex(408, 114);
+    curveVertex(446, 100);
+    curveVertex(606, 254);
+    curveVertex(598, 428);
+    curveVertex(652, 274);
+    curveVertex(656, 174);
+    curveVertex(616, 84);
+    curveVertex(562, 34);
+    curveVertex(508, 10);
+    curveVertex(400, 2);
+    curveVertex(302, 2);
+    curveVertex(240, 28);
+    curveVertex(200, 72);
+    curveVertex(146, 162);
+    curveVertex(142, 284);
+
+    endShape(CLOSE);
+
+
+}
+
+// A8 - Function to draw eyes
+function drawEyes() {
+
+    noFill();
+    strokeWeight(5);
+    ellipse(310, 300, 100, 80);
+    ellipse(500, 300, 100, 80);
+
+
+}
+
+// A9 - Function to draw nose
+function drawNose() {
+
+}
+
+// A10 - Function to draw mouth
+function drawMouth() {
+
+}
 
 
 
