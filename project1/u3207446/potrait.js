@@ -1,57 +1,68 @@
-var canvasWidth = 800; // Width of Canvas
-var canvasHeight = 800; // Height of Canvas
+//CREATE canvasWidth, canvasHeight
+//SET canvasWidth = 800
+//SET canvasHeight = 800
+var canvasWidth = 800;
+var canvasHeight = 800;
 
 
-// A0 Create Canvas
+// A0
 function setup() {
+    // CREATE Canvas : Variables (canvasWidth and canvasHeight)
     createCanvas(canvasWidth, canvasHeight);
 }
 
+
 function draw() {
 
-    // A1 Draw background
+    // A1 - CALL Background
     drawBackground();
 
-    // A2 Draw Portrait
+    // A2 - CALL Portrait
     drawPortrait();
 
 }
 
 
-// Function - A1 Draw background
+// A1 - FUNCTION Background
 function drawBackground() {
 
+    // CREATE rValue, gValue
+    // SET rValue = Calculation using MouseX and canvasWidth
+    // SET gValue = Calculation using MouseY and canvasHeight
     var rValue = map(mouseX, 0, canvasWidth, 0, 255);
     var gValue = map(mouseY, 0, canvasHeight, 0, 255);
+    
+    // DRAW Background using rValue and gValue
     background(rValue, gValue, 255-rValue);
 
 };
 
-// Function - A2 Draw Portrait
+// A2 - FUNCTION Portrait
 function drawPortrait() {
 
-    // A2.1 Draw Body
+    // A2.1 - CALL drawBody
     drawBody();
-    // A2.2 Draw Face
+    // A2.2 - CALL drawFace
     drawFace();
-    // A2.3 Draw Tshirt
+    // A2.3 - CALL drawTshirt
     drawTshirt();
-    // A2.4 Draw Jacket
+    // A2.4 - CALL drawJacket
     drawJacket();
-    // A2.5 Draw Hair
+    // A2.5 - CALL drawHair
     drawHair();
-    // A2.6 Draw Eyes
+    // A2.6 - CALL drawEyes
     drawEyes();
-    // A2.7 Draw Nose
+    // A2.7 - CALL drawNose
     drawNose();
-    // A2.8 Draw Mouth
+    // A2.8 - CALL drawMouth
     drawMouth();
 
 };
 
-// Function - A2.1 Draw Body
+// A2.1 - FUNCTION drawBody
 function drawBody() {
 
+    // USE Vertices to draw body shape
     fill(255, 229, 204);
     beginShape();    
     vertex(0, 770);
@@ -66,9 +77,10 @@ function drawBody() {
 
 }
 
-// Function - A2.2 Draw Face
+// A2.2 - FUNCTION drawFace
 function drawFace() {
 
+    // USE Vertices to draw face
     stroke(229, 206, 183);
     strokeWeight(4);
     beginShape();
@@ -87,9 +99,10 @@ function drawFace() {
 
 }
 
-// Function - A2.3 Draw Tshirt
+// A2.3 - FUNCTION drawTshirt
 function drawTshirt() {
 
+    // USE vertices to draw tshirt
     // Draw Tshirt Whitepart
     fill(255, 255, 255);
     beginShape();
@@ -100,6 +113,7 @@ function drawTshirt() {
     vertex(682, 799);
     endShape(CLOSE);
 
+    // USE vertices to draw tshirt
     // Draw Tshirt Border
     fill(220, 220, 220);
     strokeWeight(4);
@@ -115,14 +129,14 @@ function drawTshirt() {
 
 }
 
-// Function - A2.4 Draw Jacket
+// A2.4 - FUNCTION drawJacket
 function drawJacket() {
     
     strokeWeight(2);
     stroke(47, 79, 79);
     fill(63, 130, 164);
 
-    // Draw Jacket Left Shoulder
+    // USE vertices to draw left shoulder
     beginShape();
     vertex(0, 760);
     vertex(260, 680);
@@ -131,7 +145,7 @@ function drawJacket() {
     vertex(0, 799);
     endShape(CLOSE);
 
-    // Draw Jacket Right Shoulder
+    // USE vertices to draw right shoulder
     beginShape();
     vertex(799, 760);
     vertex(580, 680);
@@ -141,7 +155,7 @@ function drawJacket() {
     endShape(CLOSE);
 
 
-    // Draw Jacket Left Collar
+    // USE vertices to draw left collar
     beginShape();
     curveVertex(300, 600);
     vertex(140, 750);
@@ -151,7 +165,7 @@ function drawJacket() {
     vertex(300, 660);
     endShape(CLOSE);
 
-    // Draw Jacket Right Collar
+    // USE vertices to draw right collar
     beginShape();
     curveVertex(500, 600);
     vertex(670, 750);
@@ -163,7 +177,7 @@ function drawJacket() {
 
 }
 
-// Function - A2.5 Draw Hair
+// A2.5 - FUNCTION drawHair
 function drawHair() {
 
     beginShape();
@@ -189,43 +203,51 @@ function drawHair() {
 
 }
 
-// Function - A2.6 Draw Eyes
+// A2.6 - FUNCTION drawEyes
 function drawEyes() {
 
     // Draw Eye Outline
     fill(255,255,255);
     strokeWeight(2);
-    ellipse(310, 300, 80, 50); // Left eye layout
-    ellipse(500, 300, 80, 50); // Right eye layout
 
-    // Draw Eye parts
-    drawEye(312,300); // Left eye
-    drawEye(500,300); // Right eye
+    // DRAW ellipse for left eye
+    ellipse(310, 300, 80, 50);
+    // DRAW eppipse for right eye
+    ellipse(500, 300, 80, 50); 
+    
+    // CALL drawEye for left eye
+    drawEye(312,300);
+    // CALL drawEye for right eye
+    drawEye(500,300);
 
 }
 
-// Function - A2.6.1 Draw Eye parts
+// A2.6.1 - FUNCTION drawEye
 function drawEye(x, y) {
     
-    // A2.6.2.1 Draw Iris
     noStroke();
     fill(87, 107, 168, 200);
+
+    // DRAW Circle for Iris
     circle(x, y, 48);
 
-    // A2.6.2.1 Draw Pupil
+    
     fill(0,100);
+
+    // DRAW Circle for Pupil
     circle (x, y, 20);
 }
 
 
 
-// Function - A2.7 Draw Nose
+// A2.7 - FUNCTION drawNose
 function drawNose() {
 
     noFill();
     stroke(47, 79, 79);
     strokeWeight(2);
 
+    // USE vertices to draw nose
     beginShape();
     curveVertex(388, 369);
     curveVertex(388, 369);
@@ -258,11 +280,12 @@ function drawNose() {
 
 }
 
-// Function - A2.8 Draw Mouth
+// A2.8 - FUNCTION drawMouth
 function drawMouth() {
 
     strokeWeight(4);
     
+    // USE vertices to draw Mouth
     beginShape();
     curveVertex(345, 543);
     curveVertex(345, 543);
@@ -278,6 +301,8 @@ function drawMouth() {
     fill(229, 206, 183);
     stroke(229, 206, 183);
     strokeWeight(1);
+
+    // DRAW arc to draw shadow below mouth
     arc(405, 555, 30, 30, 0, PI, OPEN);
 
 }

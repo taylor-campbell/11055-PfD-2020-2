@@ -1,45 +1,96 @@
 Project 1 - Pseudocode
 
 
-A0 Create Canvas
-A1 Draw background
-A2 Draw Portrait
 
-    A2.1 Draw Body
-    A2.2 Draw Face
-        A2.3 Draw Tshirt
-            Draw Tshirt Whitepart
-            Draw Tshirt Border
-    A2.4 Draw Jacket
-        Draw Jacket Left Shoulder
-        Draw Jacket Right Shoulder
-        Draw Jacket Left Collar
-        Draw Jacket Right Collar
-    A2.5 Draw Hair
-
-    A2.6 Draw Eyes
-        Draw Eye Outline
-        A2.6.1 Draw Eye parts
-            A2.6.2.1 Draw Iris
-            A2.6.2.1 Draw Pupil
-    A2.7 Draw Nose
-    A2.8 Draw Mouth
+CREATE canvasWidth, canvasHeight
+SET canvasWidth = 800
+SET canvasHeight = 800
 
 
+START
+    CREATE Canvas : Variables (canvasWidth and canvasHeight)
+END
 
 
+START
+    CALL Background
+    CALL Portrait
+END
 
 
+FUNCTION Background
+START
+    CREATE rValue, gValue
+    SET rValue = Calculation using MouseX and canvasWidth
+    SET gValue = Calculation using MouseY and canvasHeight
+    DRAW Background using rValue and gValue
+END
 
 
-draw background (whatever design and color)
-draw skin (somewhere light, somewhere dark)
-draw hair (stylish)
-draw eyes (all components of eyes)
-draw nose (simple nose)
-draw mouth (simple mouth)
-draw tshirt
-draw jacket
+FUNCTION Portrait
+START
+    CALL drawBody
+    CALL drawFace
+    CALL drawTshirt
+    CALL drawJacket
+    CALL drawHair
+    CALL drawEyes
+    CALL drawNose
+    CALL drawMouth
+END
 
+FUNCTION drawBody
+START
+    USE Vertices to draw body shape
+END
+
+FUNCTION drawFace
+START
+    USE Vertices to draw face
+END
+
+FUNCTION drawTshirt
+START
+    USE vertices to draw tshirt
+END
+
+FUNCTION drawJacket
+START
+    USE vertices to draw left shoulder
+    USE vertices to draw right shoulder
+    USE vertices to draw left collar
+    USE vertices to draw right collar
+END
+
+FUNCTION drawHair
+START
+    USE vertices to draw hair
+END
+
+FUNCTION drawEyes
+START
+    DRAW ellipse for left eye
+    DRAW eppipse for right eye
+
+    CALL drawEye for left eye
+    CALL drawEye for right eye
+END
+
+FUNCTION drawEye
+START
+    DRAW Circle for Iris
+    DRAW Circle for Pupil
+END
+
+FUNCTION drawNose
+START
+    USE vertices to draw nose
+END
+
+FUNCTION drawMouth
+START
+    USE vertices to draw Mouth
+    DRAW arc to draw shadow below mouth
+END
 
 
