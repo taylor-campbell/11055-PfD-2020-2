@@ -40,7 +40,7 @@ function drawHead() {
     var neckWidth = 60;
     var neckHeight = 200;
     var neckLeftpos = (cWidth/2) - (neckWidth/2); // leftpos on a rectangle determines where the leftmost edge starts, compared to an ellipse where leftpos determines the center of the ellipse
-    var neckToppos = cHeight-neckHeight;
+    var neckToppos = cHeight-neckHeight; // puts neck near the bottom
 
     drawRect(neckWidth, neckHeight, neckLeftpos, neckToppos, skinColour);
 
@@ -50,9 +50,9 @@ function drawHead() {
     
     
 
-// CALL drawEllipse(hairWidth, hairHeight, hairColour, hairLeftpos, hairToppos) function
+// CALL drawEllipse(hairWidth, hairHeight, hairLeftpos, hairToppos, hairColour) function
 
-// CALL drawRect(neckWidth, neckHeight, skinColour, neckLeftpos, neckToppos) function, I put neck above face so face will always be above a layer of the neck and cover it
+// CALL drawRect(neckWidth, neckHeight, neckLeftpos, neckToppos, skinColour) function, I put neck above face so face will always be above a layer of the neck and cover it
 
 // CALL drawFace function
 
@@ -65,18 +65,19 @@ function drawFace(width, top, left) {
     // This function uses the top pos and width from the hair to figure out where it should be placed and is more reusable this way as whereever the hair goes, the face follows
     var faceHeight = 300;
 
-     // CALL drawEllipse( faceWidth, faceHeight, skinColour, faceLeftpos, faceToppos) function
+     // CALL drawEllipse( faceWidth, faceHeight, faceLeftpos, faceToppos, skinColour) function
 
     drawEllipse(width, faceHeight, left, top, skinColour);
 
     // CALL drawEyes function
+    // CALL drawNose function
+    // CALL drawMouth function 
     
     drawEyes(top, left);
     drawNose(top, left);
     drawMouth(top, left);
 
-    // CALL drawNose function
-    // CALL drawMouth function 
+    
 }
 
 function drawEyes(top, left) {
@@ -95,7 +96,7 @@ var pupilColour = "#331d01"
 
 
 if (mouseIsPressed) {
-    drawEllipse(eyeWidth, eyeHeight, leftEyeLeftPos, eyeToppos, eyelidColour);
+    drawEllipse(eyeWidth, eyeHeight, leftEyeLeftPos, eyeToppos, eyelidColour); // pupils follow eye position
     drawEllipse(eyeWidth, eyeHeight, rightEyeLeftPos, eyeToppos, eyelidColour); // When the mouse clicks on it, eyes will look like they're closing by making them look like eyelids
   } else {
     drawEllipse(eyeWidth, eyeHeight, leftEyeLeftPos, eyeToppos, 255); // Otherwise just keep drawing open eyes. Whites of the eyes get drawn first, then the actual pupils.
@@ -122,14 +123,15 @@ function drawNose(top, left) {
     var tipWidth = 20;
     var tipHeight = 10;
     var tipToppos = top + bridgeHeight; // this is to make sure the nose tip goes just under where the bridge ends so they stay together more or less
+    var tipLeftpos = left - tipWidth/2
     var noseColour = 0;
 
     drawRect(bridgeWidth, bridgeHeight, left, top, noseColour);
-    drawRect(tipWidth, tipHeight, left - tipWidth/2, tipToppos, noseColour);
+    drawRect(tipWidth, tipHeight, tipLeftpos, tipToppos, noseColour);
 
-// CALL drawRect(bridgeWidth, bridgeHeight, noseColour, bridgeLeftpos, bridgeToppos) function
+// CALL drawRect(bridgeWidth, bridgeHeight, bridgeLeftpos, bridgeToppos, noseColour) function
 
-// CALL drawRect(tipWidth, tipHeight, noseColour tipLeftpos, tipToppos) function
+// CALL drawRect(tipWidth, tipHeight,tipLeftpos, tipToppos, noseColour) function
 }
 
 function drawMouth(top, left) {
@@ -140,14 +142,14 @@ function drawMouth(top, left) {
     var topColour = "#a38148"; // make top lip slightly darker than the bottom
     var botColour = "#c9a05b";
     var topToppos = top + 90;
-    var botToppos = topToppos + lipHeight;
+    var botToppos = topToppos + lipHeight; // puts bottom lip just below toplip
 
     drawEllipse(lipWidth, lipHeight, left, topToppos, topColour);
     drawEllipse(lipWidth, lipHeight, left, botToppos, botColour);
 
-// CALL drawEllipse( lipWidth, lipHeight, topColour, lipLeftpos, topToppos ) function
+// CALL drawEllipse( lipWidth, lipHeight, lipLeftpos, topToppos, topColour ) function
 
-// CALL drawEllipse( lipWidth, lipHeight, botColour, lipLeftpos, botToppos ) function
+// CALL drawEllipse( lipWidth, lipHeight, lipLeftpos, botToppos, botColour ) function
 }
 
 function drawClothes() {
@@ -159,9 +161,9 @@ function drawClothes() {
 // shirtColour = darkblue
 
 if (mouseIsPressed) {
-    shirtColour = "#063352";
+    shirtColour = "#063352"; // dark blue
   } else {
-    shirtColour = "#00b7ff";
+    shirtColour = "#00b7ff"; // teal
   }
 // ELSE
 // shirtColour = teal
@@ -173,39 +175,40 @@ drawShirt(shirtColour);
 
 function drawShirt(colour) {
 //     Accept variable shirtColour
-// SET variables collarWidth,  collarHeight, collar1Leftpos, collar2Leftpos, collarToppos,sleeveWidth, sleeveHeight, leftSleeveLeftpos, sleeveToppos, rightSleeveLeftpos, chestWidth, chestHeight, chestLeftpos, chestToppos
+// SET variables collarWidth,  collarHeight, collar1Leftpos, collar2Leftpos, collarToppos,sleeveWidth, sleeveHeight, sleeveToppos, chestWidth, chestHeight, chestLeftpos, chestToppos
 
     var collarWidth = 100;
     var collarHeight = 30;
-    var collar1Leftpos = (cWidth/2) - 100;
-    var collar2Leftpos = (cWidth/2);
+    var collar1Leftpos = (cWidth/2) - 100; // left collar   
     var collarToppos = cHeight - 100; // puts the collars near the bottom
     var sleeveWidth = 300;
     var sleeveHeight = 50;
-    var leftSleeveLeftpos = collar1Leftpos - sleeveWidth; // to put the sleeves right at the end of the collar
-    var rightSleeveLeftpos = collar2Leftpos + (sleeveWidth/2);
     var chestWidth = (collarWidth * 2) + 50;
     var chestHeight = 300;
     var chestToppos = collarToppos + 20;
     var chestLeftpos = (cWidth/2) - (chestWidth/2);
 
+    // Left collar
     angleMode(DEGREES); // changing the angle from radians to degrees
-    translate(collar1Leftpos, collarToppos); // moves the point of origin from 0,0 of the canvas to x = collar1LeftPos, y = collarToppos
+    translate(collar1Leftpos, collarToppos); // moves the point of origin from 0,0 of the canvas to x = collar1LeftPos, y = collarToppos. Translate is needed to properly rotate the collar to its edge
     rotate(10); 
-    drawRect(collarWidth, collarHeight, 0, 0, colour);  
+    drawRect(collarWidth, collarHeight, 0, 0, colour);  // x,y is 0,0 because translate as moved the point of origin to where the object needs to be
 
-    translate(collarWidth, 0); // moves 
-    rotate(-20); 
+    // Right Collar
+    translate(collarWidth, 0); // moves the point of origin the length 'collarWidth' on the x axis
+    rotate(-20); // cancels out the previous rotate and adds 10 degrees
     drawRect(collarWidth, collarHeight, 0, 0, colour);
 
-    translate(collarWidth, 0)
+    // Right sleeve
+    translate(collarWidth, 0) // moves the point of origin the length 'collarWidth' on the x axis
     rotate(20);
     drawRect(sleeveWidth, sleeveHeight, 0, 0, colour);
 
+    // Left Sleeve
     rotate(-10);
-    drawRect(sleeveWidth, sleeveHeight, 0 - (collarWidth * 2) - sleeveWidth, 0, colour);
+    drawRect(sleeveWidth, sleeveHeight,-(collarWidth * 2) - sleeveWidth, 0, colour);
 
-    
+    // Chest
     translate(0 - (collarWidth * 2) - collar1Leftpos, 0 - collarToppos); // resetting the origin back to the original
     drawRect(chestWidth, chestHeight, chestLeftpos, chestToppos, colour); 
 
