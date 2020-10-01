@@ -9,35 +9,33 @@ function setup() {
     //for both Left side and right side.
     yLeftbrow = 336;    
     yRightbrow = 381;
+
   }
   
   function draw() {
+   // Creating new variables for the checkboxs on the html
+   var chcekGEyes = document.getElementById("browcheck"); 
+   var chcekGlasse = document.getElementById("glassescheck"); 
+   //Creating new variables for the drop down menu and variables for
+   //the colour of hair and eyes
+   var eyeDropDown = document.getElementById("eyeColour");
+   var eyecolour = eyeDropDown.options[eyeDropDown.selectedIndex].value;
+   var hairdropdown = document.getElementById("Haircolour");
+   var haircolour = hairdropdown.options[hairdropdown.selectedIndex].value;
+    //decaling the background colour of canvas
     background("pink");
-drawBody();
-drawbackhair();
-drawHead();
-drawfronthair();
-drawNose();
-drawEyes();
-drawMouth();
+    //Calling all the main fuction for main face features
+    drawBody();
+     //Create parameter for the variable haircolour, that is link to haircolour drop down 
+    drawbackhair(haircolour);
+    drawHead();   
+    drawfronthair(haircolour);
+    drawNose();
+    //Create parameter in draw eye for the check box and change eyecolour (linked with eye colour drop down) 
+    drawEyes(chcekGlasse.checked,chcekGEyes.checked,eyecolour);
+    drawMouth();
 
 
 }
-// Call drawHead()
-// Call drawEyes()
-// Call drawNose()
-// Call drawMouth()
-// Call drawhair()
-// Call drawBody()
 
-/*
-
-var fuctionarray = [drawBody,drawbackhair,drawHead,drawfronthair,drawEyes,drawNose,drawMouth];
-var nextFunction = 0;
-
-function Nextstep() {
-  fuctionarray[nextFunction]();
-  nextFunction = nextFunction + 1;
-}
-*/
 

@@ -1,25 +1,50 @@
 <!DOCTYPE html>
 <html>
     <head>
+         <!-- Connecting the html with the p5.js libarues and my draw fuction libiray -->
         <script src = "https://cdn.jsdelivr.net/npm/p5@1.1.9/lib/p5.js"></script>
         <script src="MyLibarires/drawFuctions.js"></script>
         <style>
+            /*Creating a css for the changes to be display on the
+            right of the canvas*/
             .right {
               position: absolute;
-              right: 0px;
+              /*Left is how far way it needs to be from the 
+              left size of screen*/
+              left: 670px;
               width: 300px;
-              border: 3px solid #73AD21;
+              border: 7px solid #73AD21;
               padding: 10px;
             }
             </style>
     </head>
     <body>
-       
+        <!-- Linking the javascript with the html file -->
         <script src ="Portraitproject.js"></script>
+        <!-- Start of the div class right, anything div tag will be
+        inside the border of the box -->
         <div class="right">
-        <h1>Changes</h1>
-        <label for="browcheck"> Eyebrow Stop or Play:</label> <input type="checkbox" id="browcheck" onclick="draweyeBrow()"><br/>
-        <label for="browcheck"> Glasses On or Off:</label> <input type="checkbox" id="glassescheck" onclick="drawGlasses()">   
+        <h1>What do you want Changed?</h1>
+         <!-- Create Checkbox and dropdown menu
+        id connect with the variable/document.getid in javascript -->
+        <label for="browcheck"> Eyebrow Stop or Play:</label> <input type="checkbox" id="browcheck" checked ><br/>
+        <label for="browcheck"> Glasses On or Off:</label> <input type="checkbox" id="glassescheck" checked> <br/>
+        <label for="eyeColour"> Eye Colour:</label> <select id="eyeColour" >   
+             <!-- The list of colour in the option tag for the drop down -->
+            <option value= "#542a0e" selected>Brown</option>
+            <option value="black" >Black</option>
+            <option value="blue">Blue</option>
+            <option value="green">Green</option>
+            <option value="red">Red</option>
+        </select>
+    <br/> <label for="Haircolour"> Hair Colour:</label> <select id="Haircolour" >   
+        <option value= "black" selected>Black Hair</option>
+        <option value="#debe99" >Blond Hair</option>
+        <option value="#4f1a00">Brown Hair</option>
+        <option value="#9a3300">Dark Ginger Hair</option>
+        <option value="red">Red</option>
+    </select>                                            
+                                                   
     </div>
     </body>
 </html>

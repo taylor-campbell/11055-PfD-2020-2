@@ -20,6 +20,7 @@ var direction = "Up";
         // fuction drawHead()
         drawEars();
         push();
+            noStroke();
             fill(226,200,187);
             translate(317.14,456.22 );
             rotate(4.4);
@@ -40,17 +41,17 @@ var direction = "Up";
         ellipse(0,0,82.81,138.25);
     pop(); //restore the change back to normal
 }
-function drawEyes()
+function drawEyes(glasses,eyebrows,eyecolour)
 {   
     //Call drawLefteye, drawRighteye, drawBrow, and drawGlasses
-    drawLefteye();
-    drawRighteye(); 
-    draweyeBrow();
+    drawLefteye(eyecolour);
+    drawRighteye(eyecolour); 
+    draweyeBrow(eyebrows);
     
 //This section of code is for the eye ball / pupils 
 //and the movement of eyes following the mouse
   
-    fill(56,16,28);
+    fill(eyecolour);
     //The left and right eyeball using the values define at the top
     ellipse(xLeft, lefty,29);   
     ellipse(xRight, righty,29);
@@ -73,13 +74,16 @@ function drawEyes()
     //how far it can move from the original cordnainates 
    
     //Call drawGlasses at botom so eye balls will be behied the glasses
-    drawGlasses();
+    if(glasses){
+        drawGlasses();
+    }
 }
 
 //fuction to draw the left eye of the face 
 function drawLefteye()
 {
     //First Save and load section for the top eye lid
+
     push();
         fill("white");
         translate(264, 419);
@@ -115,14 +119,16 @@ pop();
 
 }
 
-function draweyeBrow()
+function draweyeBrow(eyeBrowMovement)
 {
+    push();
     
 
     //Left eye brow
     push();
+   
     noStroke();
-  
+      
     translate(270,yLeftbrow);
       scale(0.7);
     rotate(21)
@@ -151,7 +157,7 @@ function draweyeBrow()
     }
     //When the direction string is Down,
     //the brow will move down
-    if (direction == "Down")
+    if (eyeBrowMovement && direction == "Down")
     {
         yLeftbrow = yLeftbrow + 0.5;
         yRightbrow = yRightbrow + 0.5;
@@ -236,43 +242,65 @@ function drawNose()
         ellipse(0 ,0,17,7);
    pop();
    push();
-   noStroke();
-   fill(206,167,147);
-   ellipse(387,450,30,110);
+        noStroke();
+        fill(206,167,147);
+        ellipse(387,450,30,110);
    pop();
 }
+
 function drawMouth()
 {
-    line(273, 593, 395, 611);
- 
+      
+    line(273, 593, 390, 611);
+    push();
+    //check if the S key is press and Simile appears
+    if ((keyIsPressed == true) && ((key == 's') || (key == 'S')))
+    {
+    //set fill colour of open month to white
+   fill("white");
+   //translate postion of x and y of month
+    translate(340, 555);
+    //arc roate 48 degress from its point
+    rotate(48);
+    arc(0, 0, 150, 150, 0, 100, HALF_PI+HALF_PI); 
+    }
+   pop();
+   
 }
-function drawbackhair()
+function drawbackhair(haircolour)
 //create function backhair
 //This fuction is for shape that can go behind the head layer
 {
-    fill("black");
+    fill(haircolour);
+    push();
+   
+    noStroke();
     ellipse(327,303,472,410);
     ellipse(126,396,136,275);
     ellipse(513,401,102,269);
+    pop();
 
 }
-function drawfronthair()
+function drawfronthair(haircolour)
 //create fuction fronthair
 //this fuction is for the the shape/hair that needs to appear in front of the head layer.
 {
     push();
-    translate(424,191);
-    rotate(22);
-    ellipse(0,0,237,94);
-
-    
-    pop();
+      noStroke();
     push();
-    translate(218,192);
-    rotate(-40);
-    ellipse(0,0,242,97);
+        translate(424,191);
+        rotate(22);
+        ellipse(0,0,237,94); 
+    pop();
+
+    push();
+    
+        translate(218,192);
+        rotate(-40);
+        ellipse(0,0,242,97);
     pop();
     ellipse(129,322,37,210);
+    pop();
 }
 
 function drawBody()
