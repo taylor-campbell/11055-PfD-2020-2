@@ -1,3 +1,4 @@
+// Variables
 const canvasWidth = 800;
 const canvasHeight = 800;
 const brown = "#8B4513";
@@ -22,11 +23,13 @@ function draw() {
     drawEars();  
 }
 
+// Draw Head
 function drawHead(cw, ch) {
     fill(skinColour);
     ellipse(cw/2, ch/2, 400, 600);
 }
 
+// Draw Hair
 function drawHair() {
     fill(brown);
     triangle(225, 115, 300, 140, 250, 200);
@@ -44,6 +47,7 @@ function drawHair() {
     arc(400, 200, 300, 200, PI, TWO_PI, CHORD);
 }
 
+// Draw Face
 function drawFace() {
     var freckles = 10;
     drawEyes();
@@ -53,6 +57,7 @@ function drawFace() {
     drawFreckles(freckles);
 }
 
+// Draw Eyes
 function drawEyes() {
     fill("white");
     ellipse(300,300,100,70);
@@ -67,6 +72,7 @@ function drawEyes() {
     ellipse(500,300,10,10); 
 }
 
+//Draw Eyebrows
 function drawBrows() {
     if (mouseIsPressed) {
        fill("black");
@@ -84,6 +90,7 @@ function drawBrows() {
     
 }
 
+//Draw Mouth
 function drawMouth() {
     if (mouseIsPressed) {
         fill("red");
@@ -100,6 +107,7 @@ function drawMouth() {
     }
 }
 
+//Draw Nose
 function drawNose() {
     fill(skinColour);
     triangle(425, 450, 375, 450, 400, 360);
@@ -111,6 +119,7 @@ function drawNose() {
     arc(390, 450, 10, 10, PI, TWO_PI, CHORD);
 }
 
+// Draw Freckles
 function drawFreckles(noOfFreckles) {
     var xcoords = [250, 275, 300, 325, 350, 450, 475, 500, 525, 550];
     var ycoords = [425, 450, 400, 500, 475, 425, 500, 475, 400, 450];
@@ -126,6 +135,7 @@ function drawFreckles(noOfFreckles) {
     }
 }
 
+// Draw Ears
 function drawEars() {
     fill(skinColour);
     quad(204, 460, 190, 450, 175, 360, 201, 360);
@@ -134,6 +144,7 @@ function drawEars() {
     quad(596, 460, 610, 450, 625, 360, 599, 360);
 }
 
+// Draw Body
 function drawBody() {
     fill("blue");
     quad(475, 678, 550, 800, 250, 800, 325, 678);
