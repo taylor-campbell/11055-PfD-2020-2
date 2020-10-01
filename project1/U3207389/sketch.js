@@ -4,7 +4,7 @@ Self Portrait .js file*/
 //defult js setup 
 function setup() {
     createCanvas(600, 800);
-    background('black');
+    background('white');
 }
 
 //PROGRAM
@@ -12,6 +12,7 @@ function setup() {
 
 function draw() {
     fill('#d40fa2');
+    noStroke();
     textSize(18);
     textFont('Helvetica');
     text('Click to blink', 20, 30);
@@ -236,9 +237,6 @@ function eyeL() {
 function eyeRClosed() {
     //Call draw eyelid
     eyelid(a1 = 168, b1 = 78, a2 = 349, b2 = 281, a3 = 454, b3 = 278, a4 = 528, b4 = 154);
-
-
-
     //Call draw eyelash
     eyelash(x1 = 361, y1 = 290, x2 = 359, y2 = 296)
     //Call draw eyelash
@@ -255,7 +253,6 @@ function eyeRClosed() {
 function eyeLClosed() {
     //Call draw eyelid
     eyelid(a1 = -27, b1 = 78, a2 = 154, b2 = 281, a3 = 259, b3 = 278, a4 = 333, b4 = 154);
-
     //Call draw eyelash
     eyelash(x1 = 174, y1 = 293, x2 = 170, y2 = 298)
     //Call draw eyelash
