@@ -1,7 +1,7 @@
 //the online version of this sketch
 // https://editor.p5js.org/NextQueenLiz/sketches/ELJPCjCfS
 
-//set colour variants 
+//set colour variables
 var Haircolour;
 var Collarcolour;
 var Skincolour;
@@ -11,10 +11,9 @@ var Eyecolour;
 var Eyecolour2;
 var Lipcolour;
 
-//canvas setup
 function setup() {
   createCanvas(1000, 1000);
-  //set colours for colour names
+  //set colour values here
   Haircolour = '#3D270B'
   Skincolour = '#E8D6BF'
   Facecolour = '#F6E4CC'
@@ -25,13 +24,12 @@ function setup() {
   Lipcolour = '#FFB7B7'
 }
 
-//drawing
 function draw() {
   background('#0DB689');
 
-  //hair base
   noStroke()
   fill (Haircolour)
+  //hair
   beginShape();
   vertex(500,300);
   vertex(400,320);
@@ -44,7 +42,7 @@ function draw() {
   vertex(600,320);
   endShape(CLOSE);
     
-  //shirt collar behind - left
+  //shirt collar behind left
   fill(Collarcolour)
   beginShape()
   curveVertex(435,760);
@@ -53,7 +51,7 @@ function draw() {
   curveVertex(450,710);
   endShape(CLOSE);
   
-  //shirt collar behind - right
+  //shirt collar behind right
   beginShape()
   curveVertex(565,760);
   curveVertex(570,780);
@@ -72,6 +70,7 @@ function draw() {
   //clothing
   fill(Shirtcolour)
   beginShape()
+  //left side
   vertex(490,950);
   vertex(400,770);
   vertex(240,780);
@@ -82,6 +81,7 @@ function draw() {
   endShape(CLOSE);
   
   beginShape()
+   //right side
   vertex(510,950);
   vertex(600,770);
   vertex(760,780);
@@ -91,7 +91,7 @@ function draw() {
   vertex(760,950);
   endShape(CLOSE);
   
-  //shirt collar base - left
+  //shirt collar base left
   fill(Collarcolour)
   beginShape()
   vertex(380,740);
@@ -99,7 +99,7 @@ function draw() {
   vertex(490,950);
   endShape(CLOSE);
   
-   //shirt collar point - left
+   //shirt collar point left
   beginShape()
   vertex(435,820);
   vertex(380,740);
@@ -107,21 +107,21 @@ function draw() {
   vertex(390,780);
   endShape(CLOSE);
   
-  //shirt collar base - right
+  //shirt collar base right
   beginShape()
   vertex(620,740);
   vertex(580,760);
   vertex(510,950);
   endShape(CLOSE);
   
-  //shirt collar point - right
+  //shirt collar point right
   beginShape()
   vertex(565,820);
   vertex(620,740);
   vertex(650,790);
   vertex(610,780);
   endShape(CLOSE);
-
+  
   //face
   fill (Facecolour);
   ellipse(500,530, 250,370);
@@ -158,7 +158,7 @@ function draw() {
   vertex(480,320);
   endShape(CLOSE);
   
-  //eye base
+  //eye base left
   fill(Eyecolour);
   beginShape();
   vertex(465,525);
@@ -168,6 +168,7 @@ function draw() {
   vertex(430,529);
   endShape(CLOSE);
   
+  //eye right
   beginShape();
   vertex(535,525);
   vertex(540,510);
@@ -176,6 +177,7 @@ function draw() {
   vertex(570,529);
   endShape(CLOSE);
   
+  //eyelashes
   stroke(0)
   strokeWeight(2)
   line(540,510,580,505);
@@ -183,7 +185,7 @@ function draw() {
   line(420,505,405,515);
   line(460,510,420,505);
   
-  //eye detail
+  //eye detail left
   strokeWeight(1)
   fill(Eyecolour2);
   beginShape();
@@ -195,6 +197,7 @@ function draw() {
   curveVertex(428,508);
   endShape(CLOSE);
   
+  //detail right
   beginShape();
   curveVertex(560,509);
   curveVertex(545,510);
@@ -236,10 +239,10 @@ function draw() {
   line(470,590,477,595);
   line(477,580,470,590);
   
-  //glasses
+  //glasses colour
  let RGlasses = map(mouseX, 0, width, 0, 255)
  let GGlasses = map(mouseY, 0, height, 0, 255);
-
+ //glasses shape
   noFill();
   stroke(RGlasses, GGlasses, 100);
   strokeWeight(4);
