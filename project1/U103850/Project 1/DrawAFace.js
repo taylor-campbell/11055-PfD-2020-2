@@ -1,84 +1,78 @@
 document.write ("Hello World2");
 /* this is my JS code to draw a face. It will be called by the Main.html file.
 */
-let segLength = 10, // This is to try and have eyes follow the mouse
-  x,
-  y,
-  x2,
-  y2;
-
-/* this is having a play around with importing pictures.
-function preload(){
-    mouthPicture = loadImage('11055-PfD-2020-2\project1\s440002\U103850\Project 1\Mouth.png'); //trying to load an image of a mouth
-}
-*/
+var eye1; // these are global variables set up for the follow eye movement function.
+var eye2;
 
 function setup() {
 createCanvas(400, 400); //This is to create the initial workspace on which the face is drawn. Size can me modified.
 
-x = width / 2.5;      //This is for the eye follow code
-y = height / 2.5;
-x2 = x;
-y2 = y;
-}
+/* this section is setting up the variables for the follow eye movment function. 
+It is setting the location through x/y coords to be passed into the function. 
+This would have been good to do OOP, but i couldnt get it to work correctly */
 
-function draw() {
-chooseBackgroundColour();
-drawFace();
+eye1 = {                        // variable setting for the left eye
+    x: width / 2 - 36,          // this sets the horizontal location of the eyes in relation to the canvase size (400/2 - 36)
+    y: height / 2.5,            // this sets the vertical location
+    rad: 42                     // this is the radius of the eye circle
+};
+
+
+eye2 = {                        // variable setting for the right eye. This is the same as the left eye
+    x: width / 2 + 36,
+    y: height / 2.5,
+    rad: 42
+}
+}
+/* This is the main draw function. 
+The eyes are drawn here and sub routines for drawing the rest of the face are called
+*/
+
+function draw() {               
+    chooseBackgroundColour();
+    drawFace();                 // this calls the sub routins for creating the rest of the face
+
+ 
+/* The below is drawing the moving eyes. I would like to have done this in sub functions, however i could not make it work correctly. 
+Given more time and experience using OOP, i may have been able to make it work correctly.    
+
+*/
+var ang = atan2(mouseY - eye1.y, mouseX - eye1.x);
+
+fill(255);
+ellipse(eye1.x, eye1.y, eye1.rad);
+fill(0);
+ellipse(eye1.x + (eye1.rad / 4) * cos(ang), eye1.y + (eye1.rad / 4) * sin(ang), eye1.rad / 4 );
+
+ang = atan2(mouseY - eye2.y, mouseX - eye2.x);
+
+fill(255);
+ellipse(eye2.x, eye2.y, eye2.rad);
+fill(0);
+ellipse(eye2.x + (eye2.rad / 4) * cos(ang), eye2.y + (eye2.rad / 4) * sin(ang), eye2.rad / 4 );
+
+}
 
 /* This is the function that calls the individual elements of the face. This is a test */
 function drawFace(){
     drawHead();
-    drawEyes();
     drawMouth();    
     drawNose();
     drawEar();
-    drawShoulders();
-    dragSegment(0, mouseX, mouseY);     // this is for the eye follow code
-    for (let i = 0; i < x.length - 1; i++) {
-      dragSegment(i + 1, x[i], y[i]);
-    }
+      
 }
 
-}
-function dragSegment(i, xin, yin) {
-//    background(0);
-  
-    dx = mouseX - x;
-    dy = mouseY - y;
-    angle1 = atan2(dy, dx);
-  
-    tx = mouseX - cos(angle1) * segLength;
-    ty = mouseY - sin(angle1) * segLength;
-    dx = tx - x2;
-    dy = ty - y2;
-    angle2 = atan2(dy, dx);
-    x = x2 + cos(angle2) * segLength;
-    y = y2 + sin(angle2) * segLength;
-  
-    segment(x, y, angle1);
-    segment(x2, y2, angle2);
-  }
-  
-  function segment(x, y, a) {
-    push();
-    translate(x, y);
-    rotate(a);
-    line(0, 0, segLength, 0);
-    pop();
-  }
-  
+function chooseBackgroundColour(){  //holder for user input to background colour that is randomised on mouseclick 
+r = random(255); // random number between 0 - 255, for Red value set to variable r
+g = random(255); // random numbner between 0 - 255, for Green value set to variable g
+b = random(255); // random number between 0 - 255, for blue value set to variable b
+a = random(255); // random number between 0 - 255, set to variable a  
 
-
-  function chooseBackgroundColour(){  //holder for user input to background colour that is randomised on mouseclick 
-r = random(255); // random number between 0 - 255, for Red value
-g = random(100, 200); // random numbner between 100 - 200, for Green value
-b = random(100); // random number between 0 - 100 for blue value
-a = random(200, 255); // random number between 200 -255   
 
 /*function for changing the background colour to a random value when mouse is clicked (mouseIsPressed function) */
+
 if (mouseIsPressed){
-    background(r, g, b, a);
+    background(r, g, b, a); // when the mouse is pressed, 4 random nombers, each between 0 amnd 255 are selected and entered to give a colour number
 }else {
 }
 
@@ -132,13 +126,44 @@ pop(); //this function removes style settings that are set in this function
 }
 
 function drawEar(){
-fill(255, 255, 0);
+push();
+    fill(255, 255, 0);
     arc(width/4, height/2, 40, 60, 0, PI + HALF_PI, PI + HALF_PI, OPEN);
-// arc(370, 265 40, 60, 0, PI + PI + HALF_PI, OPEN);
+pop();
 }
 
-function drawShoulders(){
-fill(255);
-    arc(width/2, height/2, 40, 40, 40);
+/* this is my working code for attempting to make the follow eyes function work. 
+I have kept this in to return to at a later date. It currently has been commented out.
 
+function followEyes(){
+
+    document.write("test");
+    /* eye1 = {
+        x: width / 2 - 16,
+        y: height / 2,
+        rad: 32
+    };
+    
+    
+    eye2 = {
+        x: width / 2 + 16,
+        y: height / 2,
+        rad: 32
+    } 
+
+    var ang = atan2(mouseY - eye1.y, mouseX - eye1.x);
+
+    fill(255);
+    ellipse(eye1.x, aeye1.y, eye1.rad);
+    fill(0);
+    ellipse(eye1.x + (eye1.rad / 4) * cos(ang), eye1.y + (eye1.rad / 4) * sin(ang), eye1.rad / 4 );
+    
+    ang = atan2(mouseY - eye2.y, mouseX - eye2.x);
+    
+    fill(255);
+    ellipse(eye2.x, eye2.y, eye2.rad);
+    fill(0);
+    ellipse(eye2.x + (eye2.rad / 4) * cos(ang), eye2.y + (eye2.rad / 4) * sin(ang), eye2.rad / 4 );
 }
+*/
+
