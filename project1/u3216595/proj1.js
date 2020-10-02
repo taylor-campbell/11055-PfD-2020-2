@@ -1,5 +1,5 @@
 function setup(){
-    createCanvas(600, 600); //create canvas to draw on
+    createCanvas(600, 1000); //create canvas to draw on
     background(250); //temp baby blue or green later
 }
 
@@ -63,10 +63,6 @@ function draw(){
     fill(0);
     rect();
 
-    /*7. hair
-    */
-    //hair
-
     /*8. eyebrows
     create arc
     position above left eye
@@ -74,8 +70,8 @@ function draw(){
     position above right eye*/
     //eyebrows
     stroke(195, 164, 79);
-    arc();//left
-    arc();//right
+    arc(205, 210, 50, 50, PI + TWO_PI, TWO_PI);;//left
+    arc(395, 210, 50, 50, PI + TWO_PI, TWO_PI);;//right
 
     /*9. ears
     skin tone
@@ -95,22 +91,4 @@ function draw(){
     strokeWeight(3);
     arc(300, 380, 80, 80, TWO_PI, PI);
 
-    /*10. click event = mouth
-    when mouse clicks value +1
-    value = 0{
-        create arc for smile
-    }
-    value = 1{
-        colour red
-        ellipse for surprise
-    }
-    value = 2{
-        arc for frown
-    }
-    value = 3{
-        value = 0
-    }
-    loop without loop tag
-    } */
-    //click event values
 }
