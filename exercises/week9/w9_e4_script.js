@@ -12,10 +12,3 @@ check that if the sum of both numbers is over 10, tell the user 'too big'
 check that if the sum of both numbers is 10, tell the user 'perfect'
 
 */
-
-
-
-
-
-
-
