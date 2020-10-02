@@ -16,6 +16,7 @@ function draw(){
     //eyes
     //left
     stroke(195, 164, 79); //strokes appear again
+    strokeWeight(1); //how thick strokes are
     fill(255); //255 is topmost value, this means the colour is white - 255, 255, 255 in rgb
     ellipse(205, 290, 135, 135);
     //right
@@ -83,10 +84,16 @@ function draw(){
     ellipse right of head*/
     //ears
     noStroke();
-    fill();
+    fill(0);
     ellipse(); //left
-    fill();
+    fill(0);
     ellipse(); //right
+
+    //mouth
+    noFill();
+    stroke(239, 171, 131);
+    strokeWeight(3);
+    arc(300, 380, 80, 80, TWO_PI, PI);
 
     /*10. click event = mouth
     when mouse clicks value +1
@@ -106,24 +113,4 @@ function draw(){
     loop without loop tag
     } */
     //click event values
-    let value = 0;
-    stroke(195, 164, 79);
-    strokeWeight(4);
-    noFill();
-    arc(300, 380, 80, 80, 0, HALF_PI);
-
-    value = 1;
-    ellipse(300, 380, 80, 80);
-
-    value = 2;
-    arc(300, 380, 80, 80, 0, HALF_PI);
-}
-
-//click event 2 (mouse click)
-function mouseClicked(){
-    if (value = 0){
-        value = +1;
-    } if (value = 3){
-        let value = 0;
-    }
 }
