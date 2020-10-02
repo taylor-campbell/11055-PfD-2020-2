@@ -3,20 +3,20 @@ function setup(){
     background(182, 255, 238); //mint blue/green as background colour
 }
 
-let pos = 65; //the initial size of the hair
+let pos = 65; //the initial length of the hair
 
 function draw(){
     //hair
-    noStroke();
+    noStroke(); //no border
+    fill(0); ////black would be the bottommost value if white was topmost - 0, 0, 0 in rgb
+    ellipse(300, 300, 480, 480); //x, y, width, length
     fill(0);
-    ellipse(300, 300, 480, 480);
-    fill(0);
-    rect(70, 350, 460, pos);
+    rect(70, 350, 460, pos); //x, y, width, length. pos is a changeable value.
 
     
     //face
     fill(255, 241, 202);
-    ellipse(300, 300, 400, 400); //x, y, width, height
+    ellipse(300, 300, 400, 400); 
 
     //eyes
     //left
@@ -30,7 +30,7 @@ function draw(){
 
     //pupils
     //left
-    fill(0); //black would be the bottommost value if white was topmost - 0, 0, 0 in rgb
+    fill(0); 
     noStroke();
     ellipse(205, 290, 70, 70);
     //right
