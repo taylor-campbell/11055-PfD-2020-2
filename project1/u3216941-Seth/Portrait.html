@@ -6,15 +6,24 @@
         <script src="MyLibarires/drawFuctions.js"></script>
         <style>
             /*Creating a css for the changes to be display on the
-            right of the canvas*/
+            right of the canvas.
+            Also CSS for the header where the title will go*/
+            .header {
+                overflow: hidden;
+                background-color: #ebffb0;
+                padding: 20px 10px;
+               
+                }
+
             .right {
               position: absolute;
               /*Left is how far way it needs to be from the 
               left size of screen*/
               left: 670px;
               width: 300px;
-              border: 7px solid #73AD21;
+              border: 7px solid #b0ffd8;
               padding: 10px;
+           
             }
             </style>
     </head>
@@ -23,8 +32,16 @@
         <script src ="Portraitproject.js"></script>
         <!-- Start of the div class right, anything div tag will be
         inside the border of the box -->
+        <div class= "header">
+            <!--Uc logo sources from Creativecommons website, 
+        "File:UC Logo Stacked Colour DIGITAL.png" by ReneeRyanUniCanberra is licensed under CC BY-SA 4.0-->
+            <img src="MyLibarires/Uclogo.png" width="7%"style="float:right">
+            <h1>Project 1: Self-portrait</h1>
+            <h2>Created by Seth Arnould</h2>
+            <h3 style="text-align: right;">Programing Desgin</h3>
+        </div>
         <div class="right">
-        <h1>What do you want Changed?</h1>
+        <h1>What do you want to Changed?</h1>
          <!-- Create Checkbox and dropdown menu
         id connect with the variable/document.getid in javascript -->
         <label for="browcheck"> Eyebrow Stop or Play:</label> <input type="checkbox" id="browcheck" checked ><br/>

@@ -1,3 +1,8 @@
+/* 
+ Seth Arnould 2/10
+ This the javascript that sets up all the main propties 
+ and calls the fuction from the draw fuction libary 
+*/
 
 //the setup for the main drawing, creating a canvas, 
 //background colour and what angle model to uses, which is set
@@ -34,8 +39,4 @@ function setup() {
     //Create parameter in draw eye for the check box and change eyecolour (linked with eye colour drop down) 
     drawEyes(chcekGlasse.checked,chcekGEyes.checked,eyecolour);
     drawMouth();
-
-
 }
-
-

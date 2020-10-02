@@ -18,29 +18,37 @@ var direction = "Up";
     function drawHead()
     {
         // fuction drawHead()
+        //Call Draw Ears
         drawEars();
+        //Start a new drawing state, so won't effect other shapes in program
         push();
+            //removes the stroke from the shapes
             noStroke();
+            //Seting the colour of the face using the RGB values for the skin colour
             fill(226,200,187);
+            //Setting the Valuse of the postion fron the left (posleft) and
+            //the postion from the top (postop)
             translate(317.14,456.22 );
+            //Roating the shape using the translate postion
             rotate(4.4);
+            //Creating circle (ellipse) and seting the
+            //posleft, postop, width, height
             ellipse(0, 0,397, 584);
         pop();
-
-        // ellipse(posleft, postop, width, height)
-        // fill(colour)
-        // Call drawEars
-
+        //reload the drawing state
     }    
+    //new fuction called drawears
     function drawEars()
 {
-    push(); //save current changes 
+    push(); //new drawing stae 
         fill(226,200,187);
         translate(105.98 ,428.50 );
         rotate(-2.3);
         ellipse(0,0,82.81,138.25);
-    pop(); //restore the change back to normal
+    pop(); //load pervious state
 }
+//new fuction called draweyes, create new/link parameter of
+//glasses,eyebrows,eyecolour 
 function drawEyes(glasses,eyebrows,eyecolour)
 {   
     //Call drawLefteye, drawRighteye, drawBrow, and drawGlasses
@@ -74,6 +82,7 @@ function drawEyes(glasses,eyebrows,eyecolour)
     //how far it can move from the original cordnainates 
    
     //Call drawGlasses at botom so eye balls will be behied the glasses
+    //If the check box is checked the glasses will loaded
     if(glasses){
         drawGlasses();
     }
@@ -85,9 +94,12 @@ function drawLefteye()
     //First Save and load section for the top eye lid
 
     push();
+    //set colour inside arc to white
         fill("white");
         translate(264, 419);
         rotate(235); //set the rotation
+        //creating arc and seting the
+        //posleft, postop, width, height, start, stop, PI
         arc(0, 0, 70, 85, 0, 100, PI-0.5);
     pop();
     
@@ -118,35 +130,29 @@ push();
 pop();
 
 }
-
+//seting parameter of eyebrowmovement to be able to stop and startmovement with checkbox
 function draweyeBrow(eyeBrowMovement)
 {
     push();
-    
-
     //Left eye brow
-    push();
-   
-    noStroke();
-      
-    translate(270,yLeftbrow);
-      scale(0.7);
-    rotate(21)
-    rect(0,0,85,17)
-    rotate(-25);
-    rect(-35,0,38,16);
-    pop();
-    
-    push();
-    noStroke();
-  
-    translate(410,yRightbrow);
-    rotate(7.6)
-    rect(0,0,70,14)
-    rotate(0);
-    rect(-10,3,14,10)
-   
-    pop();
+        push();
+            noStroke();
+            translate(270,yLeftbrow);
+            scale(0.7);
+            rotate(21)
+            rect(0,0,85,17)
+            rotate(-25);
+            rect(-35,0,38,16);
+        pop();    
+        push();
+            noStroke();  
+            translate(410,yRightbrow);
+            rotate(7.6)
+            rect(0,0,70,14)
+            rotate(0);
+            rect(-10,3,14,10)
+        
+        pop();
     //if the direction has string called Up, 
     //the brow will move up
     if(direction == "Up")
@@ -155,7 +161,7 @@ function draweyeBrow(eyeBrowMovement)
     yLeftbrow = yLeftbrow - 0.5;
     yRightbrow = yRightbrow - 0.5
     }
-    //When the direction string is Down,
+    //When the direction string is Down and the checkbox for eyebrowmovement is true,
     //the brow will move down
     if (eyeBrowMovement && direction == "Down")
     {
@@ -190,9 +196,13 @@ function drawGlasses()
         //seting the glasses colour to what was set for glassescolour up above
         fill(glassColour);
         rotate(15);
+        //Seting how big the stroke will be
         strokeWeight(7);
+        //Creating Rectagule with the posleft and postop taken from translate
+        //and then width and hight, then the 20 is the curve of the conrer
         rect(0,0,130,90,20);
         rect(175,0,130,90,20);
+        //fill colour black
         fill(0);
         noStroke();
         rect(130,20,45,22,);
@@ -202,6 +212,7 @@ function drawGlasses()
         rect(-90,4,65,17);
     pop();
 }
+//Start fuction for drawnose
 function drawNose()
 {
     //Left section of nose
@@ -209,6 +220,7 @@ function drawNose()
     
         translate(333, 517);
         noFill();
+        //Set scale of the nose to flip to the other side
         scale(-1,1);
         rotate(-15);
         arc(0, 0, 46, 39, 0, 93, HALF_PI);      
@@ -247,7 +259,7 @@ function drawNose()
         ellipse(387,450,30,110);
    pop();
 }
-
+//fuction for the drawmouth
 function drawMouth()
 {
       
@@ -267,10 +279,14 @@ function drawMouth()
    pop();
    
 }
+//fuction for draw backhair and seting parameter for haircolour
+//to allow the change of hair colour
 function drawbackhair(haircolour)
 //create function backhair
 //This fuction is for shape that can go behind the head layer
 {
+    //fill colour connect to the dropdown option to change hair to selected option
+    //already selected colour is black, the fill colour connect to all the hair peices (inculding eyebrow)
     fill(haircolour);
     push();
    
@@ -281,7 +297,7 @@ function drawbackhair(haircolour)
     pop();
 
 }
-function drawfronthair(haircolour)
+function drawfronthair()
 //create fuction fronthair
 //this fuction is for the the shape/hair that needs to appear in front of the head layer.
 {
@@ -302,10 +318,10 @@ function drawfronthair(haircolour)
     ellipse(129,322,37,210);
     pop();
 }
-
+//fuction for draw body
 function drawBody()
 {
-    
+//This section is for the neck 
 push();
     noStroke();
     fill(210,174,156);
@@ -334,10 +350,11 @@ pop();
 //in the shirt fuction will appear infornt of this fuction/layer
 shirt();
 }
-
+//fuction for shirt
 function shirt()
 {
  push();
+ //Set the shirt colour
     fill(144,126,142);
     noStroke();
     //remove lines around the shape to make more solid looking
