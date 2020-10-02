@@ -4,30 +4,15 @@ function setup(){
 }
 
 function draw(){
-    /*2. neck
-    colour a skin tone darker than face
-    create rect
-    lower middle of canvas, overlap with head */
     //neck
     fill(244, 227, 182); //fill closed shape with colour. slightly darker than face skin tone.
     noStroke(); //erase border line until otherwise stated
     rect(250, 350, 100, 200); //x, y, width, height
     
-    /*3. face
-    colour skin tone
-    create ellipse 
-    place in centre of canvas */
     //face
     fill(255, 241, 202);
     ellipse(300, 300, 400, 400); //x, y, width, height
 
-    /*4. eyes
-    colour white
-    ellipse, circle
-    left side of face
-    colour white 
-    ellipse circle
-    right side of face*/
     //eyes
     //left
     stroke(195, 164, 79); //strokes appear again
@@ -37,16 +22,9 @@ function draw(){
     fill(255);
     ellipse(395, 290, 135, 135); //x = 600-215
 
-    /*5. pupils
-    colour black
-    ellipse circle
-    center in middle of left eye
-    colour black
-    ellipse circle
-    center in middle of right eye*/
     //pupils
     //left
-    fill(0);
+    fill(0); //black would be the bottommost value if white was topmost - 0, 0, 0 in rgb
     noStroke();
     ellipse(205, 290, 80, 80);
     //right
@@ -129,18 +107,21 @@ function draw(){
     } */
     //click event values
     let value = 0;
-    arc();
+    stroke(195, 164, 79);
+    strokeWeight(4);
+    noFill();
+    arc(300, 380, 80, 80, 0, HALF_PI);
 
     value = 1;
-    ellipse();
+    ellipse(300, 380, 80, 80);
 
     value = 2;
-    arc();
+    arc(300, 380, 80, 80, 0, HALF_PI);
 }
 
 //click event 2 (mouse click)
 function mouseClicked(){
-    if (value){
+    if (value = 0){
         value = +1;
     } if (value = 3){
         let value = 0;
