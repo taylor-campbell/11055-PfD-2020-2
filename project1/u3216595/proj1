@@ -2,75 +2,55 @@
 create canvas
 background colour
 
-2. neck
-colour a skin tone darker than face
-create rect
-lower middle of canvas, overlap with head
+2. hair
+hair black
+create ellipse above head
+make sure ellipse is larger than head
+rectangle with the value pos
 
 3. face
 colour skin tone
-create ellipse 
-place in centre of canvas
+create ellipse, circle in center
 
 4. eyes
 colour white
-ellipse, circle
-left side of face
-colour white 
-ellipse circle
-right side of face
+create ellipse
+situate at left side
+colour white
+create ellipse
+situate at right side of head
 
 5. pupils
 colour black
-ellipse circle
-center in middle of left eye
+create ellipse
+same center as left eye
 colour black
-ellipse circle
-center in middle of right eye
+create ellipse
+same center as right eye
 
-6. shirt
+6. nose
+colour a shade darker than skin tone
+create semicircle
+place near center of face
+
+7. eyebrows
 colour black
-ellipse on right of neck
+create semicircle, upside down
+above left eye 
 colour black
-ellipse on left of neck
-colour black
-create rect
-enlargen so it is ude for both arms
-colour black 
-create rect
-links both shoulders together
-colour black
-create rect
-turtle neck so I don't need shirt collar
+create semicircle
+above right eye
 
-7. hair
+8. ears
+colour skin tone
+attatch to edge of face left
+colour skin tone
+attatch to edge of face right
 
+9. mouth
+empty semicircle
+colour border brown, red, or pink
+create semicircle
 
-8. eyebrows
-create arc
-position above left eye
-create arc
-position above right eye
-
-9. ears
-skin tone
-ellipse left of head
-skin tone
-ellipse right of head
-
-10. click event = mouth
-when mouse clicks value +1
-value = 0{
-    create arc for smile
-}
-value = 1{
-    colour red
-    ellipse for surprise
-}
-value = 2{
-    arc for frown
-}
-value = 3{
-    value = 0
-}
-loop without loop tag
+10. mousewheel event
+pos value will add according to mouse mouseWheel
