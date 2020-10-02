@@ -45,7 +45,7 @@ function hair(){
   fill(d);
   rect(xbackhair, ybackhair, 150,200,80,80,0,0);
 }
-//draw eyes
+//draw ears
 var xleftear =  x - 47;
 var yleftear = y +10;
 
