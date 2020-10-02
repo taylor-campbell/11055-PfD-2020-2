@@ -9,18 +9,17 @@ function draw(){
     create rect
     lower middle of canvas, overlap with head */
     //neck
-    fill(244, 227, 182);
-    noStroke();
-    rect(240, 420, 60, 70); //x, y, width, height
+    fill(244, 227, 182); //fill closed shape with colour. slightly darker than face skin tone.
+    noStroke(); //erase border line until otherwise stated
+    rect(250, 350, 100, 200); //x, y, width, height
     
     /*3. face
     colour skin tone
     create ellipse 
     place in centre of canvas */
     //face
-    fill();
-    ellipse();
-    noStroke();
+    fill(255, 241, 202);
+    ellipse(300, 300, 400, 400); //x, y, width, height
 
     /*4. eyes
     colour white
@@ -31,11 +30,12 @@ function draw(){
     right side of face*/
     //eyes
     //left
-    fill(255);
-    ellipse();
+    stroke(195, 164, 79); //strokes appear again
+    fill(255); //255 is topmost value, this means the colour is white - 255, 255, 255 in rgb
+    ellipse(205, 290, 135, 135);
     //right
     fill(255);
-    ellipse();
+    ellipse(395, 290, 135, 135); //x = 600-215
 
     /*5. pupils
     colour black
@@ -47,10 +47,11 @@ function draw(){
     //pupils
     //left
     fill(0);
-    ellipse();
+    noStroke();
+    ellipse(205, 290, 80, 80);
     //right
     fill(0);
-    ellipse();
+    ellipse(395, 290, 80, 80);
 
     /*6. shirt
     colour black
@@ -93,6 +94,7 @@ function draw(){
     create arc
     position above right eye*/
     //eyebrows
+    stroke(195, 164, 79);
     arc();//left
     arc();//right
 
@@ -102,6 +104,7 @@ function draw(){
     skin tone
     ellipse right of head*/
     //ears
+    noStroke();
     fill();
     ellipse(); //left
     fill();
