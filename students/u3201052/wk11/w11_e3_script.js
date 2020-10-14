@@ -11,17 +11,19 @@ you might even include your name and the date */
 
 function setup() {
     // Sets the screen to be 720 pixels wide and 400 pixels high
-    createCanvas(720, 700);
+    createCanvas(720, 400);
     background(255);
 }
 
 function draw() {
-    var winA = new aWindow(100, 100, 5, 'red');
-    winA.drawWindow();
     
-    winA.setPos(250, 80);
-    winA.setOptions(10, 'blue');
-    winA.drawWindow();
+    var flA = new aFloor(100, 100, 5, 100, 2, false);
+    flA.drawFloor();
+
+    var doA = new aDoor(310, 150, 2, 200, false, 50, 100);
+    doA.drawDoor();
+    // call your new class correctly
+    
 }
 
 
