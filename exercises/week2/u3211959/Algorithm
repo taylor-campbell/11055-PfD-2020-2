@@ -1,0 +1,19 @@
+Check what day it is
+    Is it the weekend?
+        Turn on alarm at 9am
+        Make breakfast
+     Is the house clean?
+        If yes, start hobby
+        If No, start chores
+
+ Is it a weekday?
+        Turn on alarm at 7am
+        Turn on coffee machine
+    While coffee machine is on
+        Brush Teeth 
+        Get nice clothes on
+    Check, is coffee done?
+        If yes, drink coffee and have breakfast
+        If no, wait
+    After eating
+        Drive to work

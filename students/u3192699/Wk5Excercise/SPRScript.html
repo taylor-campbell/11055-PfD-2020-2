@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+       
+        <script>
+            //set variables
+            var player1wins = 0;
+            var player2wins = 0;
+            var player1input = 0;
+            var player2input = 0;
+            //introduction message
+            document.write("Welcome to SPR, please input your choice, 0 = scisssors, 1 = paper, 2 = rock");
+
+            setTimeout(function() { 
+              //gives a delay before the prompt so players can read introduction
+            while (player1wins < 2 && player2wins < 2){ 
+                //this makes the game a best of three
+
+                player1input = window.prompt("player1 input");
+                player2input = window.prompt("player2 input");
+                //players input their choice
+                //program compares values to decide winner
+                    if (player1input == player2input){
+                       // document.write("draw");
+                    }
+
+                    if (player1input == 0 && player2input == 1){
+                        //document.write("player 1 wins");
+                        player1wins++;
+                    }
+                    if (player1input == 0 && player2input == 2){
+                        //document.write("player 2 wins");
+                        player2wins++;
+                    }
+                    if (player1input == 1 && player2input == 0){
+                        //document.write("player 2 wins");
+                        player2wins++;
+                    }
+                    if (player1input == 1 && player2input == 2){
+                        //document.write("player 1 wins");
+                        player1wins++;
+                    }
+                    if (player1input == 2 && player2input == 0){
+                        //document.write("player 1 wins");
+                        player1wins++;
+                    }
+                    if (player1input == 2 && player2input == 1){
+                       // document.write("player 2 wins");
+                        player2wins++;
+                    }  
+                 
+                
+  
+            }
+ 
+
+            //prints the overall winner of the game
+            if (player1wins > player2wins){
+                document.write("player 1 wins the game!" );
+            }
+            if (player2wins > player1wins){
+                document.write("player 2 wins the game!");
+
+            }
+        }, 5000); 
+
+            </script>
+
+    </body>
+</html>

@@ -1,0 +1,101 @@
+Create variables
+    "mid": center of canvas
+    "eye_space": distance from "mid" (use for eyes, pupils, eyebrows, etc)
+    x = width of canvas (to track mouseX)
+    y = height of canvas (to trakc mouseY)
+    mouth = 255 (opacity of first mouth)
+    mouth2 = 0 (opacity of second mouth)
+
+
+Setup Canvas
+    900x900 pixels
+    Create slider for eyebrow raising
+    Set default stroke size to 4, and colour to navy
+
+Draw shapes
+    background (so opacity of second background can be lowered making it seem darker)
+        Colour: Black
+    Background 2
+        Colour: Light Blue
+    Back of hair
+        Square
+        Colour: Darker Brown
+        Stroke: 0
+    Shirt
+        2 Squares + 2 Circles (for rounded corners effect)
+        Colour: Purple
+        Stroke: 0
+
+        2 Lines (arm lines)
+        Colour: Black (lowered opacity)
+        Stroke: 4
+    Neck
+        Square + Circle for base of neck
+        Colour: Flesh
+        Stroke: 4 (Navy Blue)
+
+        Square (layer over bottom outline of first square)
+        Colour: Flesh
+        Stroke: 0
+    Ears
+        2 Circles
+        Colour: Flesh
+        Stroke: 4
+    Head
+        Circle
+        Colour: Flesh
+        Stroke: 4
+    Eyes
+        Eyes - base
+            2 Circles
+            Colour: White
+            Stroke: 0
+        Eyes - pupils
+            2 Circles (random position jitter. Follow mouse felt too obvious)
+            Colour: Blue-Green
+            Stroke: 4
+        Eyes - highlights
+            2 Circles
+            Colour: White
+            Stroke: 0
+        Eyelids
+            Square 
+            Colour: Flesh (same colour as head, so only visible over top of eyes)
+            Stroke: 0
+        Eyes - outlines
+            2 Circles (same position as eyes base, over the eyelids)
+            Stroke: 4
+    Eyebrows
+        2 Squares
+        Colour: Darker Brown
+        Outlines: 0
+    Mouths
+        Mouth1
+            Line
+            Colour: Navy
+            Stroke: 6
+        Mouth2
+            Circle
+            Colour: Dark Red
+            Stroke: 0
+    Nose
+        Triangle
+        Colour: Black (low opacity so its darker Flesh)
+        Stroke: 0
+    Hair
+        2 Squares + 2 Circles (for rounded corners effect) + 2 Circles (for sides) + Triangle (for fringe curve)
+        Colour: Brown
+        Stroke: 0
+    Text
+        9 Lines (random position jitter, opacity will increase from 0 as mouse goes from 600-855 on the y-axis)
+        Colour: White
+        Stroke: 10
+
+Setup Mouse Click Funtion
+    If clicked within area of head shape
+        If Mouth1 is visible
+            change Mouth1 opacity to 0
+            changE Mouth2 opcatity to 255
+        If Mouth2 is visible
+            change Mouth2 opacity to 0
+            changE Mouth1 opcatity to 255

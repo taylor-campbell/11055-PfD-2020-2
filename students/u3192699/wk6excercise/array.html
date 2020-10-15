@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+       
+        <script>
+// Arrays
+
+/* create an array of people in your family - 
+add an extra person
+use an if statement in your for to only print out some peoples name (only people's whose name starts with "S" or something)
+*/
+var family_names = ["Isaac", "Paul","Oliver","Arabella"];
+document.write("add a family member" + "<br/>");
+// the prompt function allows you to ask the user to enter a name
+family_names.push(window.prompt("enter a name"+"<br/>"));
+document.write("family names:"+"<br/>");
+for(let x = 0; x< family_names.length; x++){
+    if (family_names[x].substring(0,1) == "A") {
+        document.write(family_names[x] + "<br/>");
+    }
+}
+
+
+         </script>
+
+    </body>
+</html>
