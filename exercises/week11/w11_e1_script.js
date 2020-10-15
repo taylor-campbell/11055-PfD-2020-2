@@ -22,6 +22,10 @@ function draw() {
     winA.setPos(250, 80);
     winA.setOptions(10, 'blue');
     winA.drawWindow();
+
+    var winB = new aWindow(200,400, 3, 255);
+    winB.drawWindow();
+
 }
 
 
