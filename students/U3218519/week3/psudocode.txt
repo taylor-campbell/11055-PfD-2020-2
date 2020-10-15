@@ -1,0 +1,36 @@
+SET:
+ride = navigate_to_work
+breath = Inhale_exhale_repeat
+state = Relaxing
+obsticle = False.
+avoidObsticle = Navigate around obsticle
+trafficLightsRed = False
+stop = "bike.speed 0"
+arrived = False
+
+START:
+
+LOOP:
+ WHILE state = relaxed,
+  IF time is => 8:am
+   SET state = "ride"
+  ElSE,
+   wait 1 minute and repeat loop
+END LOOP
+LOOP
+ WHILE State ="ride"
+  IF obsticle = true
+   SET state = "avoidObsticle" and check for obsticle
+  IF obsticle = true
+   SET status = "stop" and check for obsticle
+  IF obsticle = False
+   SET status = "ride"
+  IF trafficeLightsRed = True
+   SET status to "stop" and check lights
+  IF arrived = True
+   SET status = "dismount"
+END LOOP
+ SET bike = "locked"
+ SET status = "walkinIn"
+   
+
