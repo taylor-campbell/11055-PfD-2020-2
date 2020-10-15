@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>Algorithm - How to make a cappucino</head>
+    <body>
+<h1><b>This is the flowchart and pseudocode</b></h1>
+<img src="./howtomakecoffee_flowchart&pseudocode.png"/>
+
+<h2><b>This is a link to my pseudocode document</b></h2>
+<a href="../howtomakecoffee_Pseudocode">Pseudocode link</a>
+
+    </body>
+</html>

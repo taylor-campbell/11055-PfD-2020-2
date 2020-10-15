@@ -3,3 +3,11 @@
 .DS_Store
 
 .gitignore
+
+
+
+
+
+
+
+!.gitignore
