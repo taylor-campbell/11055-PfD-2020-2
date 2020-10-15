@@ -1,85 +1,134 @@
 START
-    Call DrawImage Function
+    CREATE canvasWidth
+    CREATE canvasHeight
+    CREATE xLeftEye
+    CREATE xRightEye
+    CREATE yEye
+    CREATE xLeftPupil
+    CREATE xRightPupil
+    CREATE yPupil
     
-    START DrawImage Function
+    SET canvasWidth = 400
+    SET canvasHeight = 400
+
+    SET xLeftEye = 160;
+    SET xRightEye = 240;
+    SET yEye = 180;
+
+    SET xLeftPupil = xLeftEye;
+    SET xRightPupil = xRightEye;
+    SET yPupil = yEye;
+    
+    Call setup Function
+    START setup Function
         Call DrawCanvas Function
-        Call DrawBackground Function
         Call DrawFace Function
         Call DrawHair Function
-        Call DrawEyes Function
-        Call DrawEyebrows Function
         Call DrawNose Function
         Call DrawMouth Function
+    END
 
-        START DrawCanvas(400, 400, #ffffff) Function
-            Variables: Height, Width, Colour
-            Call background Function to set background Colour
-        End
-        START DrawBackground(CanvasWidth / 2, CanvasHeight / 2, i, #71c404) Function
-            Variables: Variables: x-coordinate, y-coordinate, Radius, Colour
-            FOR i = 600
-                i = i - 40
-                Call lerpColor Function to set interpolating color for Colour
-                Call ellipse Function to draw ellipse
-            END FOR
-        End
-        START DrawFace(CanvasWidth / 2, CanvasHeight / 2, 220, 300, #ffcb9a) Function
-            Variables: x-coordinate, y-coordinate, Height, Width, Colour
-            Call fill Function to set Colour
+    Call draw Function
+        DO
+            Call DrawEyes Function
+
+            Call map Function to get mouse coordinates to get y position of pupils
+            Call map Function to get mouse coordinates to get x position of left pupils
+            Call map Function to get mouse coordinates to get x position of right pupils
+        LOOP
+    END
+
+    START DrawCanvas(400, 400) Function
+        CREATE bgColor
+        CREATE greenColor
+
+        SET bgColor = '#ffffff'
+        SET greenColor = #71c404'
+
+        Call P5 createCanvas to draw canvas(400, 400)
+        Call P5 background to set canvas to bgColor
+
+        FOR i = 600
+            i = i - 40
+            Call lerpColor Function to set interpolating color to greenColor
             Call ellipse Function to draw ellipse
-        End
-        START DrawHair(, Black) Function
-            Variables: Vertex x-coordinate, Vertex y-coordinate, Colour
-            Call fill Function to set Colour
-            Call curveVertex to draw curved shape
-        End
-        START DrawEyes Function
-            Call DrawEyeballs Function
-            Call DrawPupils Function
+        END FOR
+    END
 
-            START DrawEyeballs(160, 180, 60, White) Function
-                Variables: x-coordinate, y-coordinate, Radius, Colour
-                Call fill Function to set Colour
-                Call ellipse Function to draw ellipse
-            End
-            START DrawEyeballs(240, 180, 60, White) Function
-                Variables: x-coordinate, y-coordinate, Radius, Colour
-                Call fill Function to set Colour
-                Call ellipse Function to draw ellipse
-            End
+    START DrawFace(canvasWidth / 2, canvasHeight / 2, 220, 300) Function
+        CREATE skinColor
+        SET skinColor = '#ffcb9a'
 
-            START DrawPupils(xLeftPupil, yPupil, 25, Black) Function
-                Variables: xLeftPupil, yPupil, Radius, Colour
-                Call fill Function to set Colour
-                Call ellipse Function to draw ellipse
-                Call map Function to get mouse coordinates
-            End
-            START DrawPupils(xRightPupil, yPupil, 25, Black) Function
-                Variables: xRightPupil, yPupil, Radius, Colour
-                Call fill Function to set Colour
-                Call ellipse Function to draw ellipse
-                Call map Function to get mouse coordinates
-            End
-        End 
-        START DrawEyebrows(130, 145, 130, 130, 190, 145, Black) Function
-            Variables: x-coordinate of the first point, y-coordinate of the first point, x-coordinate of the second point, y-coordinate of the second point, x-coordinate of the third point, y-coordinate of the third point
-            Call fill Function to set Colour
-            Call triangle Function to draw triangle
-        End
-        START DrawEyebrows(210, 145, 270, 130, 270, 145, Black) Function
-            Variables: x-coordinate of the first point, y-coordinate of the first point, x-coordinate of the second point, y-coordinate of the second point, x-coordinate of the third point, y-coordinate of the third point
-            Call fill Function to set Colour
-            Call triangle Function to draw triangle
-        End
-        START DrawNose(width/2, height/2 + 10, width/2, height/2 + 75, width/2 + 20, height/2 + 60, #fdbc85) Function
-            Variables: x-coordinate of the first point, y-coordinate of the first Vertex, x-coordinate of the second Vertex, y-coordinate of the second Vertex, x-coordinate of the third Vertex, y-coordinate of the third Vertex
-            Call fill Function to set Colour
-            Call Vertex Function to draw triangle
-        End
-        DrawMouth(width/2 - 10, height/2 + 75, 125, 50, 0.2, PI-.9, Black, 5)
-            Variables: x-coordinate of the arc's ellipse, y-coordinate of the arc's ellipse, width of the arc's ellipse by default, height of the arc's ellipse by default, angle to start the arc, specified in radians, angle to stop the arc, specified in radians
-            Call stroke Function to set Colour
-            Call arc Function to draw arc
-        End
-    End
+        Call fill Function to set color of object to skinColor
+        Call ellipse Function to draw ellipse
+    END
+
+    START DrawHair(150, 55, 170, 80, 230, 90, 300, 130, 290, 90, 260, 60, 210, 40, 170, 45, 145, 58, 165, 80, 130, 100, 100, 130, 110, 90, 120, 75, 130, 65) Function
+        CREATE blackColor
+        SET blackColor = '#000000'
+        
+        Call fill Function to set color of object to blackColor
+
+        Call beginShape Function to start drawing complex shape
+        Call curveVertex to draw curved shape representing hair on top of head
+        Call endShape Function and CLOSE to finish drawing complex shape
+
+        Call beginShape Function to start drawing complex shape
+        Call curveVertex to draw curved shape representing hair on left side of head
+        Call endShape Function and CLOSE to finish drawing complex shape
+    END
+
+    START DrawEyes Function
+        Call DrawEyeballs Function
+        Call DrawPupils Function
+
+        START DrawEyeballs(xLeftEye, xRightEye, yEye, 60) Function
+            CREATE whiteColor
+            SET whiteColor = '#ffffff'
+
+            Call fill Function to set color of object to whiteColor
+            Call ellipse Function to draw left eye
+            Call ellipse Function to draw right eye
+        END
+
+        START DrawPupils(xLeftPupil, xRightPupil, yPupil, 25) Function
+            CREATE blackColor
+            SET blackColor = '#000000'
+            
+            Call fill Function to set color of object to blackColor
+            Call ellipse Function to draw left Pupil
+            Call ellipse Function to draw right Pupil
+        END
+    END 
+
+    START DrawEyebrows(130, 145, 130, 130, 190, 145, 210, 145, 270, 130, 270, 145) Function
+        CREATE blackColor
+        SET blackColor = '#000000'
+        
+        Call fill Function to set color of object to blackColor
+        Call triangle Function to draw left eyebrow
+        Call triangle Function to draw right eyebrow
+    END
+
+    START DrawNose(width/2, height/2 + 10, width/2, height/2 + 75, width/2 + 20, height/2 + 60, #fdbc85) Function
+        CREATE skinShadowColor
+        SET skinShadowColor = '#fdbc85'
+        
+        Call fill Function to set color of object to skinShadowColor
+        
+        Call beginShape Function to start drawing complex shape
+        Call Vertex Function to set coordinates of first vertex
+        Call Vertex Function to set coordinates of second vertex
+        Call Vertex Function to set coordinates of third vertex
+        Call endShape Function and CLOSE to finish drawing complex shape
+    END
+
+    DrawMouth(width/2 - 10, height/2 + 75, 125, 50, 0.2, PI-.9, Black, 5)
+        CREATE blackColor
+        SET blackColor = '#000000'
+        
+        Call stroke Function to set color of object to blackColor
+        Call strokeWeight Function to set the size of the line used for the smile
+        Call arc Function to draw smile
+    END
 End

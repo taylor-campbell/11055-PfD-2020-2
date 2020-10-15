@@ -16,7 +16,6 @@ function product(number1, number2){
 }
 
 // you can use functions in functions, with the one inside being done before the one outside
-printme(product(3,4));
 
 var student_names = ["Simon", "Billybob"];
 var student_names2 = ["Kate", "Keir", "Manish", "Moudar", "Seth", "Shane"];

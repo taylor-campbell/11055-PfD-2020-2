@@ -1,0 +1,56 @@
+1. setup
+create canvas
+background colour
+
+2. hair
+hair black
+create ellipse above head
+make sure ellipse is larger than head
+rectangle with the value pos
+
+3. face
+colour skin tone
+create ellipse, circle in center
+
+4. eyes
+colour white
+create ellipse
+situate at left side
+colour white
+create ellipse
+situate at right side of head
+
+5. pupils
+colour black
+create ellipse
+same center as left eye
+colour black
+create ellipse
+same center as right eye
+
+6. nose
+colour a shade darker than skin tone
+create semicircle
+place near center of face
+
+7. eyebrows
+colour black
+create semicircle, upside down
+above left eye 
+colour black
+create semicircle
+above right eye
+
+8. ears
+colour skin tone
+attatch to edge of face left
+colour skin tone
+attatch to edge of face right
+
+9. mouth
+empty semicircle
+colour border brown, red, or pink
+create semicircle
+
+10. mousewheel event
+pos value will add according to mouse mouseWheel

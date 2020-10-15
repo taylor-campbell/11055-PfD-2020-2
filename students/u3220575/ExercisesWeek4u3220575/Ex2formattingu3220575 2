@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>Exercise 2 Week 4 - formatting</head>
+<body>
+<h1>How the internet works</h1>
+<b>HTTP:</b> <b><u>H</u></b>yper<b><u>T</u></b>ext <b><u>T</u></b>ransfer <b><u>P</u></b>rotocol
+<p>This protocol allows the passing of information</p>
+
+<h2>HTML</h2>
+
+</body>
+</html>
