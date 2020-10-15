@@ -1,0 +1,371 @@
+/////////
+
+
+Pseudocode for 8-Bit Portrait Maker
+By Shane Ducksbury | u3113923
+Last Edited 01/10/2020
+
+
+
+///////
+
+Main Application Flow
+
+START
+
+Set constant canvasWidth
+Set constant canvasHeight
+
+Set variable scaleSize;
+Set variable selectedFillColour;
+
+Set boolean useDevPortrait = true
+Set boolean useBlankCanvas;
+Set boolean useImageURL
+
+Set variable userImageURL
+Set variable importedImage
+
+Create array arraySave = Empty Array
+Create array arrayCopy = Empty Array
+
+
+meInAnArray = [Array of Pixels details that make up the developer when drawn in order]
+
+Call preload()
+Call setup()
+Call draw()
+
+
+FINISH
+
+///////
+
+Functions
+
+
+FUNCTION preload
+Pass In: Nothing
+    IF userImageURL is truthy
+        Set importedImage to load image by calling p5 loadImage Function
+    ENDIF
+
+Returns: Nothing
+EndFunction
+
+
+FUNCTION setup
+Pass in: Nothing
+    Draw the canvas based on the canvasWidth and canvasHeight constants
+    Specify where the canvas should be drawn in the web page
+
+Returns: Nothing
+EndFunction
+
+FUNCTION draw
+Pass In: Nothing
+Uses: useImageURL boolean, useDevPortrait boolean, useBlankCanvas boolean, importedImage variable
+    Set the background to 20
+    Set the fill to 80
+    Set the stroke to not appear
+    Set the canvas to not loop more than once
+
+    IF useDevPortrait = True 
+    ​	 Call Function drawImageFromArray() with meInAnArray
+    ELSE IF useBlankCanvas = True
+        Call Function drawImageFromArray() with arrayCopy
+    ELSE IF useImageURL = True
+        Call Function drawImageFromArray() with arrayCopy
+
+Returns: Nothing
+EndFunction
+
+
+FUNCTION drawImageFromArray
+Pass In: Array of Rectangle Objects
+    FOR every rectangle object in input array
+        IF Rectangle fill is not empty
+            set Rectangle fill to the rectangle fill
+        ENDIF
+        Draw Rectangle using the rectangle object properties
+            Rectangle X position = rectangle object X position
+            Rectangle Y position = rectangle object Y position
+            Rectangle Width = rectangle object Width
+            Rectangle Height = rectangle object height
+Pass Out: Nothing
+EndFunction
+
+
+FUNCTION createImportedImage
+Pass In: Nothing
+Uses: Imported Image set up in preload Function, Array to Save rectangle objects, Scale Size
+    FOR (pixel y) each pixel on the y axis to the height of the imported Image / scale size set at beginning of program
+        FOR (pixel x) each pixel on the x axis to the width of the imported image / scale size set at the beginning of program
+
+        Get the pixel details based on the scale size
+
+        Create pixelRGB array
+
+        call: colourDistance(Existing 8 bit colour array, pixelRGB array)
+            Save the index position of the closest matching colour
+
+        Create a rectangle object:
+            Rectangle X position = x * scale size
+            Rectangle Y position = y * scale size
+            Rectangle Width = scale size
+            Rectangle Height = scale size
+            Rectangle Fill = Existing 8 bit colour array [index positon]
+
+        Add the rectangle to the saved array
+        ENDFOR
+    ENDFOR
+    
+    
+Returns: Nothing
+EndFunction
+
+FUNCTION createBlankCanvas
+Pass In: Nothing
+Uses: Scale Size, canvas width, canvas Height
+    FOR (pixel y) each pixel on the y axis to the height of the canvas / scale size
+        FOR (pixel x) each pixel on the x axis to the width of the canvas / scale size
+
+        Create a rectangle object:
+            Rectangle X position = x * scale size
+            Rectangle Y position = y * scale size
+            Rectangle Width = scale size
+            Rectangle Height = scale size
+            Rectangle Fill = white
+            Add the rectangle object to the saved array
+        ENDFOR
+    ENDFOR
+    
+
+    Create a shallow copy of the saved array to use in drawImageFromArray
+Returns: Nothing
+
+FUNCTION: rebuildP5
+Pass In: Nothing
+    Call setup function
+    Call draw function
+Returns: Nothing
+EndFunction
+
+FUNCTION: drawDev
+Pass In: Nothing
+    Set useImageURL to false
+    Set useBlankCanvas to false
+    Set useDevPortrait to true
+
+    Call rebuildP5 function
+Returns: Nothing
+EndFunction
+
+FUNCTION: drawBlankCanvas
+Pass In: Nothing
+    Set useDevPortrait to false
+    Set useImageURL to false
+    Set useBlankCanvas to true
+
+    Call createBlankCanvas function
+
+    Call rebuildP5 function
+Returns: Nothing
+EndFunction
+
+
+FUNCTION: drawImageFromURL
+Pass in: Nothing
+    Set useDevPortrait to false
+    Set useBlankCanvas to false
+    Set useImageURL to true
+
+    Call preload function
+    Call rebuildP5 function
+
+    Call the redraw function after 1sec to redraw the canvas
+Returns: Nothing
+EndFunction
+
+
+FUNCTION mouseDraw
+Pass In: Nothing
+    IF mouse location is inside canvas
+        IF fill colour is empty
+            end Function mouseDraw
+        ENDIF
+        
+        Calculate the rectangle that corresponds with the mouse X position
+
+        Calculate the rectangle that corresponds with the mouse Y position
+
+        Change the fill colour of the rectangle that corresponds with the mouse position 
+        to the selected colour by modifying the arrayCopy array
+
+        Redraw the Canvas
+    ENDIF
+Returns: Nothing
+
+FUNCTION mouseDragged
+Pass In: Nothing
+    Execute mouseDraw function when mouse dragged
+Returns: Nothing
+EndFunction
+
+FUNCTION mouseClicked
+Pass In: Nothing
+    Execute mouseDraw function when mouse mouse clicked
+Returns: Nothing
+EndFunction
+
+
+///////////
+
+colour-functions.js
+//////
+colour-functions Main flow
+
+START
+
+Create array rgbArray = Empty array
+
+FOR each hex colour in the startFiles HEX colour list:
+    Call convertToRGB with hex colour
+    Add each converted rgb colour to the rgbArray
+ENDFOR
+
+END
+//////
+
+Functions
+
+FUNCTION convertToRGB:
+Pass In: A hex colour
+    Convert the hex colour to RGB
+Returns: Converted hex colour in RGB
+EndFunction
+
+
+FUNCTION colourDistance:
+Pass In: two colours in rgb
+    Perform calculation to return a number representing the difference between two different numbers
+Returns: number
+EndFunction
+
+
+////////////
+
+site-functions.js
+
+///////
+site-functions Main Flow
+
+START
+
+boolean coloursPopulated = false
+
+IF Self Portrait button is clicked
+    Call showSelfPortrait function
+ENDIF
+
+
+IF Draw your own button is clicked
+    Call createDrawPanel function
+ENDIF
+
+
+IF Convert online image button is clicked
+    Call showImageUploadPanel function
+    IF Press to make button is clicked
+        Call createUserImage function
+ENDIF
+
+END
+
+//////////
+Functions
+
+FUNCTION createDrawingColours:
+Pass In: Nothing.
+    IF coloursPopulated in false
+        FOR each colour in the RGB array in colour-functions
+            Create a colour box
+            Add a click function to call the clickedFillColour function to change the selected colour
+            Show the colour on the HTML page in the drawing palette
+        ENDFOR
+        Set coloursPopulated to true
+    ENDIF
+Returns: Nothing
+EndFunction
+
+
+FUNCTION clickedFillColour:
+Pass In: RGB value
+    Set selectedFillColour to RGB value
+Returns: Nothing
+EndFunction
+
+
+FUNCTION hideDrawPanel:y
+Pass In: Nothing
+    Hide the drawing panel on the website
+
+Returns: Nothing
+EndFunction
+
+FUNCTION showDrawPanel:
+Pass In: Nothing
+    Call the hideImageUploadPanel function
+    Show the drawing panel
+
+Returns: Nothing
+EndFunction
+
+FUNCTION hideImageUploadPanel:y
+Pass In: Nothing
+    Hide the image upload panel
+
+Returns: Nothing
+EndFunction
+
+FUNCTION showImageUploadPanel:
+Pass In: Nothing
+    Call the hideDrawPanel function
+    Show the image upload panel
+
+Returns: Nothing
+EndFunction
+
+FUNCTION hideAllPanels:
+Pass In: Nothing
+    Call the hideDrawPanel function
+    Call the hideImageUploadPanel
+
+Returns: Nothing
+EndFunction
+
+FUNCTION showSelfPortrait:
+Pass In: Nothing
+    Call the hideAllPanels function
+    Call the drawDev function
+Returns: Nothing
+EndFunction
+
+FUNCTION createDrawPanel:
+Pass In: Nothing
+    Call the showDrawPanel function
+    Call the drawBlankCanvas function
+    Call the createDrawingColours function
+
+Returns: Nothing
+EndFunction
+
+FUNCTION createUserImage:
+Pass In: Nothing
+    Set the userImageURL to the user URL input
+    Call the hideAllPanels function
+    Call the drawImageFromURL function
+
+Returns: Nothing
+EndFunction
+

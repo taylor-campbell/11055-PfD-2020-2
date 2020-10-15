@@ -1,0 +1,199 @@
+(variables for colouring)
+    create variable faceColour = #FFE2C4; (hex code for a light beige)
+    create variable offWhite = #F7F7F7;  (hex code for a grey white used for eyes and teeth)
+    create variable linerColour = #3B3B3B; (hex code for a liner colour for eyeliner and mouth outline)
+    create variable shadeSkinTone = #F3BA8C; (hex code for a darker beige)
+    create variable eyeColour = #55F1BB; (hex code for the default turquoise eye colour)
+    create variable hairColour = #F17B37; (hex code for a coppery ginger colour)
+    create variable jacketColour = #0D2815; (hex code for a dark green colour)
+    create variable eyeColourChange = 1 (1 will be the first variable in the switch statement)
+
+(setting up the canvas)
+setup {
+  createCanvas (x600 by y500); 
+}
+
+(start drawing)
+draw {
+  make background colour #F3FFBF; (hex code for the lime yellow background)
+  noStroke; (the no stroke function will allow for a lineless drawing))
+  
+    (setting up the eye colour change)
+        create switch statement (eyeColourChange) {
+            case 1:
+                eyeColour = #55F1BB; (hex code for a turquoise colour)
+                break;
+            case 2:
+                eyeColour = #238CE9; (hexcode for a sapphire blue colour)
+                break;
+            case 3:
+                eyeColour = #5D45EF; (hex code for a purple colour)
+                break;
+            case 4:
+                eyeColour = #FAE22E; (hex code for a pastle yellow colour)
+                break;
+            case 5:
+                eyeColour = #FDB53F; (hex code for an amber colour)
+                break;
+            case 6:
+                eyeColour = #E0113A; (hex code for a red colour)
+                break;
+            case 7:
+                eyeColour = #D89219; (hex code for an orange-brown)
+                break;
+            case 8:
+                eyeColour = #1EBD55; (hex code for an emerald green)
+                break;
+            case 9:
+                eyeColour = #FF8BB0; (hex code for a light pink colour)
+                break;
+        }
+
+    (neck)
+        colour fill shadeSkinTone; (fill in the shape for the neck colour)
+        create a quad shape (with the following points going clockwise) {
+            point 1 (x=370, y=300);
+            point 2 (x=300, y=350);
+            point 3 (x=250, y=350);
+            point 4 (x=250, y=430);
+        }
+
+    (jacket back shape left side)
+        colour fill jacketColour; (fill in the shape for the jacket shape on the left side)
+        create a shape using the vertex function (with the following points going clockwise) {
+            point 1 (x=100, y=300);
+            point 2 (x=300, y=200);
+            point 3 (x=275, y=400);
+            point 4 (x=250, y=430);
+            point 5 (x=160, y=400);
+            point 6 (x=170, y=350);
+        }
+
+  
+    (face circle)
+        colour fill faceColour; (fill in the shape for the face colour)
+        create a circle (with the following values) {
+            center (x=350, y=245);
+            radius (270);
+        }
+
+    (eyebrows)
+        colour fill hairColour; (fill in the shapes for the eyebrow colour)
+        create a diamond shape (to act as the right eyebrows with the following points going clockwise) {
+            point 1 (x=285, y=195);
+            point 2 (x=330, y=190);
+            point 3 (x=395, y=215);
+            point 4 (x=285, y=195);
+        }
+        create a diamond shape (to act as the left eyebrows with the following points going clockwise) {
+            point 1 (x=190, y=215);
+            point 2 (x=250, y=210);
+            point 3 (x=270, y=195);
+            point 4 (x=230, y=195);
+        }
+
+    (eye liner)
+        colour fill linerColour; (fill in the shapes that for the eyeliner effect)
+        create a quad shape (to act as the left eyeliner shape with the following points going clockwise){
+            point 1 (x=298, y=250);
+            point 2 (x=319, y=213);
+            point 3 (x=390, y=235);
+            point 4 (x=375, y=250);
+        }
+        create a quad shape (to act as the left eyeliner shape with the following points going clockwise){
+            point 1 (x=198, y=250);
+            point 2 (x=190, y=235);
+            point 3 (x=219, y=213);
+            point 4 (x=263, y=250);
+        }
+
+    (eye triangles acting as scleras)
+        colour fill offWhite; (fill in the shape for eye eye shape)
+        create a triangle shape (to act as the right eye sclera with the following points going clockwise){
+            point 1 (x=300, y=250);
+            point 2 (x=320, y=220);
+            point 3 (x=375, y=250);
+        }
+        create a triangle shape (to act as the left eye sclera with the following points going clockwise){
+            point 1 (x=200, y=250);
+            point 2 (x=220, y=220);
+            point 3 (x=260, y=250);
+        }
+
+    (eye ellipses for irises)
+        colour fill eyeColour; (fill in the shapes for the eye colour, defult will be turquoise)
+        create an ellipse shape (to act as the right iris with the following values){
+            center (x=325, y=249);
+            width (35);
+            height (50);
+        }
+        create an ellipse shape (to act as the right iris with the following values){
+            center (x=225, y=249);
+            width (33);
+            height (46);
+        }
+
+    (nose)
+        colour fill shadeSkinTone; (fill in the shape for the nose)
+        create an ellipse shape (to act as the nose shape with the following values){
+            center (x=270, y=280);
+            width (35);
+            height (40);
+        }
+
+    (mouth)
+        colour fill linerColour; (fill in the shape for the mouth liner)
+        create a triangle shape (to act as liner with the following points going clockwise){
+            point 1 (x=240, y=330)
+            point 2 (x=300, y=340)
+            point 3 (x=340, y=300)
+        }
+        fill(offWhite); (fill in teeth with off-white colour)
+        create a triangle shape (to act as teeth with the following points going clockwise){
+            point 1 (x=252, y=330)
+            point 2 (x=299, y=335)
+            point 3 (x=329, y=307)
+        }
+
+    (front jacket shape right side)
+        colour fill jacketColour; (fill in shape for the right side of the jacket)
+        create a shape using the vertex function (to act as the jacket with the following points going clockwise){
+            point 1 (x=280, y=430);
+            point 2 (x=350, y=300);
+            point 3 (x=510, y=260);
+            point 4 (x=420, y=350);
+            point 5 (x=425, y=400);
+        }
+
+        (hair)
+            (right hair section)
+                colour fill hairColour; (fill in the shape for the right hair section)
+                create an ellipse (to act as the right hair section with the following points){
+                    center (x=430, y=215);
+                    width (70);
+                    height (150);
+                }
+
+            (top hair section)
+                colour fill hairColour; (fill in the shape for the top hair section)
+                create an ellipse (to act as the top hair section with the following points){
+                    center (x=300, y=40);
+                    width (300);
+                    height (120);
+                }
+
+            (left hair section)
+                colour fill hairColour; (fill in the shape for the left hair section)
+                create an ellipse (to act as the right left section with the following points){
+                    center (x=255, y=60);
+                    width (40);
+                    height (100);
+                }
+    }
+
+    (add a function so that when the mouse is clicked the eye colour changes to a different colour)
+    mouse clicked {
+        then eyeColourChange +1
+        if eyeColourChange >10
+    }
+}
