@@ -1,0 +1,107 @@
+Set variant names for colours
+
+Begin setup
+Create canvas (1000,1000)
+Set colours for colour names
+
+Begin draw
+Background colour
+
+Begin Back Hair Shape 
+Fill Haircolour
+Plot Vertex
+End Shape
+
+Begin Back Shirt Collar Shape 
+Fill Collarcolour
+Plot Vertex for Left
+End Shape
+Plot Vertex for Right
+End Shape
+
+Begin Neck Shape
+Fill Skincolour
+Create Quad1
+Create Quad2
+
+Begin Body shape 
+Create Quad
+
+Begin Clothing Shape
+Fill Shirtcolour
+Plot Vertex for Left
+End Shape
+Plot Vertex for Right
+End Shape
+
+Begin Front Shirt Collar Shape
+Fill Collarcolour
+Plot Vertex for Left 
+End Shape
+Plot Vertex for Right
+End Shape
+
+Begin Face Shape
+Fill Facecolour
+Create Ellipse
+
+Begin Front Hair Shape
+Fill Haircolour
+Plot Vertex 
+End Shape
+
+Begin Hair Bun Shape
+Plot Vertex
+End Shape
+
+Begin Eye Base Shape
+Fill Eyecolour
+Plot Vertex for Left
+End Shape
+Plot Vertex for Right
+End Shape
+
+Begin Eye Detail Shape
+Plot Lines For Eyelashes
+
+Fill Eyecolour2
+Begin Shape
+Plot Points for Left
+End Shape
+Plot Points for Right 
+End Shape
+
+Fill Black
+Create Ellipse1
+Create Ellipse2
+
+Begin Eyebrow Shape
+Fill Haircolour
+Plot Vertex for Left
+End Shape
+Plot Vertex for Right
+End Shape
+
+Begin Nose Shape
+Plot Lines for Nose
+
+Begin Glasses Shape
+
+For r (Red), X Axis Mouse = 0 ≤ r ≥ 255
+For g (Green) Y Axis Mouse = 0 ≤ g ≥ 255
+Glassescolour = (r,g,100)
+
+Begin Shape 
+Fill Glassescolour
+Plot Points for Left Side
+End Shape
+Plot Curve for Bridge 
+Plot Points for Right Side
+End Shape
+Plot Lines for Arms
+
+Begin Shape for Mouth
+Fill Lipcolour
+Plot Points for Mouth
+End Shape
+Plot Curve For Mouth Detail 

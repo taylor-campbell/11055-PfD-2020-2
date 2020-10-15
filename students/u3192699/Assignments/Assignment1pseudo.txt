@@ -1,0 +1,80 @@
+BEGIN Assignment1
+Create canvas(1920,1080) //creates blank canavas 1920 in width and 1080 in height
+Set C_array //creates an array that holds the colours of all objects
+
+DRAW //calls the subprogram for drawing objects
+DRAW:
+    FACE //calls the subprogram for drawing the face
+    SHIRT //calls the subprogramfor drawing the Shirt
+    FEATURES //calls the subprogramfor drawing the features such as nose, eyes, etc.
+    TEXT //calls the subprogram for drawing text
+    HAIR //calls the subprogram for drawing hair
+END DRAW
+
+FACE:
+    SetColour = C_array //gets colour from array to fill the next objects
+    Create Rectangle in the centre of the screen 400 pixels in length and 290 in height
+    SetColour = C_array
+    Create ARC leftside of rectangle // creates the left side ear
+    SetColour = C_array
+    Create ARC rightside of rectangle //creates right side of ear
+    etColour = C_array
+    Create Rectangle bottom of previous rectangle //creates neck
+END FACE
+
+SHIRT:
+    setColour = C_array
+    Create ARC bottom of neck //makes shirt collar
+    Create arc leftside of shirt collar //creates left shoulder
+    Create arc rights of shirt collar //creates right shoulder
+    Fill Gaps //fills the space between the previous objects to remove any Gaps
+END SHIRT
+
+FEATURES:
+    setColour = WHITE
+    Create circle middle left of face rectangle //left eye
+    Create circle middle right of face rectangle //right eye
+    setColour = C_array
+    Create circle in middle left circle //left pupil
+    Create circle in middle right circle //right pupil
+    setColour = C_array
+    Create recangle middle lower of face rectangle //creates nose
+    Create arc on bottom left side of previous rectangle //creates left nostril
+    Create arc on bottom right side of previous rectangle //creates right nostril
+    setColour = C_array
+    Create arcs middle bottom of face rectangle //lips
+ END FEATURES:
+
+TEXT:
+    setColour = C_array
+    Create text top left "Abstract Self Portrait"
+    Create text top left "Click mouse to change colours"
+END TEXT
+
+HAIR:
+    hairStrands = 500
+    i = 0
+    setColour = C_array
+    WHILE i < hairStrands:
+        Create arc random spot between top of face rectangle and 200 pixels above, random length, random begin and end
+        i = i + 1
+    ENDWHILE
+END HAIR
+
+ON MOUSE CLICK:
+    x = 0:
+    WHILE X < C_Array.length:
+        C_Array[X] = random number (255)
+        x = x + 1
+    ENDWHILE
+    CALL DRAW //calls the draw subprogram to redraw objects with new colours
+END MOUSE CLICK
+
+END Assignment1
+
+    
+
+
+
+    
+    

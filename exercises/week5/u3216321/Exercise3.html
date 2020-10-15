@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+
+        <script>
+        
+        /* Variables */
+        var clean_uniform = "false";
+        var showered = "false";
+        var brushed_teeth = "false";
+        var KeyItems = "false";
+        var uniform = "false";
+        var hunger;         //can be any value from 0 to 1
+        var work = 0;       //variable becoming "1" represents entering work
+
+        var time = new Date(hours, minutes, seconds);
+
+        /* Beginning of variable algorithm */
+    do {        
+        if (clean_uniform == "false") var message1 = "Clean Uniform";
+            windows.alert(message1);
+            set (clean_uniform = "true"); //completed clean_uniform variable
+
+        if (showered = "false") var message2 = "Shower";
+            windows.alert(message2);
+            set (showered = "true"); //completed showered variable
+
+        if (clean_uniform == "true") var message3 = "Put on uniform, headphones, and put apron in bag";
+            windows.alert(message3);
+            set (uniform = "true"); //completed uniform variable
+
+        if (brushed_teeth == "false") var message4 = "Brush teeth";
+            windows.alert(message4);
+            set (brushed_teeth = "true"); //completed brushed_teeth variable
+
+        if (KeyItems == "false") var message5 = "Collect phone, waller and keys";
+            windows.alert(message5);
+            set (KeyItems = "true"); //completed KeyItems variable
+
+    } while (uniform = "false");
+
+        /* Beginning of extras algorithm */
+    do {
+
+        var message6 = "Put on work shoes";
+            window.alert(message6);
+        var message7 = "Leave house to catch the bus";
+            window.alert(message7);
+
+        if (hunger = 1) {
+                windows.alert("Buy food before entering work");
+                set (work = 1);
+            } else {
+                if (hunger >0) {
+                    windows.alert("Consider making a stuff lunch order");
+                    set (work = 1);
+                } else {
+                    set (work = 1);
+                    }
+                } //completed hunger variable
+
+        } while (work = 0);
+        
+        </script>
+
+    </body>
+</html>

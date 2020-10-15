@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Self Portrait</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="assets/styles/css-reset.css">
+    <link rel="stylesheet" href="assets/styles/style.css">
+    <script src="assets/scripts/me.js"></script>
+    <script src="assets/scripts/p5.js"></script>
+    <script src="assets/scripts/colour-functions.js" defer></script>
+    <script src="assets/scripts/app.js" defer></script>
+    <script src="assets/scripts/site-functions.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="title-container" id="title-container"><h1>8-Bit Portrait Maker</h1></div>
+        </header>
+        <div class="p5-output">
+            <div class="p5-canvas" id="p5-canvas">
+                <!-- p5 canvas will be drawn in here -->
+            </div>
+                <div class="p5-draw-panel hide-container" id="draw-panel">
+                    <div class="p5-colour-buttons-cont" id="p5-colour-buttons-cont">
+                        <!-- Colour buttons will populate in here -->
+                    </div>
+                </div>
+                <div class="upload-image-panel hide-container" id="upload-image-panel">
+                    <p>Insert an image link to make an 8-bit version.</p>
+                    <p>The best size is smaller than 500px!</p>
+                    <input type="url" name="user-input-image-url" id="user-input-image-url">
+                    <button class="app-control-button" id="make-url-8bit-button"><p>Press to Make!</p></button>
+                </div>
+            </div>
+        
+        <div class="app-control-buttons">
+            <button class="app-control-button" id="self-portrait-nav-button"><p>See a self-portrait of the dev</p></button>
+            <button class="app-control-button" id="draw-portrait-nav-button"><p>Draw your own</p></button>
+            <button class="app-control-button" id="convert-image-nav-button"><p>Convert an online image to 8-bit</p></button>
+        </div>
+    </div>
+</body>
+</html>
