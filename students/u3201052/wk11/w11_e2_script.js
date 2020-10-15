@@ -11,17 +11,16 @@ you might even include your name and the date */
 
 function setup() {
     // Sets the screen to be 720 pixels wide and 400 pixels high
-    createCanvas(720, 700);
+    createCanvas(720, 400);
     background(255);
 }
 
 function draw() {
-    var winA = new aWindow(100, 100, 5, 'red');
-    winA.drawWindow();
+
+    //complications are taken out from this program into the templates w11_c2_script
+    var flA = new aFloor(100, 100, 4, 200, 3, false); //true/false that its a ground or upper floor window
+    flA.drawFloor();
     
-    winA.setPos(250, 80);
-    winA.setOptions(10, 'blue');
-    winA.drawWindow();
 }
 
 
