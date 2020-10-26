@@ -1,8 +1,4 @@
 
-// CALL isbnList
-var isbnlist = ['0261102214', '9780547773704'];
-
-main();
 
 
 
@@ -15,17 +11,18 @@ async function main() {
     var bookarr = []
 
     // the normal for loop we have looked at so far
-    for (let i = 0; i < isbnarr.length; i++) {
-        let book = new bookDetail(isbnarr[i], "M");
+ 
+    let book = new bookDetail(isbnarr[0], "M");
         await book.getDetail();
         bookarr.push(book);
-    }
+   
 
     // the for (variable of iterable) will loop through each item in an array
     for (x of bookarr) {
         document.write(x.cover());
-        document.write("<br>"+ x.getAuthor());
+        document.write("<br>"+"<h3>"+x.gettitle() + "</h3>")
+        document.write("<p>Author: " +x.getAuthor());
         document.write("<br>"+ x.getpublisher());
-        document.write("<br>"+ x.getsubject());
+        document.write("<br>"+ x.getsubject() + "</p>"+ "<br>");
     }
 }
