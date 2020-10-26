@@ -31,7 +31,9 @@ async function main() {
     // the for (variable of iterable) will loop through each item in an array
     for (x of bookarr) {
         document.write(x.cover());
-        document.write(x.getAuthor());
+        document.write("<br>"+ x.getAuthor());
+        document.write("<br>"+ x.getpublisher());
+        document.write("<br>"+ x.getsubject());
     }
 }
 

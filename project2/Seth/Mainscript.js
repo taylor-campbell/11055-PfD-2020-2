@@ -1,57 +1,31 @@
-// /* 
-// START
-
-// SET ibsnList as Default
 
 // CALL isbnList
+var isbnlist = ['0261102214', '9780547773704'];
 
-// CALL isbnSearch
+main();
 
-// CREATE selectButton variabe
 
-// CREATE searchInput variable
 
-// CREATE isbnSearch function
+// we need to be able to wait for processing to happen - so we need to make our function asynchronis
+async function main() {
 
-// CREATE noMovieAvaliable function
+    // this is the list of isbn numbers we want information for
+    var isbnarr = ['0261102214', '9780547773704'];
+    // this is the list of books we are going to create
+    var bookarr = []
 
-// IF bookInfo in isbnLIST
+    // the normal for loop we have looked at so far
+    for (let i = 0; i < isbnarr.length; i++) {
+        let book = new bookDetail(isbnarr[i], "M");
+        await book.getDetail();
+        bookarr.push(book);
+    }
 
-//           CALL selectButton
-
-//           CALL bookInfo
-
-//           CALL moreInfo
-
-//                  IF moreInfo selected
-
-//                         CALL isbnMovie
-
-// ELSE
-
-//         CALL isbnSearch
-
-//         RECIEVE searchInput
-
-//         CHECK searchInput with ISBN database
-        
-//                IF inputed search not in isbn (incorrect search)
-
-//                          CALL searchFunction
-
-//                 ELSE
-
-//                          CALL bookInfo
-
-//                           CALL moreInfo
-
-//                                      IF moreInfo selected && movie avaliable
-
-//                                             CALL isbnMovie 
-
-//                                      ELSE
-
-//                                              CALL noMovieAvaliable
-
-// END
- */
+    // the for (variable of iterable) will loop through each item in an array
+    for (x of bookarr) {
+        document.write(x.cover());
+        document.write("<br>"+ x.getAuthor());
+        document.write("<br>"+ x.getpublisher());
+        document.write("<br>"+ x.getsubject());
+    }
+}
