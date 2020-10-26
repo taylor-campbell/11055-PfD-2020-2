@@ -1,0 +1,39 @@
+//creating canvas
+Function CREATEcanvas
+START
+Accept variables: width, height 
+    CALL canvas (600, 600)
+END
+//creating a background 
+Function drawABackground
+START
+    Accept variables: colour
+    CALL background (255) 
+
+//Drawing a Face 
+    CALL nostroke()
+    CALL fill(247, 221, 212) 
+    CALL ellipse(280, 260, 220, 290)
+
+
+//Drawing Eyes
+    CALL strokeWeight(1)
+    CAll fill(32, 19, 19)
+    CALL ellipse(215, 240, 28, 25) //left eye
+    CALL ellipse(315, 240, 28, 25) //right eye
+
+//Dreawing Eyeballs
+    CALL nostroke()
+    CAll fill(255)
+    CALL ellipse(205, 240, 8, 8) //left eyeball
+    CALL ellipse(305, 241, 8, 8) //right eyeball
+
+//Drawing a Nose
+    CALL fill(247, 221, 155)
+    CALL triangle(270, 250, 270, 300, 240, 300)
+
+//Drawing a Mouth 
+    CALL fill(255, 102, 102)
+    CALL arc(270, 335, 40, 25, 0, PI)
+
+END

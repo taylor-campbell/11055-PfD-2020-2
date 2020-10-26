@@ -13,13 +13,23 @@ IF y < height
 THEN y = 200
 ELSE y =""
 
+Set c = color (236, 188, 180)
+set fill = c
+set ellipse = x, y, 100, 130
+set 100 is width 
+set 130 is height 
+
+END 
+
 Second - drawing hair - hairbang and backhair
+Start
 create xhairbang, yhairbang, xbackhair and ybackhair
 setxhairbang = x
 set yhairbang = y - 50 
 set xbackhair = x - 74.5
 set ybackhair = y - 80
 
+Start 
 IF xhairbang < width 
 THEN xhairbang = x
 ELSE xhairbang = ""
@@ -28,6 +38,15 @@ IF yhairbang < height
 THEN yhairbang = y-50
 ELSE xhairbang = ""
 
+Set d = color (0)
+set fill = d
+set ellipse (xhairbang, yhairbang, 80, 50)
+set 80 is width 
+set 50 is height 
+
+END 
+
+Start
 IF xbackhair < width 
 THEN xbackhair = x - 74.5
 ELSE xbackhair = ""
@@ -36,14 +55,30 @@ IF ybackhair < height
 THEN ybackhair = y-50
 ELSE xbackhair = ""
 
+Set d = color (0)
+set fill = d
+set rectangle (xbackhair, ybackhair, 150, 200,80,80,0,0)
+set 150 is width 
+set 200 is height 
+set 80 is top left
+set 80 is top right
+set 0 is bottom left 
+set 0 is bottom right
+End 
 
 Third - drawing ears
+Start 
 Create xleftear, yleftear, diameter, xrightear, and yrightear
 Set xleftear = x - 47
 Set yleftear = y + 10
 
 Set xrightear = x + 47
 Set yrightear = yleftear
+set c = color(236, 188, 180);
+set fill = c
+set ellipse(xleftear, yleftear, diameter);
+set ellipse(xrightear, yrightear, diameter);
+ }
 
 IF xleftear < width 
 THEN xleftear = x - 47 
@@ -53,17 +88,22 @@ IF yleftear < height
 THEN yleftear = y+10 
 ELSE xleftear = ""
 
+
 IF xrightear < width 
 THEN xrightear = x + 47
 ELSE xrightear = ""
+
 
 IF yrightear < height 
 THEN yrightear = yleftear
 ELSE xrightear = ""
 
+
 If diameter > 0 
 THEN diameter = 20
 ELSE diamter = ""
+
+END
 
 Fourth - drawing eyes
 Create xlefteye, ylefteye, pupildiameter, xrighteye, and yrighteye
@@ -71,6 +111,12 @@ Set xlefteye = x - 20
 Set ylefteye = y + 10
 Set xrighteye = x +20
 Set yrighteye = ylefteye
+
+Start 
+
+set e = color(255);
+set fill = e
+set ellipse(xlefteye, ylefteye, diameter,25);
 
 IF xlefteye < width 
 THEN xlefteye = x - 20
@@ -80,6 +126,18 @@ IF ylefteye < height
 THEN yleftear = y+10 
 ELSE xleftear = ""
 
+If diameter > 0 
+THEN diameter = 20
+ELSE diamter = ""
+
+set height = 25
+End 
+
+Start 
+set e = color(255);
+set fill = e
+set ellipse(xrightteye, yrighteye, diameter,25);
+
 IF xrighteye < width 
 THEN xlefteye = x + 20
 ELSE xlefteye = ""
@@ -88,6 +146,12 @@ IF yrighteye < height
 THEN yrighteye = ylefteye 
 ELSE yrighteye = ""
 
+If diameter > 0 
+THEN diameter = 20
+ELSE diamter = ""
+
+set height = 25
+END
 
 Set xleftppupil = xlefteye
 Set xrightpupil = xrighteye
@@ -95,6 +159,10 @@ Set yleftpupil = y + 12.5
 Set yrightpupil = yleftpupil
 Set pupildiameter = diameter /2 
 
+Start 
+set e = color(0);
+set fill = e
+set ellipse(xleftpupil, yleftpupil, pupildiameter)
 IF xleftpupil < width 
 THEN xleftpupil = xlefteye
 ELSE xlefteye = ""
@@ -103,6 +171,16 @@ IF yleftpupil < height
 THEN yleftpupil = y + 12.5
 ELSE yrightpupil = ""
 
+IF pupildiameter > 0
+THEN diameter = 20
+ELSE diamter = ""
+
+END 
+
+Start 
+set e = color(0);
+set fill = e
+ellipse(xrightpupil, yrightpupil, pupildiameter)
 IF xrightpupil < width 
 THEN xrightpupil = xrighteye
 ELSE xlefteye = ""
@@ -114,6 +192,7 @@ ELSE yrightpupil = ""
 IF pupildiameter > 0
 THEN pupildiameter = diameter /2
 ELSE pupildiameter = ""
+END 
 
 Fifth - drawing nose
 Create xnose, ynose, diameternose
@@ -121,6 +200,10 @@ Set xnose = x
 Set ynose = y + 30
 Set diameter nose = diameter + 5
 
+Start 
+set c = color(236, 150, 180);
+set fill = c
+set ellipse(xnose, ynose, diameternose, 10)
 IF xnose< width
 THEN xnose = x
 ELSE xnose=""
@@ -133,11 +216,19 @@ If diameternose > 0
 THEN diameternose = diamter + 5
 ELSE diameternose =""
 
+set height = 10
+
+END 
+
 Sixth - drawing mouth
 Create xmouth, ymouth
 Set xnose = x 
 Set ynose = y + 40
 
+Start 
+set  g = color (255,0,0);
+set fill = g
+set arc(xmouth, ymouth, 30, 30, 0, PI, CHORD)
 IF xmouth< width
 THEN xmouth = x
 ELSE xnose=""
@@ -146,11 +237,22 @@ IF ymouth< height
 THEN ymouth = y + 40
 ELSE ymouth =""
 
+set 30 is width
+set 30 is height 
+set 0 is start 
+set PI is stop 
+set CHORD is mode 
+END 
+
 Seventh - drawing teeth
 Create xteeth, yteeth
 Set xteeth = x - 14.5
 Set yteeth = y + 40
 
+Start 
+set fill =255
+set noStroke
+set rect(xteeth, yteeth, 29, 5)
 IF xteeth< width
 THEN xteeth = x - 14.5 
 ELSE xnose=""
@@ -159,11 +261,18 @@ IF yteeth< height
 THEN yteeth = y + 40
 ELSE ymouth =""
 
+set 29 is width
+set 5 is height
+END 
+
 Eighth - drawing neck
 Create xneck, yneck
 Set xneck = x - 20
 Set yneck = y + 58
 
+Start 
+set fill(236, 188, 180)
+set rect(xneck, yneck, 40, 50)
 IF xneck< width
 THEN xneck = x - 20
 ELSE xneck = ""
@@ -172,18 +281,36 @@ IF yneck< height
 THEN yneck = y + 58
 ELSE yneck =""
 
+set 40 is width 
+set 50 is height 
+END 
+
 Ninth - drawing tshirt
 Create xtshirt, ytshirt
 Set xtshirt = x - 75
 Set ytshirt = y + 100
 
+Start 
+set fill(160, 200, 100)
+set rect(xtshirt, ytshirt, 150, 100, 20, 20,0,0)
+
 IF xtshirt< width
 THEN xtshirt = x - 75
 ELSE xtshirt = ""
 
+
 IF ytshirt< height
 THEN ytshirt = y + 100
 ELSE ytshirt =""
+
+set 150 is width
+set 100 is height 
+set 20 is top left 
+set 20 is top right 
+set 0 is bottom left 
+set 0 is bottom right
+
+END
 
 Tenth - drawing glasses
 Create xleftglass, yleftglass, xrightglass, yrightglass and diamterglasses
@@ -193,22 +320,38 @@ Set xrightglass = x + 20
 Set yrightglass = yleftglass
 diameterglasses = diameter * 2
 
+Start 
+set noFill
+set stroke = 51
+set strokeWeight = 4
+set ellipse(xleftglass, yleftglass, diameterglasses)
+
 IF xleftglass < width
 THEN xleftglass = x - 23
 ELSE xleftglass = ""
+END
 
 IF yleftglass < height
 THEN yleftglass = y + 10
 ELSE yleftglass = ""
+END
 
+Start
+set noFill
+set stroke = 51
+set strokeWeight = 4
+ellipse(xrightglass, yrightglass, diameterglasses)
 IF xrightglass < width
 THEN xrightglass = x + 20
 ELSE xrightglass = ""
+END
 
 IF yrightglass <height
 THEN yrightglass = yleftglass
 ELSE yrightglass = ""
+END
 
 IF diameterglasses > 0
 THEN diameterglasses = diamter * 2
 ELSE diameterglasses = ""
+END
