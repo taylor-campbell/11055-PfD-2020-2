@@ -55,7 +55,9 @@ class bookDetail {
         this.detail = dets[this.key + this.isbn];
 
     }
-
+   gettitle(){
+       return this.detail['title'];
+   }
     getAuthor() {
         // get the author from the json object
         return this.detail['authors'][0]['name'];
