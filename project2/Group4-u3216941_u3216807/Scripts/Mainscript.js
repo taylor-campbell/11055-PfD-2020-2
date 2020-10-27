@@ -27,13 +27,16 @@ async function main() {
 
    
 }
-
+//fuction to add search isbn to the array list
 function addisbn(){
+    //setting the variable of the textbox
     var ISBNsearch = document.getElementById('searchbar');
+    //check if the lenght of the number and if its not 10 or 13, return a alert
    if (ISBNsearch.value.length != 10 && ISBNsearch.value.length != 13)
    {
        return alert("Your Number is lest than 10 or 13");
    } 
+   //if the value is 13 or 10, the ISbN is added to the array list and ready display
    if (ISBNsearch.value.length == 13 || ISBNsearch.value.length ==10 )
    {
     isbnarr.push(ISBNsearch.value);
