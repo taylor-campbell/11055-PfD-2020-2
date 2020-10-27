@@ -47,3 +47,8 @@ function addisbn(){
    
 }
 
+/*
+Refernce
+https://stackoverflow.com/questions/54796122/how-to-access-an-array-stored-in-a-different-js-file
+https://stackoverflow.com/questions/11104439/how-do-i-check-if-an-input-contains-an-isbn-using-javascript
+*/
