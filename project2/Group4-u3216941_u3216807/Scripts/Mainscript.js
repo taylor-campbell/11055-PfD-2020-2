@@ -1,12 +1,13 @@
-
+var isbnarr = ['0261102214', '9780547773704'];
 
 // we need to be able to wait for processing to happen - so we need to make our function asynchronis
 async function main() {
 
     // this is the list of isbn numbers we want information for
-    var isbnarr = ['0261102214', '9780547773704'];
+  
     // this is the list of books we are going to create
     var bookarr = []
+   
 
     // the normal for loop we have looked at so far
  
@@ -27,5 +28,22 @@ async function main() {
    
 }
 
+function addisbn(){
+    var ISBNsearch = document.getElementById('searchbar');
+   if (ISBNsearch.value.length != 10 && ISBNsearch.value.length != 13)
+   {
+       return alert("Your Number is lest than 10 or 13");
+   } 
+   if (ISBNsearch.value.length == 13 || ISBNsearch.value.length ==10 )
+   {
+    isbnarr.push(ISBNsearch.value);
 
+    for(let i = 0; i < isbnarr.length; i++) {
+        document.write(isbnarr[i] + "<br>");
+    }
+   }
+   
+   
+   
+}
 
