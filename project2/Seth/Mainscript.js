@@ -1,7 +1,5 @@
 
 
-
-
 // we need to be able to wait for processing to happen - so we need to make our function asynchronis
 async function main() {
 
@@ -20,9 +18,14 @@ async function main() {
     // the for (variable of iterable) will loop through each item in an array
     for (x of bookarr) {
         document.write(x.cover());
-        document.write("<br>"+"<h3>"+x.gettitle() + "</h3>")
+        document.write("<br>"+"<h3>"+x.gettitle() +"<br> "+ x.getsubtitle() + "</h3>")
         document.write("<p>Author: " +x.getAuthor());
         document.write("<br>"+ x.getpublisher());
         document.write("<br>"+ x.getsubject() + "</p>"+ "<br>");
     }
+
+   
 }
+
+
+

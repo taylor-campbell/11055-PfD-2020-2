@@ -1,4 +1,3 @@
-var isbnlist = ['0261102214', '9780547773704'];
 
 var Checkisbn = document.getElementById('fsearch').value;
 var myNum = +myVar;
