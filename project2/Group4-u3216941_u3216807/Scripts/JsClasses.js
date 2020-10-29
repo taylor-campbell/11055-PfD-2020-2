@@ -56,26 +56,56 @@ class bookDetail {
 
     }
    gettitle(){
-       return this.detail['title'];
-       
+    if (!this.detail['title'])
+    return "";
+  else{
+       return "<br>"+"<h3>"+this.detail['title']+ "</h3>" + "<br>";
+  }  
    }
    getsubtitle(){
        if (!this.detail['subtitle'])
          return "";
        else{
-       return this.detail['subtitle'] ;
+       return this.detail['subtitle'] +"<br> ";
          
        }
    }
+   getabstract(){
+       if(!this.detail['excerpts'])
+        return "";
+      else{
+        return  "<p> <b>"+"Summary: </b><br>" +this.detail['excerpts'][0]['text']+"</p>";
+      } 
+   }
     getAuthor() {
+        if(!this.detail['authors'])
+            return "";
+      else{
         // get the author from the json object
-        return this.detail['authors'][0]['name'];
+        return "<p><b>Author:</b><br> " + this.detail['authors'][0]['name'] +"</p>";
         }
+    }
     getpublisher(){
-        return this.detail['publishers'][0]['name'];
+        if(!this.detail['publishers'] && !this.detail['publish_date'] )
+        return "";
+  else{
+        return  "<p><br> <b> Publisher and date: </b> <br>"+ this.detail['publishers'][0]['name'] +"<br>" +this.detail['publish_date'] +"</p>";
+  }
     }
     getsubject(){
-        return this.detail['subjects'][0]['name'];
+        if(!this.detail['subjects'])
+        return "";
+  else{
+        return "<p><br><b>Subject: </b><br>"+ this.detail['subjects'][0]['name'] +"</p>"+ "<br>";
+        }
+    }
+
+    getpages(){
+        if(!this.detail['number_of_pages'])
+        return "";
+  else{
+        return  "<p><b>Number Pages in Book: </b><br>"+ this.detail['number_of_pages']+"</p>"+ "<br>";
+  }
     }
    
     
