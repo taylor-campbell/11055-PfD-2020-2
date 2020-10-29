@@ -57,6 +57,15 @@ class bookDetail {
     }
    gettitle(){
        return this.detail['title'];
+       
+   }
+   getsubtitle(){
+       if (!this.detail['subtitle'])
+         return "";
+       else{
+       return this.detail['subtitle'] ;
+         
+       }
    }
     getAuthor() {
         // get the author from the json object
