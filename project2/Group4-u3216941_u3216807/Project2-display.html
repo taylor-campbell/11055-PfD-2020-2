@@ -12,7 +12,7 @@
             margin:0 auto;
             width:250px;          
        
-         }   
+         } 
         
         #coverimg{
             
@@ -26,8 +26,12 @@
       }
         
     </style>
+      
     <script src="Scripts/Mainscript.js"defer></script>
-    <script src="Scripts/JsClasses.js"></script>   
+    <script src="Scripts/JsClasses.js"></script>        
+    <script src="Scripts/Search.js"></script>
+
+
     </head>
     <body>
         
@@ -36,21 +40,27 @@
         <div class = "header">
             <h1>Project 2</h1>
         </div>
-        <div class="middle">         
-        <input type="text" name="searchbar" id="searchbar"  placeholder="Search for Isbn" height="100" />               
-        <button type="button" id="searchbutton"  onclick="search()">Search</button>
-        
-      
 
 <select id="selcetarr">
           </select>
+      
         </div>
+  
         <div id="coverimg">
 
         </div>
+  
+        <button type ="button" id="button1" onclick="main()">Display books</button>
 
-        <div id="bookinfo">
+        <div class="middle">   
             
+                <div class="form-group row">
+                    <input type="text" name="searchbar" id="searchbar"  placeholder="Search for ISBN" height="100"/>               
+                    <button type="button" id="searchbutton"  onclick="addisbn()">Search</button>
+                </div>
+                </div>
+
         </div>
+
     </body>
 </html>
